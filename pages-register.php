@@ -1,3 +1,29 @@
+<?php
+
+include_once('./backEND/connect.php');
+
+$insertdata = new DB_con();
+
+if (isset($_POST['insertMember'])) {
+  $fname = $_POST['fname'];
+  $lname = $_POST['lname'];
+  $username = $_POST['username'];
+  $pass = $_POST['pass'];
+
+  $sql = $insertdata->register($fname, $lname, $username, $pass);
+
+  if ($sql) {
+    echo "<script>alert('สมัครบัญชีผู้ใช้เรียบร้อย !');</script>";
+    echo "<script>window.location.href='pages-login.html'</script>";
+  } else {
+    echo "<script>alert('มีบางอย่าผิดพลาด กรุณาลองใหม่อีกครั้ง');</script>";
+    echo "<script>window.location.href='pages-register.php'</script>";
+  }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +41,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -66,51 +90,49 @@
                     <p class="text-center small mb-4">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" action="" method="post" novalidate>
                     <div class="col-12">
-                      <label for="yourName" class="form-label">ชื่อ :</label>
-                      <input type="text" name="name" class="form-control" id="yourName" required>
+                      <label for="fname" class="form-label">ชื่อ :</label>
+                      <input type="text" name="fname" class="form-control" id="fname" required>
                       <div class="invalid-feedback">กรุณาใส่ชื่อ</div>
                     </div>
 
-                    <form class="row g-3 needs-validation" novalidate>
-                      <div class="col-12">
-                        <label for="yourName" class="form-label">นามสกุล :</label>
-                        <input type="text" name="name" class="form-control" id="yourName" required>
-                        <div class="invalid-feedback">กรุณาใส่นามสกุล</div>
-                      </div>
+                    <div class="col-12">
+                      <label for="lname" class="form-label">นามสกุล :</label>
+                      <input type="text" name="lname" class="form-control" id="lname" required>
+                      <div class="invalid-feedback">กรุณาใส่นามสกุล</div>
+                    </div>
 
-                      <div class="col-12">
-                        <label for="yourUsername" class="form-label">บัญชีผู้ใช้ :</label>
-                        <div class="input-group has-validation">
-                          <span class="input-group-text" id="inputGroupPrepend">ID</span>
-                          <input type="text" name="username" class="form-control" id="yourUsername" required>
-                          <div class="invalid-feedback">กรุณาใส่ชื่อบัญีผู้ใช้</div>
-                        </div>
+                    <div class="col-12">
+                      <label for="username" class="form-label">บัญชีผู้ใช้ :</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">ID :</span>
+                        <input type="text" name="username" class="form-control" id="username" required>
+                        <div class="invalid-feedback">กรุณาใส่ชื่อบัญีผู้ใช้</div>
                       </div>
+                    </div>
 
-                      <div class="col-12">
-                        <label for="yourPassword" class="form-label">รหัสผ่าน :</label>
-                        <input type="password" name="password" class="form-control" id="yourPassword" required>
-                        <div class="invalid-feedback">กรุณาใส่รหัสผ่าน</div>
-                      </div>
+                    <div class="col-12">
+                      <label for="password" class="form-label">รหัสผ่าน :</label>
+                      <input type="password" name="pass" id="pass" class="form-control" required>
+                      <div class="invalid-feedback">กรุณาใส่รหัสผ่าน</div>
+                    </div>
 
-                      <div class="col-12">
+                    <!-- <div class="col-12">
                         <div class="form-check">
-                          <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms"
-                            required>
-                          <label class="form-check-label" for="acceptTerms">ยอมรับ <a
-                              href="#">เงื่อนไขการสมัครบัญชีผู้ใช้</a></label>
+                          <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
+                          <label class="form-check-label" for="acceptTerms">ยอมรับ <a href="#">เงื่อนไขการสมัครบัญชีผู้ใช้</a></label>
                           <div class="invalid-feedback">ยอมรับเงื่อนไขข้อตกลงก่อนทำการสมัคร</div>
                         </div>
-                      </div>
-                      <div class="col-12">
-                        <button class="btn btn-primary w-100" type="submit">สมัครบัญชีผู้ใช้</button>
-                      </div>
-                      <div class="col-12">
-                        <p class="small mb-0">ไปยังหน้า <a href="pages-login.html">เข้าสู่ระบบ</a></p>
-                      </div>
-                    </form>
+                      </div> -->
+
+                    <div class="col-12">
+                      <button type="submit" name="insertMember" class="btn btn-primary w-100">สมัครบัญชีผู้ใช้</button>
+                    </div>
+                    <div class="col-12">
+                      <p class="small mb-0">ไปยังหน้า <a href="pages-login.html">เข้าสู่ระบบ</a></p>
+                    </div>
+                  </form>
 
                 </div>
               </div>
@@ -123,8 +145,7 @@
     </div>
   </main><!-- End #main -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

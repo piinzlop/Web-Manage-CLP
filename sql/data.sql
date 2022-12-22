@@ -1,6 +1,5 @@
 CREATE DATABASE CLP CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-
 CREATE TABLE IF NOT EXISTS member (
     member_id int NOT NULL AUTO_INCREMENT,
 	fname varchar(70) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,

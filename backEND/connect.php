@@ -18,6 +18,30 @@ class DB_con
         }
     }
 
+    // สมัครบัญชีผู้ใช้
+    public function register($fname, $lname, $username, $pass)
+    {
+
+
+        $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
+
+        $result = mysqli_query($this->dbcon, "INSERT INTO member(fname, lname, username, pass) 
+            VALUES('$fname', '$lname', '$username', '$hashedPassword')");
+        return $result;
+    }
+
+    public function fetchdataMember()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM member");
+        return $result;
+    }
+
+    public function fetchonerecordMember($member_id)
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE member_id = '$member_id'");
+        return $result;
+    }
+
     // เพิ่มข่าว 1
     public function insert($newsName1, $img1, $NewsMsg1, $note1)
     {
