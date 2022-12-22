@@ -1,5 +1,14 @@
 CREATE DATABASE CLP CHARACTER SET utf8 COLLATE utf8_general_ci;
 
+CREATE TABLE IF NOT EXISTS member (
+    member_id int NOT NULL AUTO_INCREMENT,
+	fname varchar(70) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+	lname varchar(70) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+	username varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+	pass varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+	createtimeMember timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (member_id) ) CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 CREATE TABLE IF NOT EXISTS news_1 (
     news1_id int NOT NULL AUTO_INCREMENT,
 	newsName1 text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
