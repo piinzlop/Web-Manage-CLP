@@ -21,7 +21,6 @@ if (isset($_POST['insertMember'])) {
   }
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -130,7 +129,7 @@ if (isset($_POST['insertMember'])) {
                       <button type="submit" name="insertMember" class="btn btn-primary w-100">สมัครบัญชีผู้ใช้</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">ไปยังหน้า <a href="pages-login.html">เข้าสู่ระบบ</a></p>
+                      <p class="small mb-0">หากมีบัญชีอยู่แล้ว <a href="pages-login.html">ไปยังหน้าเข้าสู่ระบบ</a></p>
                     </div>
                   </form>
 

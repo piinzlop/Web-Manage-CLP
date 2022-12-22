@@ -22,9 +22,9 @@ class DB_con
     public function register($fname, $lname, $username, $pass)
     {
         $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-        
         $query = "SELECT * FROM member WHERE username='$username'";
         $result = mysqli_query($conn, $query);
+
         if (mysqli_num_rows($result) > 0) {
             echo "<script>alert('ชื่อบัญชีผู้ใช้ถูกใช้งานไปแล้ว กรุณาใช้ชื่ออื่น');</script>";
             echo "<script>window.location.href='pages-register.php'</script>";
