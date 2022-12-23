@@ -22,12 +22,19 @@ class DB_con
     public function login($username, $pass)
     {
         $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-        $query = "SELECT * FROM member WHERE username='$username' AND pass='$pass'";
+        $query = "SELECT * FROM member WHERE username='$username'";
         $result = mysqli_query($conn, $query);
 
-        if (mysqli_num_rows($result)) {
-            echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
-            echo "<script>window.location.href='index.html'</script>";
+        if (mysqli_num_rows($result) > 0) {
+            $queryP = "SELECT * FROM member WHERE username='$username' AND pass='$pass'";
+            $resultP = mysqli_query($conn, $queryP);
+            if (mysqli_num_rows($resultP)) {
+                echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
+                echo "<script>window.location.href='index.html'</script>";
+            } else {
+                echo "<script>alert('รหัสผ่านผิดพลาด กรุณาลองใหม่อีกครั้ง !');</script>";
+                echo "<script>window.location.href='pages-login.php'</script>";
+            }
         } else {
             echo "<script>alert('ชื่อผู้ใช้หรือรหัสผ่านผิดพลาด กรุณาลองใหม่อีกครั้ง !');</script>";
             echo "<script>window.location.href='pages-login.php'</script>";
@@ -90,9 +97,9 @@ class DB_con
             // return $result;
 
             //  แบบไม่เขา้รหัส
-                $result = mysqli_query($this->dbcon, "INSERT INTO member(fname, lname, username, pass) 
+            $result = mysqli_query($this->dbcon, "INSERT INTO member(fname, lname, username, pass) 
                     VALUES('$fname', '$lname', '$username', '$pass')");
-                return $result;
+            return $result;
         }
     }
 
