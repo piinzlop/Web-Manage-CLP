@@ -14,7 +14,7 @@ if (isset($_POST['insert'])) {
 
   if ($sql) {
     echo "<script>alert('เพิ่มข้อมูลข่าว 1 เรียบร้อย !');</script>";
-    echo "<script>window.location.href='index.html'</script>";
+    echo "<script>window.location.href='index.php'</script>";
   } else {
     echo "<script>alert('มีบางอย่าผิดพลาด กรุณาลองใหม่อีกครั้ง');</script>";
     echo "<script>window.location.href='news_1.php'</script>";
@@ -68,7 +68,7 @@ if (isset($_POST['insert'])) {
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="index.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt=""><span style="margin: 5px;"></span>
         <span class="d-none d-lg-block">CLP : Admin</span>
       </a>
@@ -299,7 +299,7 @@ if (isset($_POST['insert'])) {
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" href="index.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -558,7 +558,7 @@ if (isset($_POST['insert'])) {
       <h1>หน้าเพิ่มข่าว</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item active">เพิ่มข่าว 1</li>
         </ol>
       </nav>

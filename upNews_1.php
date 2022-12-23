@@ -15,7 +15,7 @@ if (isset($_POST['update'])) {
   $sql = $updatedata->update($newsName1, $img1, $NewsMsg1, $note1, $news1_id);
   if ($sql) {
     echo "<script>alert('แก้ไขข้อมูลข่าว 4 เรียบร้อย !');</script>";
-    echo "<script>window.location.href='index.html'</script>";
+    echo "<script>window.location.href='index.php'</script>";
   } else {
     echo "<script>alert('มีบางอย่างผิดพลาด กรุณาลองอีกรอบ');</script>";
     echo "<script>window.location.href='upNews_1.php?id=1.php'</script>";
@@ -69,7 +69,7 @@ if (isset($_POST['update'])) {
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="index.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt=""><span style="margin: 5px;"></span>
         <span class="d-none d-lg-block">CLP : Admin</span>
       </a>
@@ -300,7 +300,7 @@ if (isset($_POST['update'])) {
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" href="index.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -556,7 +556,7 @@ if (isset($_POST['update'])) {
       <h1>หน้าเพิ่มข่าว</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item active">แก้ไขข่าว 1</li>
         </ol>
       </nav>

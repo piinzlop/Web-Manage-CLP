@@ -30,7 +30,8 @@ class DB_con
             $resultP = mysqli_query($conn, $queryP);
             if (mysqli_num_rows($resultP)) {
                 echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
-                echo "<script>window.location.href='index.html'</script>";
+                echo "<script>window.location.href='index.php'</script>";
+
             } else {
                 echo "<script>alert('รหัสผ่านผิดพลาด กรุณาลองใหม่อีกครั้ง !');</script>";
                 echo "<script>window.location.href='pages-login.php'</script>";
@@ -67,7 +68,7 @@ class DB_con
     //             $_SESSION['login'] = true;
 
     //             echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
-    //             echo "<script>window.location.href='index.html'</script>";
+    //             echo "<script>window.location.href='index.php'</script>";
     //         } else {
     //             echo "<script>alert('รหัสผ่านผิดพลาด กรุณาลองใหม่อีกครั้ง !');</script>";
     //             echo "<script>window.location.href='pages-login.php'</script>";

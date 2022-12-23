@@ -8,14 +8,6 @@ if (isset($_POST['login'])) {
   $username = $_POST['username'];
   $pass = $_POST['pass'];
   $sql = $selectdata->login($username, $pass);
-
-  // if ($sql) {
-  //   echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
-  //   echo "<script>window.location.href='index.html'</script>";
-  // } else {
-  //   echo "<script>alert('ชื่อผู้ใช้หรือรหัสผ่านผิดพลาด กรุณาลองใหม่อีกครั้ง !');</script>";
-  //   echo "<script>window.location.href='pages-login.php'</script>";
-  // }
 }
 
 ?>
