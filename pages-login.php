@@ -1,3 +1,25 @@
+<?php
+
+include_once('./backEND/connect.php');
+
+$selectdata = new DB_con();
+
+if (isset($_POST['login'])) {
+  $username = $_POST['username'];
+  $pass = $_POST['pass'];
+  $sql = $selectdata->login($username, $pass);
+
+  // if ($sql) {
+  //   echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
+  //   echo "<script>window.location.href='index.html'</script>";
+  // } else {
+  //   echo "<script>alert('ชื่อผู้ใช้หรือรหัสผ่านผิดพลาด กรุณาลองใหม่อีกครั้ง !');</script>";
+  //   echo "<script>window.location.href='pages-login.php'</script>";
+  // }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +37,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -54,33 +74,25 @@
 
                 <div class="card-body">
 
-                  <!-- <div class="d-flex justify-content-center py-4">
-                    <a href="index.html" class="logo d-flex align-items-center w-auto">
-                      <img src="assets/img/logo.png" alt="" class="mr-2">
-                      <span class="d-none d-lg-block">CLP - Admin</span>
-                    </a>
-                  </div> -->
-                  <!-- End Logo -->
-
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4 mb-3">เข้าสู่ระบบด้วยบัญชี Admin</h5>
                     <p class="text-center small mb-5">Enter your username & password to login CLP - Admin</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" action="" method="post" novalidate>
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">ชื่อผู้ใช้ :</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">ID :</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <input type="text" name="username" class="form-control" id="username" required>
                         <div class="invalid-feedback">กรุณาใส่บัญชีผู้ใช้ </div>
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">รหัสผ่าน :</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <input type="password" name="pass" id="pass" class="form-control" required>
                       <div class="invalid-feedback">กรุณาใส่รหัสผ่าน </div>
                     </div>
 
@@ -91,10 +103,10 @@
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">เข้าสู่ระบบ</button>
+                      <button type="submit" name="login" class="btn btn-primary w-100">เข้าสู่ระบบ</button>
                     </div>
                     <div class="col-12 mt-4">
-                      <a href="pages-register.html">สมัครบัญชีผู้ใช้</a></p>
+                      <p class="small mb-0">หากยังไม่มีบัญชีผู้ใช้ <a href="pages-register.php">สมัครบัญชีผู้ใช้</a></p>
                     </div>
                   </form>
 
@@ -110,8 +122,7 @@
     </div>
   </main><!-- End #main -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

@@ -14,7 +14,7 @@ if (isset($_POST['insertMember'])) {
 
   if ($sql) {
     echo "<script>alert('สมัครบัญชีผู้ใช้เรียบร้อย !');</script>";
-    echo "<script>window.location.href='pages-login.html'</script>";
+    echo "<script>window.location.href='pages-login.php'</script>";
   } else {
     echo "<script>alert('มีบางอย่าผิดพลาด กรุณาลองใหม่อีกครั้ง');</script>";
     echo "<script>window.location.href='pages-register.php'</script>";
@@ -72,14 +72,6 @@ if (isset($_POST['insertMember'])) {
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-              <!-- <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="assets/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">NiceAdmin</span>
-                </a>
-              </div> -->
-              <!-- End Logo -->
-
               <div class="card mb-500 p-3 ">
 
                 <div class="card-body">
@@ -117,19 +109,19 @@ if (isset($_POST['insertMember'])) {
                       <div class="invalid-feedback">กรุณาใส่รหัสผ่าน</div>
                     </div>
 
-                    <!-- <div class="col-12">
-                        <div class="form-check">
-                          <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                          <label class="form-check-label" for="acceptTerms">ยอมรับ <a href="#">เงื่อนไขการสมัครบัญชีผู้ใช้</a></label>
-                          <div class="invalid-feedback">ยอมรับเงื่อนไขข้อตกลงก่อนทำการสมัคร</div>
-                        </div>
-                      </div> -->
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
+                        <label class="form-check-label" for="acceptTerms">ยอมรับ <a href="#">เงื่อนไขการสมัครบัญชีผู้ใช้</a></label>
+                        <div class="invalid-feedback">ยอมรับเงื่อนไขข้อตกลงก่อนทำการสมัคร</div>
+                      </div>
+                    </div>
 
                     <div class="col-12">
                       <button type="submit" name="insertMember" class="btn btn-primary w-100">สมัครบัญชีผู้ใช้</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">หากมีบัญชีอยู่แล้ว <a href="pages-login.html">ไปยังหน้าเข้าสู่ระบบ</a></p>
+                      <p class="small mb-0">หากมีบัญชีอยู่แล้ว <a href="pages-login.php">ไปยังหน้าเข้าสู่ระบบ</a></p>
                     </div>
                   </form>
 

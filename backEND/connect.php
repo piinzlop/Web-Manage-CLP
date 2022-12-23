@@ -18,6 +18,59 @@ class DB_con
         }
     }
 
+    // เข้าสู่ระบบ
+    public function login($username, $pass)
+    {
+        $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+        $query = "SELECT * FROM member WHERE username='$username' AND pass='$pass'";
+        $result = mysqli_query($conn, $query);
+
+        if (mysqli_num_rows($result)) {
+            echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
+            echo "<script>window.location.href='index.html'</script>";
+        } else {
+            echo "<script>alert('ชื่อผู้ใช้หรือรหัสผ่านผิดพลาด กรุณาลองใหม่อีกครั้ง !');</script>";
+            echo "<script>window.location.href='pages-login.php'</script>";
+        }
+    }
+
+    // // เข้าสู่ระบบแบบเก่า
+    // public function login($username, $pass)
+    // {
+    //     // $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username='$username' AND pass='$pass'");
+    //     // return $result;
+
+    //     $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+
+    //     // Check if the username and password match a row in the users table
+    //     $query = "SELECT * FROM member WHERE username='$username'";
+    //     $result = mysqli_query($conn, $query);
+
+    //     // If a matching row was found, verify the password
+    //     if (mysqli_num_rows($result) > 0) {
+    //         // Fetch the row data
+    //         $query = "SELECT pass FROM member WHERE username='$username'";
+    //         $result = mysqli_query($conn, $query);
+    //         $row = mysqli_fetch_assoc($result);
+    //         $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
+
+    //         // Verify the password using the password_verify function
+    //         if (password_verify($hashedPassword, $row['pass'])) {
+    //             // Set a session variable to indicate that the user is logged in
+    //             $_SESSION['login'] = true;
+
+    //             echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
+    //             echo "<script>window.location.href='index.html'</script>";
+    //         } else {
+    //             echo "<script>alert('รหัสผ่านผิดพลาด กรุณาลองใหม่อีกครั้ง !');</script>";
+    //             echo "<script>window.location.href='pages-login.php'</script>";
+    //         }
+    //     } else {
+    //         echo "<script>alert('ชื่อผู้ใช้ผิดพลาด กรุณาลองใหม่อีกครั้ง !');</script>";
+    //         echo "<script>window.location.href='pages-login.php'</script>";
+    //     }
+    // }
+
     // สมัครบัญชีผู้ใช้
     public function register($fname, $lname, $username, $pass)
     {
@@ -29,10 +82,17 @@ class DB_con
             echo "<script>alert('ชื่อบัญชีผู้ใช้ถูกใช้งานไปแล้ว กรุณาใช้ชื่ออื่น');</script>";
             echo "<script>window.location.href='pages-register.php'</script>";
         } else {
-            $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
-            $result = mysqli_query($this->dbcon, "INSERT INTO member(fname, lname, username, pass) 
-        VALUES('$fname', '$lname', '$username', '$hashedPassword')");
-            return $result;
+
+            //  แบบเข้ารหัส
+            // $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
+            // $result = mysqli_query($this->dbcon, "INSERT INTO member(fname, lname, username, pass) 
+            //     VALUES('$fname', '$lname', '$username', '$hashedPassword')");
+            // return $result;
+
+            //  แบบไม่เขา้รหัส
+                $result = mysqli_query($this->dbcon, "INSERT INTO member(fname, lname, username, pass) 
+                    VALUES('$fname', '$lname', '$username', '$pass')");
+                return $result;
         }
     }
 
