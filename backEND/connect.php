@@ -5,6 +5,8 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'clp');
 
+// session_start();
+
 class DB_con
 {
 
@@ -29,9 +31,13 @@ class DB_con
             $queryP = "SELECT * FROM member WHERE username='$username' AND pass='$pass'";
             $resultP = mysqli_query($conn, $queryP);
             if (mysqli_num_rows($resultP)) {
+
+                // Store a value in the cookie
+                setcookie("username", $username, time() + 36000);
+                $username = $_COOKIE['username'];
+                
                 echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
                 echo "<script>window.location.href='index.php'</script>";
-
             } else {
                 echo "<script>alert('รหัสผ่านผิดพลาด กรุณาลองใหม่อีกครั้ง !');</script>";
                 echo "<script>window.location.href='pages-login.php'</script>";

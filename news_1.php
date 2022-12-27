@@ -2,6 +2,11 @@
 
 include_once('./backEND/connect.php');
 
+if (!isset($_COOKIE['username'])) {
+  echo "<script>alert('กรุณาลงชื่อเข้าใช้ก่อนเข้าเว็บไซต์ !');</script>";
+  echo "<script>window.location.href='pages-login.php'</script>";
+}  
+
 $insertdata = new DB_con();
 
 if (isset($_POST['insert'])) {
