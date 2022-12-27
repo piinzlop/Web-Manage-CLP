@@ -15,8 +15,6 @@ if (isset($_POST['insert'])) {
   $NewsMsg1 = $_POST['NewsMsg1'];
   $note1 = $_POST['note1'];
 
-  $sql = $insertdata->insert($newsName1, $img1, $NewsMsg1, $note1);
-
   if ($sql) {
     echo "<script>alert('เพิ่มข้อมูลข่าว 1 เรียบร้อย !');</script>";
     echo "<script>window.location.href='index.php'</script>";

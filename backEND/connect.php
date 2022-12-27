@@ -19,7 +19,7 @@ class DB_con
             echo "Failed to connect to MySQL : " . mysqli_connect_error();
         }
     }
-
+    
     // เข้าสู่ระบบ
     public function login($username, $pass)
     {

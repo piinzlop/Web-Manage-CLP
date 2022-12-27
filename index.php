@@ -5,7 +5,7 @@ include_once('./backEND/connect.php');
 if (!isset($_COOKIE['username'])) {
   echo "<script>alert('กรุณาลงชื่อเข้าใช้ก่อนเข้าเว็บไซต์ !');</script>";
   echo "<script>window.location.href='pages-login.php'</script>";
-} 
+}
 
 ?>
 
@@ -220,10 +220,10 @@ if (!isset($_COOKIE['username'])) {
 
         <li class="nav-item dropdown pe-3">
 
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-          </a><!-- End Profile Iamge Icon -->
+            <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+              <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+              <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson </span>
+            </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
@@ -412,31 +412,31 @@ if (!isset($_COOKIE['username'])) {
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="news_1.php">
+            <a href="upNews_1.php">
               <i class="bi bi-circle"></i><span>แก้ไขข่าว 1</span>
             </a>
           </li>
           <li>
           <li>
-            <a href="news_2.php">
+            <a href="upNews_2.php">
               <i class="bi bi-circle"></i><span>แก้ไขข่าว 2</span>
             </a>
           </li>
           <li>
           <li>
-            <a href="news_3.php">
+            <a href="upNews_3.php">
               <i class="bi bi-circle"></i><span>แก้ไขข่าว 3</span>
             </a>
           </li>
           <li>
           <li>
-            <a href="news_4.php">
+            <a href="upNews_4.php">
               <i class="bi bi-circle"></i><span>แก้ไขข่าว 4</span>
             </a>
           </li>
           <li>
           <li>
-            <a href="news_5.php">
+            <a href="upNews_5.php">
               <i class="bi bi-circle"></i><span>แก้ไขข่าว 5</span>
             </a>
           </li>

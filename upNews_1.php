@@ -7,7 +7,6 @@ if (!isset($_COOKIE['username'])) {
   echo "<script>window.location.href='pages-login.php'</script>";
 }  
 
-
 $updatedata = new DB_con();
 
 if (isset($_POST['update'])) {
