@@ -18,11 +18,12 @@ class DB_con
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL : " . mysqli_connect_error();
         }
-    }
-    
+    }  
+
     // เข้าสู่ระบบ
     public function login($username, $pass)
     {
+
         $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
         $query = "SELECT * FROM member WHERE username='$username'";
         $result = mysqli_query($conn, $query);
@@ -34,8 +35,7 @@ class DB_con
 
                 // Store a value in the cookie
                 setcookie("username", $username, time() + 36000);
-                $username = $_COOKIE['username'];
-                
+
                 echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
                 echo "<script>window.location.href='index.php'</script>";
             } else {
@@ -84,6 +84,7 @@ class DB_con
     //         echo "<script>window.location.href='pages-login.php'</script>";
     //     }
     // }
+
 
     // สมัครบัญชีผู้ใช้
     public function register($fname, $lname, $username, $pass)

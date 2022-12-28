@@ -7,7 +7,6 @@ if (!isset($_COOKIE['username'])) {
   echo "<script>window.location.href='pages-login.php'</script>";
 }  
 
-
 $updatedata = new DB_con();
 
 if (isset($_POST['update2'])) {
@@ -26,6 +25,12 @@ if (isset($_POST['update2'])) {
     echo "<script>alert('มีบางอย่างผิดพลาด กรุณาลองอีกรอบ');</script>";
     echo "<script>window.location.href='upNews_2.php?id=1.php'</script>";
   }
+}
+
+if (isset($_GET['logout'])) {
+  setcookie("username", "", time() - 3600);
+  session_destroy();
+  echo "<script>window.location.href='pages-login.php'</script>";
 }
 
 ?>
@@ -286,9 +291,9 @@ if (isset($_POST['update2'])) {
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="?logout=1">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
+                <span>Log out</span>
               </a>
             </li>
 

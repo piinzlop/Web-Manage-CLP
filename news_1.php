@@ -6,7 +6,7 @@ if (!isset($_COOKIE['username'])) {
   echo "<script>alert('กรุณาลงชื่อเข้าใช้ก่อนเข้าเว็บไซต์ !');</script>";
   echo "<script>window.location.href='pages-login.php'</script>";
 }  
-
+ 
 $insertdata = new DB_con();
 
 if (isset($_POST['insert'])) {
@@ -22,6 +22,12 @@ if (isset($_POST['insert'])) {
     echo "<script>alert('มีบางอย่าผิดพลาด กรุณาลองใหม่อีกครั้ง');</script>";
     echo "<script>window.location.href='news_1.php'</script>";
   }
+}
+
+if (isset($_GET['logout'])) {
+  setcookie("username", "", time() - 3600);
+  session_destroy();
+  echo "<script>window.location.href='pages-login.php'</script>";
 }
 
 ?>
@@ -282,9 +288,9 @@ if (isset($_POST['insert'])) {
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="?logout=1">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
+                <span>Log out</span>
               </a>
             </li>
 

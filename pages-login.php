@@ -2,12 +2,19 @@
 
 include_once('./backEND/connect.php');
 
+session_start();
+
 $selectdata = new DB_con();
 
 if (isset($_POST['login'])) {
   $username = $_POST['username'];
   $pass = $_POST['pass'];
   $sql = $selectdata->login($username, $pass);
+}
+
+if (isset($_POST['remember'])) {
+  // Set the "username" cookie to expire in 7 days
+  setcookie("username", $username, time() + 604800);
 }
 
 ?>
@@ -77,7 +84,7 @@ if (isset($_POST['login'])) {
                       <label for="yourUsername" class="form-label">ชื่อผู้ใช้ :</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">ID :</span>
-                        <input type="text" name="username" class="form-control" id="username" required>
+                        <input type="text" name="username" class="form-control" id="username" value="<?php $username ?>" required>
                         <div class="invalid-feedback">กรุณาใส่บัญชีผู้ใช้ </div>
                       </div>
                     </div>
@@ -91,7 +98,7 @@ if (isset($_POST['login'])) {
                     <div class="col-12">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">จดจำชื่อผู้ใช้</label>
+                        <label class="form-check-label" for="remember" id="remember" name="remember">จดจำชื่อผู้ใช้</label>
                       </div>
                     </div>
                     <div class="col-12">

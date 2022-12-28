@@ -3,6 +3,7 @@
 include_once('./backEND/connect.php');
 
 if (!isset($_COOKIE['username'])) {
+  
   echo "<script>alert('กรุณาลงชื่อเข้าใช้ก่อนเข้าเว็บไซต์ !');</script>";
   echo "<script>window.location.href='pages-login.php'</script>";
 }  
@@ -26,6 +27,12 @@ if (isset($_POST['update3'])) {
     echo "<script>alert('มีบางอย่างผิดพลาด กรุณาลองอีกรอบ');</script>";
     echo "<script>window.location.href='upNews_3.php?id=1.php'</script>";
   }
+}
+
+if (isset($_GET['logout'])) {
+  setcookie("username", "", time() - 3600);
+  session_destroy();
+  echo "<script>window.location.href='pages-login.php'</script>";
 }
 
 ?>
@@ -286,9 +293,9 @@ if (isset($_POST['update3'])) {
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="?logout=1">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
+                <span>Log out</span>
               </a>
             </li>
 

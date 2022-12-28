@@ -28,6 +28,12 @@ if (isset($_POST['insert5'])) {
   }
 }
 
+if (isset($_GET['logout'])) {
+  setcookie("username", "", time() - 3600);
+  session_destroy();
+  echo "<script>window.location.href='pages-login.php'</script>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -286,9 +292,9 @@ if (isset($_POST['insert5'])) {
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="?logout=1">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
+                <span>Log out</span>
               </a>
             </li>
 
