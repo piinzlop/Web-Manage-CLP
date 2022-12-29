@@ -5,8 +5,6 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'clp');
 
-// session_start();
-
 class DB_con
 {
 
@@ -23,7 +21,6 @@ class DB_con
     // เข้าสู่ระบบ
     public function login($username, $pass)
     {
-
         $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
         $query = "SELECT * FROM member WHERE username='$username'";
         $result = mysqli_query($conn, $query);
@@ -43,7 +40,7 @@ class DB_con
                 echo "<script>window.location.href='pages-login.php'</script>";
             }
         } else {
-            echo "<script>alert('ชื่อผู้ใช้หรือรหัสผ่านผิดพลาด กรุณาลองใหม่อีกครั้ง !');</script>";
+            echo "<script>alert('ไม่พบบัญชีผู้ใช้นี้ในระบบ กรุณาลองใหม่อีกครั้ง !');</script>";
             echo "<script>window.location.href='pages-login.php'</script>";
         }
     }
