@@ -29,7 +29,6 @@ if (isset($_POST['update'])) {
 
 if (isset($_GET['logout'])) {
   setcookie("username", "", time() - 3600);
-  session_destroy();
   echo "<script>window.location.href='pages-login.php'</script>";
 }
 

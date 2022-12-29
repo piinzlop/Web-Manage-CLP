@@ -16,7 +16,6 @@ if (isset($_POST['insertMember'])) {
     echo "<script>alert('สมัครบัญชีผู้ใช้เรียบร้อย !');</script>";
     echo "<script>window.location.href='pages-login.php'</script>";
   } else {
-    echo "<script>alert('มีบางอย่าผิดพลาด กรุณาลองใหม่อีกครั้ง');</script>";
     echo "<script>window.location.href='pages-register.php'</script>";
   }
 }
@@ -105,7 +104,7 @@ if (isset($_POST['insertMember'])) {
 
                     <div class="col-12">
                       <label for="password" class="form-label">รหัสผ่าน :</label>
-                      <input type="password" name="pass" id="pass" class="form-control" required>
+                      <input type="password" name="pass" id="pass" class="form-control" placeholder=" ไม่น้อยกว่า 8 ตัวและ [ A-Z ] อย่างน้อย 1 ตัว " required>
                       <div class="invalid-feedback">กรุณาใส่รหัสผ่าน</div>
                     </div>
 

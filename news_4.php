@@ -30,7 +30,6 @@ if (isset($_POST['insert4'])) {
 
 if (isset($_GET['logout'])) {
   setcookie("username", "", time() - 3600);
-  session_destroy();
   echo "<script>window.location.href='pages-login.php'</script>";
 }
 
