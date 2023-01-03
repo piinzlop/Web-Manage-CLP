@@ -77,7 +77,7 @@ if (isset($_POST['insertMember'])) {
 
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4 mb-3">สมัครบัญชีผู้ใช้</h5>
-                    <p class="text-center small mb-4">Enter your personal details to create account</p>
+                    <p class="text-center small mb-4">กรอกข้อมูลเพื่อทำการสมัครบัญชีสมาชิกผู้ใช้</p>
                   </div>
 
                   <form class="row g-3 needs-validation" action="" method="post" novalidate>
@@ -104,7 +104,7 @@ if (isset($_POST['insertMember'])) {
 
                     <div class="col-12">
                       <label for="password" class="form-label">รหัสผ่าน :</label>
-                      <input type="password" name="pass" id="pass" class="form-control" placeholder=" ไม่น้อยกว่า 8 ตัวและ [ A-Z ] อย่างน้อย 1 ตัว " required>
+                      <input type="password" name="pass" id="pass" class="form-control" data-bs-toggle="tooltip" data-bs-placement="right" title="ต้องมีความยาวไม่น้อยกว่า 8 ตัว มีตัวอักษรภาษาอังกฤษตัวใหญ่อย่างน้อย 1 ตัว" required>
                       <div class="invalid-feedback">กรุณาใส่รหัสผ่าน</div>
                     </div>
 

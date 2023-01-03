@@ -73,7 +73,7 @@ if (isset($_POST['remember'])) {
 
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4 mb-3">เข้าสู่ระบบด้วยบัญชี Admin</h5>
-                    <p class="text-center small mb-5">Enter your username & password to login CLP - Admin</p>
+                    <p class="text-center small mb-5">ใส่ชื่อและรหัสผ่านบัญชีผู้ใช้ที่ได้ทำการสมัคร</p>
                   </div>
 
                   <form class="row g-3 needs-validation" action="" method="post" novalidate>
