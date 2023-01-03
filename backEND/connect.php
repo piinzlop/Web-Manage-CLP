@@ -38,7 +38,6 @@ class DB_con
                 $row = mysqli_fetch_assoc($result);
 
                 // Set the cookie with the retrieved data
-                setcookie("member_id", $row['member_id'], time() + 3600);
                 setcookie("fname", $row['fname'], time() + 3600);
                 setcookie("lname", $row['lname'], time() + 3600);
                 setcookie("username", $row['username'], time() + 3600);
@@ -98,11 +97,13 @@ class DB_con
         return $result;
     }
 
+
+
     // เพิ่มข่าว 1
-    public function insert($newsName1, $img1, $NewsMsg1, $note1)
+    public function insert($newsName1, $img1, $NewsMsg1, $note1, $modi_user1)
     {
-        $result = mysqli_query($this->dbcon, "INSERT INTO news_1(newsName1, img1, NewsMsg1, note1) 
-            VALUES('$newsName1', '$img1', '$NewsMsg1', '$note1')");
+        $result = mysqli_query($this->dbcon, "INSERT INTO news_1(newsName1, img1, NewsMsg1, note1, modi_user1) 
+            VALUES('$newsName1', '$img1', '$NewsMsg1', '$note1', '$modi_user1')");
         return $result;
     }
 
@@ -118,13 +119,14 @@ class DB_con
         return $result;
     }
 
-    public function update($newsName1, $img1, $NewsMsg1, $note1, $news1_id)
+    public function update($newsName1, $img1, $NewsMsg1, $note1, $modi_user1, $news1_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE news_1 SET 
                 newsName1 = '$newsName1',
                 img1 = '$img1',
                 NewsMsg1 = '$NewsMsg1',
-                note1 = '$note1' 
+                note1 = '$note1',
+                modi_user1 = '$modi_user1'
                 WHERE news1_id = '$news1_id'
             ");
         return $result;
@@ -139,10 +141,10 @@ class DB_con
 
 
     // เพิ่มข่าว 2
-    public function insert2($newsName2, $img2, $NewsMsg2, $note2)
+    public function insert2($newsName2, $img2, $NewsMsg2, $note2, $modi_user2)
     {
-        $result = mysqli_query($this->dbcon, "INSERT INTO news_2(newsName2, img2, NewsMsg2, note2) 
-            VALUES('$newsName2', '$img2', '$NewsMsg2', '$note2')");
+        $result = mysqli_query($this->dbcon, "INSERT INTO news_2(newsName2, img2, NewsMsg2, note2, modi_user2) 
+            VALUES('$newsName2', '$img2', '$NewsMsg2', '$note2', '$modi_user2')");
         return $result;
     }
 
@@ -154,18 +156,19 @@ class DB_con
 
     public function fetchonerecord2($news2_id)
     {
-        $result = mysqli_query($this->dbcon, "SELECT * FROM news_2 WHERE news2_id = '$news2_id '");
+        $result = mysqli_query($this->dbcon, "SELECT * FROM news_2 WHERE news2_id = '$news2_id'");
         return $result;
     }
 
-    public function update2($newsName2, $img2, $NewsMsg2, $note2, $news2_id)
+    public function update2($newsName2, $img2, $NewsMsg2, $note2, $modi_user2, $news2_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE news_2 SET 
                 newsName2 = '$newsName2',
                 img2 = '$img2',
                 NewsMsg2 = '$NewsMsg2',
-                note2 = '$note2'
-                WHERE news2_id = '$news2_id '
+                note2 = '$note2',
+                modi_user2 = '$modi_user2'
+                WHERE news2_id = '$news2_id'
             ");
         return $result;
     }
@@ -179,10 +182,10 @@ class DB_con
 
 
     // เพิ่มข่าว 3
-    public function insert3($newsName3, $img3, $NewsMsg3, $note3)
+    public function insert3($newsName3, $img3, $NewsMsg3, $note3, $modi_user3)
     {
-        $result = mysqli_query($this->dbcon, "INSERT INTO news_3(newsName3, img3, NewsMsg3, note3) 
-            VALUES('$newsName3', '$img3', '$NewsMsg3', '$note3')");
+        $result = mysqli_query($this->dbcon, "INSERT INTO news_3(newsName3, img3, NewsMsg3, note3, modi_user3) 
+            VALUES('$newsName3', '$img3', '$NewsMsg3', '$note3', '$modi_user3')");
         return $result;
     }
 
@@ -198,13 +201,14 @@ class DB_con
         return $result;
     }
 
-    public function update3($newsName3, $img3, $NewsMsg3, $note3, $news3_id)
+    public function update3($newsName3, $img3, $NewsMsg3, $note3, $modi_user3, $news3_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE news_3 SET 
                 newsName3 = '$newsName3',
                 img3 = '$img3',
                 NewsMsg3 = '$NewsMsg3',
-                note3 = '$note3'
+                note3 = '$note3',
+                modi_user3 = '$modi_user3'
                 WHERE news3_id = '$news3_id '
             ");
         return $result;
@@ -219,10 +223,10 @@ class DB_con
 
 
     // เพิ่มข่าว 4
-    public function insert4($newsName4, $img4, $NewsMsg4, $note4)
+    public function insert4($newsName4, $img4, $NewsMsg4, $note4, $modi_user4)
     {
-        $result = mysqli_query($this->dbcon, "INSERT INTO news_4(newsName4, img4, NewsMsg4, note4) 
-            VALUES('$newsName4', '$img4', '$NewsMsg4', '$note4')");
+        $result = mysqli_query($this->dbcon, "INSERT INTO news_4(newsName4, img4, NewsMsg4, note4, modi_user4) 
+            VALUES('$newsName4', '$img4', '$NewsMsg4', '$note4', '$modi_user4')");
         return $result;
     }
 
@@ -238,13 +242,14 @@ class DB_con
         return $result;
     }
 
-    public function update4($newsName4, $img4, $NewsMsg4, $note4, $news4_id)
+    public function update4($newsName4, $img4, $NewsMsg4, $note4, $modi_user4, $news4_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE news_4 SET 
                 newsName4 = '$newsName4',
                 img4 = '$img4',
                 NewsMsg4 = '$NewsMsg4',
-                note4 = '$note4'
+                note4 = '$note4',
+                modi_user4 = '$modi_user4'
                 WHERE news4_id = '$news4_id '
             ");
         return $result;
@@ -259,10 +264,10 @@ class DB_con
 
 
     // เพิ่มข่าว 5
-    public function insert5($newsName5, $img5, $NewsMsg5, $note5)
+    public function insert5($newsName5, $img5, $NewsMsg5, $note5, $modi_user5)
     {
-        $result = mysqli_query($this->dbcon, "INSERT INTO news_5(newsName5, img5, NewsMsg5, note5) 
-            VALUES('$newsName5', '$img5', '$NewsMsg5', '$note5')");
+        $result = mysqli_query($this->dbcon, "INSERT INTO news_5(newsName5, img5, NewsMsg5, note5, modi_user5) 
+            VALUES('$newsName5', '$img5', '$NewsMsg5', '$note5', '$modi_user5')");
         return $result;
     }
 
@@ -274,17 +279,18 @@ class DB_con
 
     public function fetchonerecord5($news5_id)
     {
-        $result = mysqli_query($this->dbcon, "SELECT * FROM news_5 WHERE news5_id = '$news5_id '");
+        $result = mysqli_query($this->dbcon, "SELECT * FROM news_5 WHERE news5_id = '$news5_id'");
         return $result;
     }
 
-    public function update5($newsName5, $img5, $NewsMsg5, $note5, $news5_id)
+    public function update5($newsName5, $img5, $NewsMsg5, $note5, $modi_user5, $news5_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE news_5 SET 
                 newsName5 = '$newsName5',
                 img5 = '$img5',
-                NewsMsg3 = '$NewsMsg5',
-                note5 = '$note5'
+                NewsMsg5 = '$NewsMsg5',
+                note5 = '$note5',
+                modi_user5 = '$modi_user5'
                 WHERE news5_id = '$news5_id '
             ");
         return $result;

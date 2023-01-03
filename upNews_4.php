@@ -7,7 +7,6 @@ if (!isset($_COOKIE['username'])) {
   echo "<script>window.location.href='pages-login.php'</script>";
 }  
 
-
 $updatedata = new DB_con();
 
 if (isset($_POST['update4'])) {
@@ -17,8 +16,9 @@ if (isset($_POST['update4'])) {
   $img4 = $_POST['img4'];
   $NewsMsg4 = $_POST['NewsMsg4'];
   $note4 = $_POST['note4'];
+  $modi_user4 = $_POST['modi_user4'];
 
-  $sql = $updatedata->update4($newsName4, $img4, $NewsMsg4, $note4, $news4_id);
+  $sql = $updatedata->update4($newsName4, $img4, $NewsMsg4, $note4, $modi_user4, $news4_id);
   if ($sql) {
     echo "<script>alert('แก้ไขข้อมูลข่าว 4 เรียบร้อย !');</script>";
     echo "<script>window.location.href='index.php'</script>";
@@ -32,8 +32,7 @@ if (isset($_GET['logout'])) {
   setcookie("username", "", time() - 3600);
   echo "<script>window.location.href='pages-login.php'</script>";
 }
-                
-$member_id  = $_COOKIE['member_id '];
+
 $fname = $_COOKIE['fname'];
 $lname = $_COOKIE['lname'];
 $username = $_COOKIE['username'];
@@ -626,6 +625,11 @@ $username = $_COOKIE['username'];
                     <!-- <label for="note4"></label> -->
                     <input type="text" class="form-control" name="note4" placeholder="note4" value="<?php echo $row['note4']; ?>">
                   </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-floating">
+                  <input hidden type="text" class="form-control" name="modi_user4" placeholder="modi_user4" value="<?php echo $username ?>">
                 </div>
               </div>
               <div class="text-center">

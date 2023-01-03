@@ -1,13 +1,11 @@
 <?php
 
-
 include_once('./backEND/connect.php');
 
 if (!isset($_COOKIE['username'])) {
   echo "<script>alert('กรุณาลงชื่อเข้าใช้ก่อนเข้าเว็บไซต์ !');</script>";
   echo "<script>window.location.href='pages-login.php'</script>";
 }  
-
 
 $insertdata = new DB_con();
 
@@ -16,8 +14,9 @@ if (isset($_POST['insert5'])) {
   $img5 = $_POST['img5'];
   $NewsMsg5 = $_POST['NewsMsg5'];
   $note5 = $_POST['note5'];
+  $modi_user5 = $_POST['modi_user5'];
 
-  $sql = $insertdata->insert5($newsName5, $img5, $NewsMsg5, $note5);
+  $sql = $insertdata->insert5($newsName5, $img5, $NewsMsg5, $note5, $modi_user5);
 
   if ($sql) {
     echo "<script>alert('เพิ่มข้อมูลข่าว 5 เรียบร้อย !');</script>";
@@ -32,8 +31,7 @@ if (isset($_GET['logout'])) {
   setcookie("username", "", time() - 3600);
   echo "<script>window.location.href='pages-login.php'</script>";
 }
-                
-$member_id  = $_COOKIE['member_id '];
+
 $fname = $_COOKIE['fname'];
 $lname = $_COOKIE['lname'];
 $username = $_COOKIE['username'];
@@ -624,6 +622,11 @@ $username = $_COOKIE['username'];
                   </div>
                 </div>
               </div>
+            <div clase="col-md-12">
+              <div class="form-floating">
+                <input hidden type="text" class="form-control" name="modi_user5" placeholder="modi_user5" value=<?php echo $username; ?>>
+              </div>
+            </div>
               <div class="text-center">
                 <button type="submit" name="insert5" class="btn btn-primary">Submit</button>
                 <a href="upNews_5.php?id=1" class="btn btn-success">Edit</a>

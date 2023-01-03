@@ -16,8 +16,9 @@ if (isset($_POST['update2'])) {
   $img2 = $_POST['img2'];
   $NewsMsg2 = $_POST['NewsMsg2'];
   $note2 = $_POST['note2'];
+  $modi_user2 = $_POST['modi_user2'];
 
-  $sql = $updatedata->update2($newsName2, $img2, $NewsMsg2, $note2, $news2_id);
+  $sql = $updatedata->update2($newsName2, $img2, $NewsMsg2, $note2, $modi_user2, $news2_id);
   if ($sql) {
     echo "<script>alert('แก้ไขข้อมูลข่าว 2 เรียบร้อย !');</script>";
     echo "<script>window.location.href='index.php'</script>";
@@ -31,8 +32,7 @@ if (isset($_GET['logout'])) {
   setcookie("username", "", time() - 3600);
   echo "<script>window.location.href='pages-login.php'</script>";
 }
-                
-$member_id  = $_COOKIE['member_id '];
+
 $fname = $_COOKIE['fname'];
 $lname = $_COOKIE['lname'];
 $username = $_COOKIE['username'];
@@ -600,21 +600,18 @@ $username = $_COOKIE['username'];
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ชื่อข่าว : </p>
-                  <!-- <label for="newsName2"></label> -->
                   <input type="text" class="form-control" name="newsName2" placeholder="newsName2" value="<?php echo $row['newsName2']; ?>" require>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิงค์รูป : </p>
-                  <!-- <label for="img2"></label> -->
                   <input type="text" class="form-control" name="img2" placeholder="img2" value="<?php echo $row['img2']; ?>" require>
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-floating">
                   <p>เนื้อหาข่าว : </p>
-                  <!-- <label for="NewsMsg2"></label> -->
                   <textarea class="form-control" placeholder="NewsMsg2" name="NewsMsg2" style="height: 150px;" require><?php echo $row['NewsMsg2']; ?></textarea>
                 </div>
               </div>
@@ -622,9 +619,13 @@ $username = $_COOKIE['username'];
                 <div class="col-md-12">
                   <div class="form-floating">
                     <p>หมายเหตุ : </p>
-                    <!-- <label for="note2"></label> -->
                     <input type="text" class="form-control" name="note2" placeholder="note2" value="<?php echo $row['note2']; ?>">
                   </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-floating">
+                  <input hidden type="text" class="form-control" name="modi_user2" placeholder="modi_user2" value="<?php echo $username ?>">
                 </div>
               </div>
               <div class="text-center">

@@ -5,8 +5,8 @@ include_once('./backEND/connect.php');
 if (!isset($_COOKIE['username'])) {
   echo "<script>alert('กรุณาลงชื่อเข้าใช้ก่อนเข้าเว็บไซต์ !');</script>";
   echo "<script>window.location.href='pages-login.php'</script>";
-}  
- 
+}
+
 $insertdata = new DB_con();
 
 if (isset($_POST['insert'])) {
@@ -14,8 +14,9 @@ if (isset($_POST['insert'])) {
   $img1 = $_POST['img1'];
   $NewsMsg1 = $_POST['NewsMsg1'];
   $note1 = $_POST['note1'];
+  $modi_user1 = $_POST['modi_user1'];
 
-  $sql = $insertdata->insert($newsName1, $img1, $NewsMsg1, $note1);
+  $sql = $insertdata->insert($newsName1, $img1, $NewsMsg1, $note1, $modi_user1);
 
   if ($sql) {
     echo "<script>alert('เพิ่มข้อมูลข่าว 1 เรียบร้อย !');</script>";
@@ -30,8 +31,7 @@ if (isset($_GET['logout'])) {
   setcookie("username", "", time() - 3600);
   echo "<script>window.location.href='pages-login.php'</script>";
 }
-                
-$member_id  = $_COOKIE['member_id '];
+
 $fname = $_COOKIE['fname'];
 $lname = $_COOKIE['lname'];
 $username = $_COOKIE['username'];
@@ -45,7 +45,7 @@ $username = $_COOKIE['username'];
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>CLP - เพิ่มข่าว 1</title> 
+  <title>CLP - เพิ่มข่าว 1</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -592,45 +592,50 @@ $username = $_COOKIE['username'];
           // while ($row = mysqli_fetch_array($sql)) {
 
           ?>
-          
-            <!-- Floating Labels Form -->
-            <form class="row g-3" action="" method="post">
 
+          <!-- Floating Labels Form -->
+          <form class="row g-3" action="" method="post">
+
+            <div class="col-md-12">
+              <div class="form-floating">
+                <input type="text" class="form-control" name="newsName1" placeholder="newsName1" require>
+                <label for="newsName1">ชื่อหัวข่าว</label>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-floating">
+                <input type="text" class="form-control" name="img1" placeholder="img1" require>
+                <label for="img1">ไฟล์รูป</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="NewsMsg1" name="NewsMsg1" style="height: 100px;" require></textarea>
+                <label for="NewsMsg1">เนื้อหาข่าว</label>
+              </div>
+            </div>
+            <div class="col-md-12">
               <div class="col-md-12">
                 <div class="form-floating">
-                  <input type="text" class="form-control" name="newsName1" placeholder="newsName1" require>
-                  <label for="newsName1">ชื่อหัวข่าว</label>
+                  <input type="text" class="form-control" name="note1" placeholder="note1" require>
+                  <label for="note1">หมายเหตุ</label>
                 </div>
               </div>
-              <div class="col-md-12">
-                <div class="form-floating">
-                  <input type="text" class="form-control" name="img1" placeholder="img1" require>
-                  <label for="img1">ไฟล์รูป</label>
-                </div>
+            </div>
+            <div clase="col-md-12">
+              <div class="form-floating">
+                <input hidden type="text" class="form-control" name="modi_user1" placeholder="modi_user1" value=<?php echo $username; ?>>
               </div>
-              <div class="col-12">
-                <div class="form-floating">
-                  <textarea class="form-control" placeholder="NewsMsg1" name="NewsMsg1" style="height: 100px;" require></textarea>
-                  <label for="NewsMsg1">เนื้อหาข่าว</label>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" name="note1" placeholder="note1" require>
-                    <label for="note1">หมายเหตุ</label>
-                  </div>
-                </div>
-              </div>
-              <div class="text-center">
-                <button type="submit" name="insert" class="btn btn-primary">Submit</button>
-                <a href="upNews_1.php?id=1" class="btn btn-success">Edit</a>
-                <button type="reset" class="btn btn-danger">Reset</button>
-              </div>
-            </form><!-- End floating Labels Form -->
+            </div>
+            <div class="text-center">
+              <button type="submit" name="insert" class="btn btn-primary">Submit</button>
+              <a href="upNews_1.php?id=1" class="btn btn-success">Edit</a>
+              <button type="reset" class="btn btn-danger">Reset</button>
+            </div>
+          </form><!-- End floating Labels Form -->
 
           <?php
-            // }
+          // }
           ?>
 
         </div>

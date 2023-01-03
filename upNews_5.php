@@ -17,8 +17,9 @@ if (isset($_POST['update5'])) {
   $img5 = $_POST['img5'];
   $NewsMsg5 = $_POST['NewsMsg5'];
   $note5 = $_POST['note5'];
+  $modi_user5 = $_POST['modi_user5'];
 
-  $sql = $updatedata->update5($newsName5, $img5, $NewsMsg5, $note5, $news5_id);
+  $sql = $updatedata->update5($newsName5, $img5, $NewsMsg5, $note5, $modi_user5, $news5_id);
   if ($sql) {
     echo "<script>alert('แก้ไขข้อมูลข่าว 5 เรียบร้อย !');</script>";
     echo "<script>window.location.href='index.php'</script>";
@@ -32,8 +33,7 @@ if (isset($_GET['logout'])) {
   setcookie("username", "", time() - 3600);
   echo "<script>window.location.href='pages-login.php'</script>";
 }
-                
-$member_id  = $_COOKIE['member_id '];
+
 $fname = $_COOKIE['fname'];
 $lname = $_COOKIE['lname'];
 $username = $_COOKIE['username'];
@@ -626,6 +626,11 @@ $username = $_COOKIE['username'];
                     <!-- <label for="note5"></label> -->
                     <input type="text" class="form-control" name="note5" placeholder="note5" value="<?php echo $row['note5']; ?>">
                   </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-floating">
+                  <input hidden type="text" class="form-control" name="modi_user5" placeholder="modi_user5" value="<?php echo $username ?>">
                 </div>
               </div>
               <div class="text-center">

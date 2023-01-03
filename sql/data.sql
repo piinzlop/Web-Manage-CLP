@@ -1,10 +1,9 @@
 CREATE DATABASE CLP CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS member (
-    member_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	fname varchar(70) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 	lname varchar(70) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-	username varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+	username varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL PRIMARY KEY,
 	pass varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 	createtimeMember timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -17,8 +16,8 @@ CREATE TABLE IF NOT EXISTS news_1 (
 	note1 text CHARACTER SET utf8 COLLATE utf8_general_ci,
 	created_at1 timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   	updated_at1 TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    modi_userid1 int NOT NULL,
-	CONSTRAINT fk_userid1 FOREIGN KEY (modi_userid1) REFERENCES member(member_id) ON UPDATE CASCADE    
+    modi_user1 varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL  ,
+	CONSTRAINT fk_user1 FOREIGN KEY (modi_user1) REFERENCES member(username) ON UPDATE CASCADE    
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS news_2 (
@@ -29,8 +28,8 @@ CREATE TABLE IF NOT EXISTS news_2 (
 	note2 text CHARACTER SET utf8 COLLATE utf8_general_ci,
 	created_at2 timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   	updated_at2 TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    modi_userid2 int NOT NULL,
-	CONSTRAINT fk_userid2 FOREIGN KEY (modi_userid2) REFERENCES member(member_id) ON UPDATE CASCADE    
+    modi_user2 varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL  ,
+	CONSTRAINT fk_user2 FOREIGN KEY (modi_user2) REFERENCES member(username) ON UPDATE CASCADE    
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS news_3 (
@@ -41,8 +40,8 @@ CREATE TABLE IF NOT EXISTS news_3 (
 	note3 text CHARACTER SET utf8 COLLATE utf8_general_ci,
 	created_at3 timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   	updated_at3 TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    modi_userid3 int NOT NULL,
-	CONSTRAINT fk_userid3 FOREIGN KEY (modi_userid3) REFERENCES member(member_id) ON UPDATE CASCADE    
+    modi_user3 varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL  ,
+	CONSTRAINT fk_user3 FOREIGN KEY (modi_user3) REFERENCES member(username) ON UPDATE CASCADE    
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS news_4 (
@@ -53,8 +52,8 @@ CREATE TABLE IF NOT EXISTS news_4 (
 	note4 text CHARACTER SET utf8 COLLATE utf8_general_ci,
 	created_at4 timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   	updated_at4 TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    modi_userid4 int NOT NULL,
-	CONSTRAINT fk_userid4 FOREIGN KEY (modi_userid4) REFERENCES member(member_id) ON UPDATE CASCADE    
+    modi_user4 varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL  ,
+	CONSTRAINT fk_user4 FOREIGN KEY (modi_user4) REFERENCES member(username) ON UPDATE CASCADE    
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS news_5 (
@@ -65,6 +64,6 @@ CREATE TABLE IF NOT EXISTS news_5 (
 	note5 text CHARACTER SET utf8 COLLATE utf8_general_ci,
 	created_at5 timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   	updated_at5 TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    modi_userid5 int NOT NULL,
-	CONSTRAINT fk_userid5 FOREIGN KEY (modi_userid5) REFERENCES member(member_id) ON UPDATE CASCADE    
+    modi_user5 varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL  ,
+	CONSTRAINT fk_user5 FOREIGN KEY (modi_user5) REFERENCES member(username) ON UPDATE CASCADE    
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;

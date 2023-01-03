@@ -14,8 +14,9 @@ if (isset($_POST['insert2'])) {
   $img2 = $_POST['img2'];
   $NewsMsg2 = $_POST['NewsMsg2'];
   $note2 = $_POST['note2'];
+  $modi_user2 = $_POST['modi_user2'];
 
-  $sql = $insertdata->insert2($newsName2, $img2, $NewsMsg2, $note2);
+  $sql = $insertdata->insert2($newsName2, $img2, $NewsMsg2, $note2, $modi_user2);
 
   if ($sql) {
     echo "<script>alert('เพิ่มข้อมูลข่าว 2 เรียบร้อย !');</script>";
@@ -30,8 +31,7 @@ if (isset($_GET['logout'])) {
   setcookie("username", "", time() - 3600);
   echo "<script>window.location.href='pages-login.php'</script>";
 }
-                
-$member_id  = $_COOKIE['member_id '];
+
 $fname = $_COOKIE['fname'];
 $lname = $_COOKIE['lname'];
 $username = $_COOKIE['username'];
@@ -585,14 +585,6 @@ $username = $_COOKIE['username'];
         <div class="card-body">
           <h5 class="card-title">เพิ่มข่าวเพจ 2</h5>
 
-          <?php
-
-          // $fetchdata = new DB_con();
-          // $sql = $fetchdata->fetchdata2();
-          // while ($row = mysqli_fetch_array($sql)) {
-
-          ?>
-
             <!-- Floating Labels Form -->
             <form class="row g-3" action="" method="post">
 
@@ -622,16 +614,17 @@ $username = $_COOKIE['username'];
                   </div>
                 </div>
               </div>
+            <div clase="col-md-12">
+              <div class="form-floating">
+                <input hidden type="text" class="form-control" name="modi_user2" placeholder="modi_user2" value=<?php echo $username; ?>>
+              </div>
+            </div>
               <div class="text-center">
                 <button type="submit" name="insert2" class="btn btn-primary">Submit</button>
                 <a href="upNews_2.php?id=1" class="btn btn-success">Edit</a>
                 <button type="reset" class="btn btn-danger">Reset</button>
               </div>
             </form><!-- End floating Labels Form -->
-
-          <?php
-            // }
-          ?>
 
         </div>
       </div>

@@ -5,7 +5,7 @@ include_once('./backEND/connect.php');
 if (!isset($_COOKIE['username'])) {
   echo "<script>alert('กรุณาลงชื่อเข้าใช้ก่อนเข้าเว็บไซต์ !');</script>";
   echo "<script>window.location.href='pages-login.php'</script>";
-}  
+}
 
 $updatedata = new DB_con();
 
@@ -16,10 +16,11 @@ if (isset($_POST['update'])) {
   $img1 = $_POST['img1'];
   $NewsMsg1 = $_POST['NewsMsg1'];
   $note1 = $_POST['note1'];
+  $modi_user1 = $_POST['modi_user1'];
 
-  $sql = $updatedata->update($newsName1, $img1, $NewsMsg1, $note1, $news1_id);
+  $sql = $updatedata->update($newsName1, $img1, $NewsMsg1, $note1, $modi_user1, $news1_id);
   if ($sql) {
-    echo "<script>alert('แก้ไขข้อมูลข่าว 4 เรียบร้อย !');</script>";
+    echo "<script>alert('แก้ไขข้อมูลข่าว 1 เรียบร้อย !');</script>";
     echo "<script>window.location.href='index.php'</script>";
   } else {
     echo "<script>alert('มีบางอย่างผิดพลาด กรุณาลองอีกรอบ');</script>";
@@ -31,8 +32,7 @@ if (isset($_GET['logout'])) {
   setcookie("username", "", time() - 3600);
   echo "<script>window.location.href='pages-login.php'</script>";
 }
-                
-$member_id  = $_COOKIE['member_id '];
+
 $fname = $_COOKIE['fname'];
 $lname = $_COOKIE['lname'];
 $username = $_COOKIE['username'];
@@ -596,7 +596,7 @@ $username = $_COOKIE['username'];
             <form class="row g-3" action="" method="post">
               <div class="col-md-12">
                 <div class="form-floating">
-                  <p >ชื่อข่าว : </p>
+                  <p>ชื่อข่าว : </p>
                   <input type="text" class="form-control" name="newsName1" placeholder="newsName1" value="<?php echo $row['newsName1']; ?>" require>
                 </div>
               </div>
@@ -616,6 +616,11 @@ $username = $_COOKIE['username'];
                 <div class="form-floating">
                   <p>หมายเหตุ : </p>
                   <input type="text" class="form-control" name="note1" placeholder="note1" value="<?php echo $row['note1']; ?>">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-floating">
+                  <input hidden type="text" class="form-control" name="modi_user1" placeholder="modi_user1" value="<?php echo $username ?>">
                 </div>
               </div>
               <div class="text-center">

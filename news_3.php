@@ -15,8 +15,9 @@ if (isset($_POST['insert3'])) {
   $img3 = $_POST['img3'];
   $NewsMsg3 = $_POST['NewsMsg3'];
   $note3 = $_POST['note3'];
+  $modi_user3 = $_POST['modi_user3'];
 
-  $sql = $insertdata->insert3($newsName3, $img3, $NewsMsg3, $note3);
+  $sql = $insertdata->insert3($newsName3, $img3, $NewsMsg3, $note3, $modi_user3);
 
   if ($sql) {
     echo "<script>alert('เพิ่มข้อมูลข่าว 3 เรียบร้อย !');</script>";
@@ -31,8 +32,7 @@ if (isset($_GET['logout'])) {
   setcookie("username", "", time() - 3600);
   echo "<script>window.location.href='pages-login.php'</script>";
 }
-                
-$member_id  = $_COOKIE['member_id '];
+
 $fname = $_COOKIE['fname'];
 $lname = $_COOKIE['lname'];
 $username = $_COOKIE['username'];
@@ -623,6 +623,11 @@ $username = $_COOKIE['username'];
                   </div>
                 </div>
               </div>
+            <div clase="col-md-12">
+              <div class="form-floating">
+                <input hidden type="text" class="form-control" name="modi_user3" placeholder="modi_user3" value=<?php echo $username; ?>>
+              </div>
+            </div>
               <div class="text-center">
                 <button type="submit" name="insert3" class="btn btn-primary">Submit</button>
                 <a href="upNews_3.php?id=1" class="btn btn-success">Edit</a>
