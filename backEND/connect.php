@@ -30,8 +30,18 @@ class DB_con
             $resultP = mysqli_query($conn, $queryP);
             if (mysqli_num_rows($resultP)) {
 
-                // Store a value in the cookie
-                setcookie("username", $username, time() + 36000);
+                // Query the database to retrieve the data
+                $query = "SELECT * FROM member WHERE username='$username'";
+                $result = mysqli_query($conn, $query);
+
+                // Fetch the row data
+                $row = mysqli_fetch_assoc($result);
+
+                // Set the cookie with the retrieved data
+                setcookie("member_id", $row['member_id'], time() + 3600);
+                setcookie("fname", $row['fname'], time() + 3600);
+                setcookie("lname", $row['lname'], time() + 3600);
+                setcookie("username", $row['username'], time() + 3600);
 
                 echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
                 echo "<script>window.location.href='index.php'</script>";

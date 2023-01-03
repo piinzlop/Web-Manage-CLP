@@ -68,12 +68,3 @@ CREATE TABLE IF NOT EXISTS news_5 (
     modi_userid5 int NOT NULL,
 	CONSTRAINT fk_userid5 FOREIGN KEY (modi_userid5) REFERENCES member(member_id) ON UPDATE CASCADE    
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
-
--- CREATE TABLE IF NOT EXISTS news_2 (
---     news2_id int NOT NULL AUTO_INCREMENT,
--- 	newsName2 text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
--- 	img2 text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
--- 	NewsMsg2 text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
--- 	note2 text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
--- 	createData2 timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
---     PRIMARY KEY (news2_id) ) CHARACTER SET utf8 COLLATE utf8_general_ci;

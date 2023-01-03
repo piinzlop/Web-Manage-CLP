@@ -31,6 +31,11 @@ if (isset($_GET['logout'])) {
   setcookie("username", "", time() - 3600);
   echo "<script>window.location.href='pages-login.php'</script>";
 }
+                
+$member_id  = $_COOKIE['member_id '];
+$fname = $_COOKIE['fname'];
+$lname = $_COOKIE['lname'];
+$username = $_COOKIE['username'];
 
 ?>
 
@@ -247,12 +252,12 @@ if (isset($_GET['logout'])) {
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $fname ?> <?php echo $lname ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
+              <h6><?php echo $fname ?> <?php echo $lname ?> </h6>
               <span>Web Designer</span>
             </li>
             <li>
@@ -592,28 +597,24 @@ if (isset($_GET['logout'])) {
               <div class="col-md-12">
                 <div class="form-floating">
                   <p >ชื่อข่าว : </p>
-                  <!-- <label for="newsName1"></label> -->
                   <input type="text" class="form-control" name="newsName1" placeholder="newsName1" value="<?php echo $row['newsName1']; ?>" require>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิงค์รูป : </p>
-                  <!-- <label for="img1"></label> -->
                   <input type="text" class="form-control" name="img1" placeholder="img1" value="<?php echo $row['img1']; ?>" require>
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-floating">
                   <p>เนื้อหาข่าว : </p>
-                  <!-- <label for="NewsMsg1"></label> -->
                   <textarea class="form-control" placeholder="NewsMsg1" name="NewsMsg1" style="height: 150px;" require><?php echo $row['NewsMsg1']; ?></textarea>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>หมายเหตุ : </p>
-                  <!-- <label for="note1"></label> -->
                   <input type="text" class="form-control" name="note1" placeholder="note1" value="<?php echo $row['note1']; ?>">
                 </div>
               </div>

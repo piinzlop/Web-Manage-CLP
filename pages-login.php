@@ -2,8 +2,6 @@
 
 include_once('./backEND/connect.php');
 
-session_start();
-
 $selectdata = new DB_con();
 
 if (isset($_POST['login'])) {
