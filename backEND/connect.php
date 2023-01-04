@@ -54,7 +54,7 @@ class DB_con
         }
     }
 
-    // สมัครบัญชีผู้ใช้
+    // สมัครบัญชีผู้ใช้ 
     public function register($fname, $lname, $username, $pass)
     {
         $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
@@ -85,15 +85,54 @@ class DB_con
         }
     }
 
+    // แก้ไขชื่อ
+    public function updateName($fname, $lname, $username)
+    {
+        $result = mysqli_query($this->dbcon, "UPDATE member SET 
+                fname = '$fname',
+                lname = '$lname'
+                WHERE username = '$username'
+            ");
+        return $result;
+    }
+
+    // เปลี่ยนรหัสผ่าน **********************************************************************
+    public function changePass($username, $pass, $newPass)
+    {
+        $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+        $queryPassword = "SELECT * FROM member WHERE username = 'ice' AND pass = '12121212E'";
+        $resultChange = mysqli_query($conn, $queryPassword);
+
+        if (mysqli_num_rows($resultChange) == 1) {
+
+            if (strlen($newPass) < 8) {
+                echo "<script>alert('รหัสต้องมีความยาวอย่างน้อย 8 ตัว กรุณาลองใหม่อีกครั้ง');</script>";
+            } else {
+                if (!preg_match("/[A-Z]/", $newPass)) {
+                    echo "<script>alert('รหัสผ่านต้องมีตัวอักษรภาษาอังกฤษตัวใหญ่อย่างน้อย 1 ตัว กรุณาลองใหม่อีกครั้ง');</script>";
+                } else {
+                    $resultPass = mysqli_query($this->dbcon, "UPDATE member SET 
+                        pass = '$newPass'
+                        WHERE username = '$username' AND pass = '$pass'
+                    ");
+                    return $resultPass;
+                }
+            }
+        } else {
+            echo "<script>alert('รหัสผ่านเก่าผิดพลาด กรุณาลองใหม่อีกครั้ง');</script>";
+        }
+    }
+
+
     public function fetchdataMember()
     {
         $result = mysqli_query($this->dbcon, "SELECT * FROM member");
         return $result;
     }
 
-    public function fetchonerecordMember($member_id)
+    public function fetchonerecordMember($username)
     {
-        $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE member_id = '$member_id'");
+        $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username = '$username'");
         return $result;
     }
 

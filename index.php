@@ -244,7 +244,7 @@ $username = $_COOKIE['username'];
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.php?id=<?php echo $username ?>">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -254,7 +254,7 @@ $username = $_COOKIE['username'];
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.php?id=<?php echo $username ?>">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
               </a>
@@ -410,31 +410,31 @@ $username = $_COOKIE['username'];
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="upNews_1.php">
+            <a href="upNews_1.php?id=1">
               <i class="bi bi-circle"></i><span>แก้ไขข่าว 1</span>
             </a>
           </li>
           <li>
           <li>
-            <a href="upNews_2.php">
+            <a href="upNews_2.php?id=1">
               <i class="bi bi-circle"></i><span>แก้ไขข่าว 2</span>
             </a>
           </li>
           <li>
           <li>
-            <a href="upNews_3.php">
+            <a href="upNews_3.php?id=1">
               <i class="bi bi-circle"></i><span>แก้ไขข่าว 3</span>
             </a>
           </li>
           <li>
           <li>
-            <a href="upNews_4.php">
+            <a href="upNews_4.php?id=1">
               <i class="bi bi-circle"></i><span>แก้ไขข่าว 4</span>
             </a>
           </li>
           <li>
           <li>
-            <a href="upNews_5.php">
+            <a href="upNews_5.php?id=1">
               <i class="bi bi-circle"></i><span>แก้ไขข่าว 5</span>
             </a>
           </li>
@@ -467,7 +467,7 @@ $username = $_COOKIE['username'];
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.php">
+        <a class="nav-link collapsed" href="users-profile.php?id=<?php echo $username ?>">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>

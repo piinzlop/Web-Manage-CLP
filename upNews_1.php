@@ -24,7 +24,7 @@ if (isset($_POST['update'])) {
     echo "<script>window.location.href='index.php'</script>";
   } else {
     echo "<script>alert('มีบางอย่างผิดพลาด กรุณาลองอีกรอบ');</script>";
-    echo "<script>window.location.href='upNews_1.php?id=1.php'</script>";
+    echo "<script>window.location.href='upNews_1.php?id=1'</script>";
   }
 }
 
