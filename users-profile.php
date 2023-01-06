@@ -20,7 +20,7 @@ $updatedata = new DB_con();
 
 if (isset($_POST['updateName'])) {
 
-  $username = $_GET['id'];
+  $username = htmlentities($_GET['id']);
   $fname = htmlentities($_POST['fname']);
   $lname = htmlentities($_POST['lname']);
 
@@ -36,7 +36,7 @@ if (isset($_POST['updateName'])) {
 
 if (isset($_POST['changePass'])) {
 
-  $username = $_GET['id'];
+  $username = htmlentities($_GET['id']);
   $pass = htmlentities($_POST['pass']);
   $newPass = htmlentities($_POST['newPass']);
   $confirmPass = htmlentities($_POST['confirmPass']);
