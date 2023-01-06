@@ -8,10 +8,10 @@ if (!isset($_COOKIE['username'])) {
 }
 
 if (isset($_GET['logout'])) {
-  setcookie("username", "", time() - 3600);
-  setcookie("fname", "", time() - 3600);
-  setcookie("lname", "", time() - 3600);
-  echo "<script>window.location.href='pages-login.php'</script>";
+  foreach ($_COOKIE as $key => $value) {
+    setcookie($key, '', time() - 3600);
+    echo "<script>window.location.href='pages-login.php'</script>";
+  }
 }
 
 $username = htmlentities($_COOKIE['username']);
@@ -71,8 +71,8 @@ while ($row = mysqli_fetch_array($sql)) {
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets\img\CLP_logo.png" rel="icon">
+    <link href="assets\img\CLP_logo.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -105,7 +105,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
       <div class="d-flex align-items-center justify-content-between">
         <a href="index.php" class="logo d-flex align-items-center">
-          <img src="assets/img/logo.png" alt="">
+          <img src="assets\img\CLP_logo.png" alt="">
           <span class="d-none d-lg-block" style="margin: 10px;">CLP : Admin</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
