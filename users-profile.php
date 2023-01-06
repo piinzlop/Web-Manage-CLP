@@ -18,9 +18,9 @@ $updatedata = new DB_con();
 
 if (isset($_POST['updateName'])) {
 
-  $username = $_GET['id'];
-  $fname = $_POST['fname'];
-  $lname = $_POST['lname'];
+  $username = htmlentities($_GET['id']);
+  $fname = htmlentities($_POST['fname']);
+  $lname = htmlentities($_POST['lname']);
 
   $sql = $updatedata->updateName($fname, $lname, $username);
   if ($sql) {
@@ -34,13 +34,13 @@ if (isset($_POST['updateName'])) {
 
 if (isset($_POST['changePass'])) {
 
-  $username = $_GET['id'];
-  $pass = $_POST['pass'];
-  $newPass = $_POST['newPass'];
-  $confirmPass = $_POST['confirmPass'];
+  $username = htmlentities($_GET['id']);
+  $pass = htmlentities($_POST['pass']);
+  $newPass = htmlentities($_POST['newPass']);
+  $confirmPass = htmlentities($_POST['confirmPass']);
 
   if ($newPass === $confirmPass) {
-    $sql2 = $updatedata->changePass($pass, $username, $newPass);
+    $sql2 = $updatedata->changePass($username, $pass, $newPass);
     if ($sql2) {
       echo "<script>alert('แก้ไขรหัสผ่านเรียบร้อย !');</script>";
       echo "<script>window.location.href='users-profile.php?id=" . $username . "'</script>";
@@ -51,61 +51,52 @@ if (isset($_POST['changePass'])) {
   }
 }
 
+$updateuser = new DB_con();
+$sql = $updateuser->fetchonerecordMember($username);
+while ($row = mysqli_fetch_array($sql)) {
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Users / Profile - NiceAdmin Bootstrap Template</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <title>Users / Profile - NiceAdmin Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
+    <!-- =======================================================
   * Template Name: NiceAdmin - v2.4.1
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-</head>
+  </head>
 
-<body>
-
-
-  <?php
-
-  $username = $_GET['id'];
-  $updateuser = new DB_con();
-  $sql = $updateuser->fetchonerecordMember($username);
-  while ($row = mysqli_fetch_array($sql)) {
-
-
-    // echo "<script>console.log(\"" . $row['username'] . "\");</script>";
-    // echo "<script>console.log(\"" . $row['pass'] . "\");</script>";
-  ?>
+  <body>
 
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -458,31 +449,31 @@ if (isset($_POST['changePass'])) {
           </a>
           <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
-              <a href="upNews_1.php">
+              <a href="upNews_1.php?id=1">
                 <i class="bi bi-circle"></i><span>แก้ไขข่าว 1</span>
               </a>
             </li>
             <li>
             <li>
-              <a href="upNews_2.php">
+              <a href="upNews_2.php?id=1">
                 <i class="bi bi-circle"></i><span>แก้ไขข่าว 2</span>
               </a>
             </li>
             <li>
             <li>
-              <a href="upNews_3.php">
+              <a href="upNews_3.php?id=1">
                 <i class="bi bi-circle"></i><span>แก้ไขข่าว 3</span>
               </a>
             </li>
             <li>
             <li>
-              <a href="upNews_4.php">
+              <a href="upNews_4.php?id=1">
                 <i class="bi bi-circle"></i><span>แก้ไขข่าว 4</span>
               </a>
             </li>
             <li>
             <li>
-              <a href="upNews_5.php">
+              <a href="upNews_5.php?id=1">
                 <i class="bi bi-circle"></i><span>แก้ไขข่าว 5</span>
               </a>
             </li>
@@ -613,10 +604,10 @@ if (isset($_POST['changePass'])) {
                       </div>
                     </form><!-- End Profile Edit Form -->
 
-
                   </div>
 
                   <div class="tab-pane fade pt-3" id="profile-change-password">
+
                     <!-- Change Password Form -->
                     <form action="" method="post">
 
@@ -657,11 +648,6 @@ if (isset($_POST['changePass'])) {
         </div>
       </section>
 
-
-    <?php
-  }
-    ?>
-
     </main><!-- End #main -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -679,6 +665,8 @@ if (isset($_POST['changePass'])) {
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 
-</body>
+  </body>
 
-</html>
+  </html>
+
+<?php }  ?>

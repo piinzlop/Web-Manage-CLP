@@ -5,10 +5,10 @@ include_once('./backEND/connect.php');
 $insertdata = new DB_con();
 
 if (isset($_POST['insertMember'])) {
-  $fname = $_POST['fname'];
-  $lname = $_POST['lname'];
-  $username = $_POST['username'];
-  $pass = $_POST['pass'];
+  $fname = htmlentities($_POST['fname']);
+  $lname = htmlentities($_POST['lname']);
+  $username = htmlentities($_POST['username']);
+  $pass = htmlentities($_POST['pass']);
 
   $sql = $insertdata->register($fname, $lname, $username, $pass);
 

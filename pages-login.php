@@ -5,8 +5,8 @@ include_once('./backEND/connect.php');
 $selectdata = new DB_con();
 
 if (isset($_POST['login'])) {
-  $username = $_POST['username'];
-  $pass = $_POST['pass'];
+  $username = htmlentities($_POST['username']);
+  $pass = htmlentities($_POST['pass']);
   $sql = $selectdata->login($username, $pass);
 }
 

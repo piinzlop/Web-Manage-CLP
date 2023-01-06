@@ -12,12 +12,12 @@ $updatedata = new DB_con();
 
 if (isset($_POST['update5'])) {
 
-  $news5_id = $_GET['id'];
-  $newsName5 = $_POST['newsName5'];
-  $img5 = $_POST['img5'];
-  $NewsMsg5 = $_POST['NewsMsg5'];
-  $note5 = $_POST['note5'];
-  $modi_user5 = $_POST['modi_user5'];
+  $news5_id = htmlentities($_GET['id']);
+  $newsName5 = htmlentities($_POST['newsName5']);
+  $img5 = htmlentities($_POST['img5']);
+  $NewsMsg5 = htmlentities($_POST['NewsMsg5']);
+  $note5 = htmlentities($_POST['note5']);
+  $modi_user5 = htmlentities($_POST['modi_user5']);
 
   $sql = $updatedata->update5($newsName5, $img5, $NewsMsg5, $note5, $modi_user5, $news5_id);
   if ($sql) {
@@ -34,9 +34,18 @@ if (isset($_GET['logout'])) {
   echo "<script>window.location.href='pages-login.php'</script>";
 }
 
-$fname = $_COOKIE['fname'];
-$lname = $_COOKIE['lname'];
-$username = $_COOKIE['username'];
+$username = htmlentities($_COOKIE['username']);
+$fname = htmlentities($_COOKIE['fname']);
+$lname = htmlentities($_COOKIE['lname']);
+
+$updateuser = new DB_con();
+$sql = $updateuser->fetchonerecordMember($username);
+while ($row = mysqli_fetch_array($sql)) {
+
+$news5_id = $_GET['id'];
+$updateuser = new DB_con();
+$sql = $updateuser->fetchonerecord3($news5_id);
+while ($row = mysqli_fetch_array($sql)) {
 
 ?>
 
@@ -253,13 +262,13 @@ $username = $_COOKIE['username'];
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $fname ?></span>
-          </a><!-- End Profile Iamge Icon -->
+                <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $fname ?></span>
+              </a><!-- End Profile Iamge Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6><?php echo $fname ?> <?php echo $lname ?> </h6>
-              <span>Username : <?php echo $username ?></span>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                <li class="dropdown-header">
+                  <h6><?php echo $fname ?> <?php echo $lname ?> </h6>
+                  <span>Username : <?php echo $username ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -554,7 +563,7 @@ $username = $_COOKIE['username'];
               </div>
               <div class="col-md-12">
                 <div class="form-floating">
-                  <input hidden type="text" class="form-control" name="modi_user5" placeholder="modi_user5" value="<?php echo $username ?>">
+                  <input hidden type="text" class="form-control" name="modi_user5" placeholder="modi_user5" value=<?php echo $username; ?>>
                 </div>
               </div>
               <div class="text-center">
@@ -588,3 +597,5 @@ $username = $_COOKIE['username'];
 </body>
 
 </html>
+
+<?php } } ?>

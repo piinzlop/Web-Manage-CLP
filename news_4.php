@@ -12,11 +12,11 @@ if (!isset($_COOKIE['username'])) {
 $insertdata = new DB_con();
 
 if (isset($_POST['insert4'])) {
-  $newsName4 = $_POST['newsName4'];
-  $img4 = $_POST['img4'];
-  $NewsMsg4 = $_POST['NewsMsg4'];
-  $note4 = $_POST['note4'];
-  $modi_user4 = $_POST['modi_user4'];
+  $newsName4 = htmlentities($_POST['newsName4']);
+  $img4 = htmlentities($_POST['img4']);
+  $NewsMsg4 = htmlentities($_POST['NewsMsg4']);
+  $note4 = htmlentities($_POST['note4']);
+  $modi_user4 = htmlentities($_POST['modi_user4']);
 
   $sql = $insertdata->insert4($newsName4, $img4, $NewsMsg4, $note4, $modi_user4);
 
@@ -34,9 +34,11 @@ if (isset($_GET['logout'])) {
   echo "<script>window.location.href='pages-login.php'</script>";
 }
 
-$fname = $_COOKIE['fname'];
-$lname = $_COOKIE['lname'];
 $username = $_COOKIE['username'];
+
+$updateuser = new DB_con();
+$sql = $updateuser->fetchonerecordMember($username);
+while ($row = mysqli_fetch_array($sql)) {
 
 ?>
 
@@ -253,13 +255,13 @@ $username = $_COOKIE['username'];
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $fname ?></span>
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $row['fname']; ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6><?php echo $fname ?> <?php echo $lname ?> </h6>
-              <span>Username : <?php echo $username ?></span>
+              <h6><?php echo $row['fname']; ?> <?php echo $row['lname']; ?> </h6>
+              <span>Username : <?php echo $row['username']; ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -589,3 +591,5 @@ $username = $_COOKIE['username'];
 </body>
 
 </html>
+
+<?php } ?>
