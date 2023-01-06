@@ -616,21 +616,21 @@ while ($row = mysqli_fetch_array($sql)) {
                       <div class="row mb-3">
                         <label for="pass" class="col-md-4 col-lg-3 col-form-label">รหัสปัจจุบัน</label>
                         <div class="col-md-8 col-lg-9">
-                          <input name="pass" type="text" class="form-control" required>
+                          <input name="pass" type="password" class="form-control" required>
                         </div>
                       </div>
 
                       <div class="row mb-3">
                         <label for="newPass" class="col-md-4 col-lg-3 col-form-label">รหัสผ่านใหม่</label>
                         <div class="col-md-8 col-lg-9">
-                          <input name="newPass" type="text" class="form-control" required>
+                          <input name="newPass" type="password" class="form-control" required>
                         </div>
                       </div>
 
                       <div class="row mb-3">
                         <label for="confirmPass" class="col-md-4 col-lg-3 col-form-label">ยืนยันรหัสผ่านใหม่อีกครั้ง</label>
                         <div class="col-md-8 col-lg-9">
-                          <input name="confirmPass" type="text" class="form-control" required>
+                          <input name="confirmPass" type="password" class="form-control" required>
                         </div>
                       </div>
 
