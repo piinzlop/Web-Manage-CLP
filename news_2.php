@@ -29,6 +29,8 @@ if (isset($_POST['insert2'])) {
 
 if (isset($_GET['logout'])) {
   setcookie("username", "", time() - 3600);
+  setcookie("fname", "", time() - 3600);
+  setcookie("lname", "", time() - 3600);
   echo "<script>window.location.href='pages-login.php'</script>";
 }
 

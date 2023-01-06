@@ -9,16 +9,18 @@ if (!isset($_COOKIE['username'])) {
 
 if (isset($_GET['logout'])) {
   setcookie("username", "", time() - 3600);
+  setcookie("fname", "", time() - 3600);
+  setcookie("lname", "", time() - 3600);
   echo "<script>window.location.href='pages-login.php'</script>";
 }
 
-$username = $_COOKIE['username'];
+$username = htmlentities($_COOKIE['username']);
 
 $updatedata = new DB_con();
 
 if (isset($_POST['updateName'])) {
 
-  $username = htmlentities($_GET['id']);
+  $username = $_GET['id'];
   $fname = htmlentities($_POST['fname']);
   $lname = htmlentities($_POST['lname']);
 
@@ -34,7 +36,7 @@ if (isset($_POST['updateName'])) {
 
 if (isset($_POST['changePass'])) {
 
-  $username = htmlentities($_GET['id']);
+  $username = $_GET['id'];
   $pass = htmlentities($_POST['pass']);
   $newPass = htmlentities($_POST['newPass']);
   $confirmPass = htmlentities($_POST['confirmPass']);
