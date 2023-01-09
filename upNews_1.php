@@ -43,7 +43,7 @@ $updateuser = new DB_con();
 $sql = $updateuser->fetchonerecordMember($username);
 while ($row = mysqli_fetch_array($sql)) {
 
-  $news1_id = $_GET['id'];
+  $news1_id = htmlentities($_GET['id']);
   $updateuser = new DB_con();
   $sql = $updateuser->fetchonerecord($news1_id);
   while ($row = mysqli_fetch_array($sql)) {
@@ -555,8 +555,61 @@ while ($row = mysqli_fetch_array($sql)) {
                 </div>
               </form><!-- End floating Labels Form -->
 
-            </div>
-          </div>
+              <?php
+
+              // Connect to the database
+              $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+
+              // Set the number of records to display per page
+              $records_per_page = 10;
+
+              // Get the current page number
+              $page = 1;
+              if (isset($_GET['id'])) {
+                $page = (int)$_GET['id'];
+              }
+
+              // Calculate the start index for the current page
+              $start = ($page - 1) * $records_per_page;
+
+              // Fetch the records from the database
+              $query = "SELECT * FROM news_1 LIMIT $start, $records_per_page";
+              $result = mysqli_query($conn, $query);
+              // Calculate the total number of pages
+              $query = "SELECT COUNT(*) as num_records FROM news_1";
+              $result = mysqli_query($conn, $query);
+              $row = mysqli_fetch_assoc($result);
+              $num_records = $row['num_records'];
+              $num_pages = ceil($num_records / $records_per_page);
+
+              // Output the navigation links
+              echo '<nav aria-label="Page navigation example" class="mt-4">';
+              echo '<ul class="pagination justify-content-center">';
+
+              for ($i = 1; $i <= $num_pages; $i++) {
+                if ($i == $page) {
+                  echo '    <li class="page-item active" aria-current="page">';
+                } else {
+                  echo '    <li class="page-item">';
+                }
+
+                echo  '
+
+                  <nav aria-label="Page navigation example">
+                  <ul class="pagination justify-content-center">
+                    <li class="page-item"><a class="page-link" href="upNews_1.php?id=' . $i . '">' . $i . '</a></li>
+                  </ul>
+                
+                      ';
+
+                echo '    </li>';
+              }
+
+              echo '  </ul>';
+              echo '</nav>';
+
+              ?>
+
         </section>
       </main><!-- End #main -->
 

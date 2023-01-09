@@ -99,7 +99,7 @@ class DB_con
     // เปลี่ยนรหัสผ่าน **********************************************************************
     public function changePass($username, $pass, $newPass)
     {
-        
+
         $resultSelect = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username = '$username' AND pass = '$pass'");
 
         if (mysqli_num_rows($resultSelect) == 1) {
