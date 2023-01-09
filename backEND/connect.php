@@ -96,7 +96,7 @@ class DB_con
         return $result;
     }
 
-    // เปลี่ยนรหัสผ่าน **********************************************************************
+    // เปลี่ยนรหัสผ่าน 
     public function changePass($username, $pass, $newPass)
     {
 
@@ -119,7 +119,6 @@ class DB_con
             }
         } else {
             echo "<script>alert('รหัสผ่านเก่าผิดพลาด กรุณาลองใหม่อีกครั้ง');</script>";
-            // echo $username , $pass , $newPass;
         }
     }
 

@@ -575,10 +575,11 @@ while ($row = mysqli_fetch_array($sql)) {
               // Fetch the records from the database
               $query = "SELECT * FROM news_1 LIMIT $start, $records_per_page";
               $result = mysqli_query($conn, $query);
+
               // Calculate the total number of pages
-              $query = "SELECT COUNT(*) as num_records FROM news_1";
-              $result = mysqli_query($conn, $query);
-              $row = mysqli_fetch_assoc($result);
+              $queryCount = "SELECT COUNT(*) as num_records FROM news_1";
+              $resultCount = mysqli_query($conn, $queryCount);
+              $row = mysqli_fetch_assoc($resultCount);
               $num_records = $row['num_records'];
               $num_pages = ceil($num_records / $records_per_page);
 
@@ -593,20 +594,23 @@ while ($row = mysqli_fetch_array($sql)) {
                   echo '    <li class="page-item">';
                 }
 
-                echo  '
+                while ($row = mysqli_fetch_assoc($result)) {
+
+                  echo  '
 
                   <nav aria-label="Page navigation example">
                   <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="upNews_1.php?id=' . $i . '">' . $i . '</a></li>
+                    <li class="page-item"><a class="page-link" href="upNews_1.php?id=' . $row['news1_id'] . '">' . $row['news1_id'] . '</a></li>
                   </ul>
                 
                       ';
 
-                echo '    </li>';
-              }
+                  echo '    </li>';
+                }
 
-              echo '  </ul>';
-              echo '</nav>';
+                echo '  </ul>';
+                echo '</nav>';
+              }
 
               ?>
 
