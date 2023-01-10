@@ -10,11 +10,10 @@ class DB_con
 
     function __construct()
     {
-        $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-        $this->dbcon = $conn;
+        $this->dbcon = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
 
         if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL : " . mysqli_connect_error();
+            echo "เชื่อมต่อไปยังฐานข้อมูลผิดพลาด กรุณาลองใหม่อีกครั้ง : " . mysqli_connect_error();
         }
     }
 
