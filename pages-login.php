@@ -11,7 +11,6 @@ if (isset($_POST['login'])) {
 }
 
 if (isset($_POST['remember'])) {
-  // Set the "username" cookie to expire in 7 days
   setcookie("username", $username, time() + 604800);
 }
 

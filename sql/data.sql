@@ -1,5 +1,11 @@
 CREATE DATABASE CLP CHARACTER SET utf8 COLLATE utf8_general_ci;
 
+CREATE TABLE IF NOT EXISTS visitors (
+    visitors_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	ip_address text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+	visi_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 CREATE TABLE IF NOT EXISTS member (
 	fname varchar(70) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 	lname varchar(70) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,

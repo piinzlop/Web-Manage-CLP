@@ -16,6 +16,27 @@ if (isset($_GET['logout'])) {
 
 $username = htmlentities($_COOKIE['username']);
 
+// เริ่มการเช็กผู้เข้าชม
+
+$visitor_ip = $_SERVER['REMOTE_ADDR'];
+
+$conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+$query = "SELECT * FROM visitors WHERE ip_address = '$visitor_ip' ";
+$result = mysqli_query($conn, $query);
+$total_visitors = mysqli_num_rows($result);
+
+if ($total_visitors < 1) {
+  $query = "INSERT INTO visitors(`ip_address`) VALUES ('$visitor_ip')";
+  $result = mysqli_query($conn, $query);
+}
+
+$query = "SELECT * FROM visitors";
+$result = mysqli_query($conn, $query);
+
+$total_visitors = mysqli_num_rows($result);
+
+// จบการเช็กผู้เข้าชม
+
 $updateuser = new DB_con();
 $sql = $updateuser->fetchonerecordMember($username);
 while ($row = mysqli_fetch_array($sql)) {
@@ -500,6 +521,43 @@ while ($row = mysqli_fetch_array($sql)) {
           <div class="col-lg-8">
             <div class="row">
 
+              <!-- Customers Card -->
+              <div class="col-xxl-4 col-xl-12">
+
+                <div class="card info-card customers-card">
+
+                  <div class="filter">
+                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                      <li class="dropdown-header text-start">
+                        <h6>Filter</h6>
+                      </li>
+
+                      <li><a class="dropdown-item" href="#">Today</a></li>
+                      <li><a class="dropdown-item" href="#">This Month</a></li>
+                      <li><a class="dropdown-item" href="#">This Year</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="card-body">
+                    <h5 class="card-title">Visitors <span>| คน</span></h5>
+
+                    <div class="d-flex align-items-center">
+                      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi bi-people"></i>
+                      </div>
+                      <div class="ps-3">
+                        <h6><?php echo $total_visitors; ?></h6>
+                        <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div><!-- End Customers Card -->
+
               <!-- Sales Card -->
               <div class="col-xxl-4 col-md-6">
                 <div class="card info-card sales-card">
@@ -569,43 +627,6 @@ while ($row = mysqli_fetch_array($sql)) {
 
                 </div>
               </div><!-- End Revenue Card -->
-
-              <!-- Customers Card -->
-              <div class="col-xxl-4 col-xl-12">
-
-                <div class="card info-card customers-card">
-
-                  <div class="filter">
-                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                      <li class="dropdown-header text-start">
-                        <h6>Filter</h6>
-                      </li>
-
-                      <li><a class="dropdown-item" href="#">Today</a></li>
-                      <li><a class="dropdown-item" href="#">This Month</a></li>
-                      <li><a class="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="card-body">
-                    <h5 class="card-title">Customers <span>| This Year</span></h5>
-
-                    <div class="d-flex align-items-center">
-                      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                        <i class="bi bi-people"></i>
-                      </div>
-                      <div class="ps-3">
-                        <h6>1244</h6>
-                        <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-              </div><!-- End Customers Card -->
 
               <!-- Reports -->
               <div class="col-12">

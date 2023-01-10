@@ -590,14 +590,14 @@ while ($row = mysqli_fetch_array($sql)) {
                       <div class="row mb-3">
                         <label for="fname" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                         <div class="col-md-8 col-lg-9">
-                          <input name="fname" type="text" class="form-control" value="<?php echo $row['fname']; ?>" required>
+                          <input name="fname" type="text" class="form-control" value="<?php echo $row['fname']; ?>">
                         </div>
                       </div>
 
                       <div class="row mb-3">
                         <label for="lname" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
                         <div class="col-md-8 col-lg-9">
-                          <input name="lname" type="text" class="form-control" value="<?php echo $row['lname']; ?>" required>
+                          <input name="lname" type="text" class="form-control" value="<?php echo $row['lname']; ?>" >
                         </div>
                       </div>
 
