@@ -18,6 +18,26 @@ class DB_con
         }
     }
 
+    // นับผู้เข้าใช้ด้วย IP ของผู้เข้าใช้
+    public function countVisitors()
+    {
+        $visitor_ip = $_SERVER['REMOTE_ADDR'];
+        $query = "SELECT * FROM visitors WHERE ip_address = '$visitor_ip' ";
+        $result = mysqli_query($this->dbcon, $query);
+        $total_visitors = mysqli_num_rows($result);
+
+        if ($total_visitors < 1) {
+            $query = "INSERT INTO visitors(`ip_address`) VALUES ('$visitor_ip')";
+            $result = mysqli_query($this->dbcon, $query);
+        }
+
+        $query = "SELECT * FROM visitors";
+        $result = mysqli_query($this->dbcon, $query);
+        $total_visitors = mysqli_num_rows($result);
+
+        return $total_visitors;
+    }
+
     // เข้าสู่ระบบ
     public function login($username, $pass)
     {
@@ -122,7 +142,7 @@ class DB_con
         }
     }
 
-
+    // แสดงข้อมูลสมาชิก
     public function fetchdataMember()
     {
         $result = mysqli_query($this->dbcon, "SELECT * FROM member");
@@ -134,8 +154,6 @@ class DB_con
         $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username = '$username'");
         return $result;
     }
-
-
 
     // เพิ่มข่าว 1
     public function insert($newsName1, $img1, $NewsMsg1, $note1, $modi_user1)

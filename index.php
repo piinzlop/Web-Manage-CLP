@@ -16,29 +16,11 @@ if (isset($_GET['logout'])) {
 
 $username = htmlentities($_COOKIE['username']);
 
-// เริ่มการเช็กผู้เข้าชม
+$visitors = new DB_con();
+$total_visitors = $visitors->countVisitors();
 
-$visitor_ip = $_SERVER['REMOTE_ADDR'];
-
-$conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-$query = "SELECT * FROM visitors WHERE ip_address = '$visitor_ip' ";
-$result = mysqli_query($conn, $query);
-$total_visitors = mysqli_num_rows($result);
-
-if ($total_visitors < 1) {
-  $query = "INSERT INTO visitors(`ip_address`) VALUES ('$visitor_ip')";
-  $result = mysqli_query($conn, $query);
-}
-
-$query = "SELECT * FROM visitors";
-$result = mysqli_query($conn, $query);
-
-$total_visitors = mysqli_num_rows($result);
-
-// จบการเช็กผู้เข้าชม
-
-$updateuser = new DB_con();
-$sql = $updateuser->fetchonerecordMember($username);
+$showuser = new DB_con();
+$sql = $showuser->fetchonerecordMember($username);
 while ($row = mysqli_fetch_array($sql)) {
 
 ?>
@@ -548,8 +530,6 @@ while ($row = mysqli_fetch_array($sql)) {
                       </div>
                       <div class="ps-3">
                         <h6><?php echo $total_visitors; ?></h6>
-                        <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
                       </div>
                     </div>
 
@@ -584,7 +564,7 @@ while ($row = mysqli_fetch_array($sql)) {
                       </div>
                       <div class="ps-3">
                         <h6>145</h6>
-                        <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                        <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
 
                       </div>
                     </div>
