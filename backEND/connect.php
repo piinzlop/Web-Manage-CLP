@@ -22,8 +22,7 @@ class DB_con
     public function countVisitors()
     {
         $visitor_ip = $_SERVER['REMOTE_ADDR'];
-        $query = "SELECT * FROM visitors WHERE ip_address = '$visitor_ip' ";
-        $result = mysqli_query($this->dbcon, $query);
+        $result = mysqli_query($this->dbcon, "SELECT * FROM visitors WHERE ip_address = '$visitor_ip'");
         $total_visitors = mysqli_num_rows($result);
 
         if ($total_visitors < 1) {
@@ -41,20 +40,13 @@ class DB_con
     // เข้าสู่ระบบ
     public function login($username, $pass)
     {
-        $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-        $query = "SELECT * FROM member WHERE username='$username'";
-        $result = mysqli_query($conn, $query);
+        $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username='$username'");
 
         if (mysqli_num_rows($result) > 0) {
-            $queryP = "SELECT * FROM member WHERE username='$username' AND pass='$pass'";
-            $resultP = mysqli_query($conn, $queryP);
-            if (mysqli_num_rows($resultP)) {
+            $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username='$username' AND pass='$pass'");
 
-                // Query the database to retrieve the data
-                $query = "SELECT * FROM member WHERE username='$username'";
-                $result = mysqli_query($conn, $query);
-
-                // Fetch the row data
+            if (mysqli_num_rows($result)) {
+                $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username='$username'");
                 $row = mysqli_fetch_assoc($result);
 
                 // Set the cookie with the retrieved data
@@ -77,9 +69,7 @@ class DB_con
     // สมัครบัญชีผู้ใช้ 
     public function register($fname, $lname, $username, $pass)
     {
-        $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-        $query = "SELECT * FROM member WHERE username='$username'";
-        $result = mysqli_query($conn, $query);
+        $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username='$username'");
 
         if (mysqli_num_rows($result) > 0) {
             echo "<script>alert('ชื่อบัญชีผู้ใช้ถูกใช้งานไปแล้ว กรุณาใช้ชื่ออื่น');</script>";
@@ -97,7 +87,7 @@ class DB_con
                     // return $result;
 
                     //  แบบไม่เข้ารหัส
-                    $result = mysqli_query($this->dbcon, "INSERT INTO member(fname, lname, username, pass) 
+                    $result = mysqli_query($this->dbcon, "INSERT INTO member(fname, lname, username, pass)
                         VALUES('$fname', '$lname', '$username', '$pass')");
                     return $result;
                 }
@@ -119,10 +109,9 @@ class DB_con
     // เปลี่ยนรหัสผ่าน 
     public function changePass($username, $pass, $newPass)
     {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username = '$username' AND pass = '$pass'");
 
-        $resultSelect = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username = '$username' AND pass = '$pass'");
-
-        if (mysqli_num_rows($resultSelect) == 1) {
+        if (mysqli_num_rows($result) == 1) {
 
             if (strlen($newPass) < 8) {
                 echo "<script>alert('รหัสต้องมีความยาวอย่างน้อย 8 ตัว กรุณาลองใหม่อีกครั้ง');</script>";
@@ -130,11 +119,11 @@ class DB_con
                 if (!preg_match("/[A-Z]/", $newPass)) {
                     echo "<script>alert('รหัสผ่านต้องมีตัวอักษรภาษาอังกฤษตัวใหญ่อย่างน้อย 1 ตัว กรุณาลองใหม่อีกครั้ง');</script>";
                 } else {
-                    $resultPass = mysqli_query($this->dbcon, "UPDATE member SET 
+                    $result = mysqli_query($this->dbcon, "UPDATE member SET 
                             pass = '$newPass'
                             WHERE username = '$username' AND pass = '$pass'
                         ");
-                    return $resultPass;
+                    return $result;
                 }
             }
         } else {
