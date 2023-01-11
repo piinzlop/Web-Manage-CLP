@@ -267,7 +267,7 @@ while ($row = mysqli_fetch_array($sql)) {
                 <hr class="dropdown-divider">
               </li>
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
+                <a class="dropdown-item d-flex align-items-center" href="users-profile.php?id=<?php echo $row['username']; ?>">
                   <i class="bi bi-gear"></i>
                   <span>Account Settings</span>
                 </a>
@@ -483,7 +483,7 @@ while ($row = mysqli_fetch_array($sql)) {
         <li class="nav-heading">Pages</li>
 
         <li class="nav-item">
-          <a class="nav-link collapsed" href="users-profile.php">
+          <a class="nav-link collapsed" href="users-profile.php?id=<?php echo $row['username']; ?>">
             <i class="bi bi-person"></i>
             <span>Profile</span>
           </a>

@@ -267,7 +267,7 @@ $lname = htmlentities($_COOKIE['lname']);
               </li>
 
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
+                <a class="dropdown-item d-flex align-items-center" href="users-profile.php?id=<?php echo $username ; ?>?id=<?php echo $username ; ?>">
                   <i class="bi bi-person"></i>
                   <span>My Profile</span>
                 </a>
@@ -277,7 +277,7 @@ $lname = htmlentities($_COOKIE['lname']);
               </li>
 
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
+                <a class="dropdown-item d-flex align-items-center" href="users-profile.php?id=<?php echo $username ; ?>?id=<?php echo $username ; ?>">
                   <i class="bi bi-gear"></i>
                   <span>Account Settings</span>
                 </a>
@@ -483,7 +483,7 @@ $lname = htmlentities($_COOKIE['lname']);
         <li class="nav-heading">Pages</li>
 
         <li class="nav-item">
-          <a class="nav-link collapsed" href="users-profile.php">
+          <a class="nav-link collapsed" href="users-profile.php?id=<?php echo $username ; ?>?id=<?php echo $username ; ?>">
             <i class="bi bi-person"></i>
             <span>Profile</span>
           </a>
