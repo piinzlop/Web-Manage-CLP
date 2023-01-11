@@ -41,10 +41,6 @@ $username = htmlentities($_COOKIE['username']);
 $fname = htmlentities($_COOKIE['fname']);
 $lname = htmlentities($_COOKIE['lname']);
 
-$updateuser = new DB_con();
-$sql = $updateuser->fetchonerecordMember($username);
-while ($row = mysqli_fetch_array($sql)) {
-
 $news3_id = htmlentities($_GET['id']);
 $updateuser = new DB_con();
 $sql = $updateuser->fetchonerecord3($news3_id);
@@ -649,4 +645,4 @@ for ($i = 1; $i <= $num_pages; $i++) {
 
 </html>
 
-<?php } } ?>
+<?php } ?>

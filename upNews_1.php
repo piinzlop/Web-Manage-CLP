@@ -39,14 +39,10 @@ $username = htmlentities($_COOKIE['username']);
 $fname = htmlentities($_COOKIE['fname']);
 $lname = htmlentities($_COOKIE['lname']);
 
+$news1_id = htmlentities($_GET['id']);
 $updateuser = new DB_con();
-$sql = $updateuser->fetchonerecordMember($username);
+$sql = $updateuser->fetchonerecord($news1_id);
 while ($row = mysqli_fetch_array($sql)) {
-
-  $news1_id = htmlentities($_GET['id']);
-  $updateuser = new DB_con();
-  $sql = $updateuser->fetchonerecord($news1_id);
-  while ($row = mysqli_fetch_array($sql)) {
 
 ?>
 
@@ -636,5 +632,4 @@ while ($row = mysqli_fetch_array($sql)) {
 
     </html>
 
-<?php }
-} ?>
+<?php } ?>

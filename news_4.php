@@ -1,6 +1,5 @@
 <?php
 
-
 include_once('./backEND/connect.php');
 
 if (!isset($_COOKIE['username'])) {
