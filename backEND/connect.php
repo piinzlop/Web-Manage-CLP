@@ -27,6 +27,9 @@ class DB_con
         if ($total_visitors < 1) {
             $query = "INSERT INTO visitors(`ip_address`) VALUES ('$visitor_ip')";
             $result = mysqli_query($this->dbcon, $query);
+        } else {
+            $query = "UPDATE visitors SET latest_enter = CURRENT_TIMESTAMP() WHERE ip_address='$visitor_ip'";
+            $result = mysqli_query($this->dbcon, $query);
         }
 
         $query = "SELECT * FROM visitors";
