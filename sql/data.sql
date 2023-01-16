@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS member (
 	fname varchar(70) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 	lname varchar(70) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 	username varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL PRIMARY KEY,
-	pass varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+	pass text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 	createtimeMember timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 

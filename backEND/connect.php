@@ -45,9 +45,18 @@ class DB_con
         $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username='$username'");
 
         if (mysqli_num_rows($result) > 0) {
-            $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username='$username' AND pass='$pass'");
 
-            if (mysqli_num_rows($result)) {
+            // เรียกรหัสผ่านที่เข้ารหัสใน Mysql แล้วนำไปแทนค่า
+            $result = mysqli_query($this->dbcon, "SELECT pass FROM member WHERE username = '$username'");
+            $row = mysqli_fetch_assoc($result);
+            $hashedPassDB = $row['pass'];
+
+            // เข้ารหัสให้กับ Pass ที่พิมพ์มา
+            $salt = "random_string";
+            $hashedPass = hash('sha256', $salt . $pass);
+
+            // เช็ก Pass ที่เข้ารหัสว่าตรงกันกับใน Mysql 
+            if ($hashedPass === $hashedPassDB) {
                 $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username='$username'");
                 $row = mysqli_fetch_assoc($result);
 
@@ -82,15 +91,10 @@ class DB_con
                 if (!preg_match("/[A-Z]/", $pass)) {
                     echo "<script>alert('รหัสผ่านต้องมีตัวอักษรภาษาอังกฤษตัวใหญ่อย่างน้อย 1 ตัว กรุณาลองใหม่อีกครั้ง');</script>";
                 } else {
-                    //  แบบเข้ารหัส
-                    // $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
-                    // $result = mysqli_query($this->dbcon, "INSERT INTO member(fname, lname, username, pass) 
-                    //     VALUES('$fname', '$lname', '$username', '$hashedPassword')");
-                    // return $result;
-
-                    //  แบบไม่เข้ารหัส
-                    $result = mysqli_query($this->dbcon, "INSERT INTO member(fname, lname, username, pass)
-                        VALUES('$fname', '$lname', '$username', '$pass')");
+                    $salt = "random_string";
+                    $hashedPass = hash('sha256', $salt . $pass); 
+                    $result = mysqli_query($this->dbcon, "INSERT INTO member(fname, lname, username, pass) 
+                        VALUES('$fname', '$lname', '$username', '$hashedPass')");
                     return $result;
                 }
             }
@@ -111,19 +115,30 @@ class DB_con
     // เปลี่ยนรหัสผ่าน 
     public function changePass($username, $pass, $newPass)
     {
-        $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username = '$username' AND pass = '$pass'");
+        // เรียกรหัสผ่านที่เข้ารหัสใน Mysql แล้วนำไปแทนค่า
+        $result = mysqli_query($this->dbcon, "SELECT pass FROM member WHERE username = '$username'");
+        $row = mysqli_fetch_assoc($result);
+        $hashedPassDB = $row['pass'];
 
-        if (mysqli_num_rows($result) == 1) {
+        // เข้ารหัสให้กับ Pass ที่พิมพ์มา
+        $salt = "random_string";
+        $hashedPass = hash('sha256', $salt . $pass);
 
+        // เช็ก Pass ที่เข้ารหัสว่าตรงกันกับใน Mysql 
+        if ($hashedPass === $hashedPassDB) {
             if (strlen($newPass) < 8) {
                 echo "<script>alert('รหัสต้องมีความยาวอย่างน้อย 8 ตัว กรุณาลองใหม่อีกครั้ง');</script>";
             } else {
                 if (!preg_match("/[A-Z]/", $newPass)) {
                     echo "<script>alert('รหัสผ่านต้องมีตัวอักษรภาษาอังกฤษตัวใหญ่อย่างน้อย 1 ตัว กรุณาลองใหม่อีกครั้ง');</script>";
                 } else {
+                    // เข้ารหัสให้กับรหัสผ่านใหม่ที่พิมพ์มา
+                    $salt = "random_string";
+                    $hashedNewPass = hash('sha256', $salt . $newPass);
+
                     $result = mysqli_query($this->dbcon, "UPDATE member SET 
-                            pass = '$newPass'
-                            WHERE username = '$username' AND pass = '$pass'
+                            pass = '$hashedNewPass'
+                            WHERE username = '$username' AND pass = '$hashedPassDB'
                         ");
                     return $result;
                 }
