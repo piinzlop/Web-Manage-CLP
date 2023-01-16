@@ -52,9 +52,9 @@ class DB_con
                 $row = mysqli_fetch_assoc($result);
 
                 // Set the cookie with the retrieved data
-                setcookie("fname", $row['fname'], time() + 3600);
-                setcookie("lname", $row['lname'], time() + 3600);
-                setcookie("username", $row['username'], time() + 3600);
+                setcookie("fname", $row['fname'], strtotime("+12 hours"), '/', '', true, true);
+                setcookie("lname", $row['lname'], strtotime("+12 hours"), '/', '', true, true);
+                setcookie("username", $row['username'], strtotime("+12 hours"), '/', '', true, true);
 
                 echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
                 echo "<script>window.location.href='index.php'</script>";

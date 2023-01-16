@@ -32,7 +32,7 @@ if (isset($_POST['update3'])) {
 
 if (isset($_GET['logout'])) {
   foreach ($_COOKIE as $key => $value) {
-    setcookie($key, '', time() - 3600);
+    setcookie($key, '', strtotime("-12 hours"), '/', '', true, true);
     echo "<script>window.location.href='pages-login.php'</script>";
   }
 }
