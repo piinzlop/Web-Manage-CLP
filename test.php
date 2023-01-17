@@ -9,23 +9,20 @@
 </head>
 
 <body>
-    <?php
-    // The string to be encoded
-    $string = "ice";
 
-    // Encode the string
-    $encoded_string = base64_encode($string);
+    <?php
+
+    // เข้ารหัส
+    $encoded_string = base64_encode('ice');
     echo "Encoded string: " . $encoded_string . "<br>";
 
-    // Decode the string
+    // ถอดรหัส
     $decoded_string = base64_decode($encoded_string);
     echo "Decoded string: " . $decoded_string . "<br><br><br>";
 
-    $entered_password = 'iceat_po@rmutsvmail.com';
-    $salt = 'random_string';
-    $hashed_password = hash('sha256', $salt . $entered_password);
+    // เข้ารหัสแบบ hash
+    $hashed_password = hash('sha256', '11111111R');
     echo "Decoded string: " . $hashed_password;
-
 
     ?>
 

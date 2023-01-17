@@ -52,8 +52,7 @@ class DB_con
             $hashedPassDB = $row['pass'];
 
             // เข้ารหัสให้กับ Pass ที่พิมพ์มา
-            $salt = "random_string";
-            $hashedPass = hash('sha256', $salt . $pass);
+            $hashedPass = hash('sha256', 'Lnwza007' . $pass);
 
             // เช็ก Pass ที่เข้ารหัสว่าตรงกันกับใน Mysql 
             if ($hashedPass === $hashedPassDB) {
@@ -94,8 +93,7 @@ class DB_con
                 if (!preg_match("/[A-Z]/", $pass)) {
                     echo "<script>alert('รหัสผ่านต้องมีตัวอักษรภาษาอังกฤษตัวใหญ่อย่างน้อย 1 ตัว กรุณาลองใหม่อีกครั้ง');</script>";
                 } else {
-                    $salt = "random_string";
-                    $hashedPass = hash('sha256', $salt . $pass);
+                    $hashedPass = hash('sha256', 'Lnwza007' . $pass);
                     $result = mysqli_query($this->dbcon, "INSERT INTO member(fname, lname, username, pass) 
                         VALUES('$fname', '$lname', '$username', '$hashedPass')");
                     return $result;
@@ -124,8 +122,7 @@ class DB_con
         $hashedPassDB = $row['pass'];
 
         // เข้ารหัสให้กับ Pass ที่พิมพ์มา
-        $salt = "random_string";
-        $hashedPass = hash('sha256', $salt . $pass);
+        $hashedPass = hash('sha256', 'Lnwza007' . $pass);
 
         // เช็ก Pass ที่เข้ารหัสว่าตรงกันกับใน Mysql 
         if ($hashedPass === $hashedPassDB) {
@@ -136,8 +133,7 @@ class DB_con
                     echo "<script>alert('รหัสผ่านต้องมีตัวอักษรภาษาอังกฤษตัวใหญ่อย่างน้อย 1 ตัว กรุณาลองใหม่อีกครั้ง');</script>";
                 } else {
                     // เข้ารหัสให้กับรหัสผ่านใหม่ที่พิมพ์มา
-                    $salt = "random_string";
-                    $hashedNewPass = hash('sha256', $salt . $newPass);
+                    $hashedNewPass = hash('sha256', 'Lnwza007' . $newPass);
 
                     $result = mysqli_query($this->dbcon, "UPDATE member SET 
                             pass = '$hashedNewPass'
