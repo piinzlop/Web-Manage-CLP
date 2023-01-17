@@ -15,8 +15,7 @@ if (isset($_GET['logout'])) {
 }
 
 $username = htmlentities($_COOKIE['username']);
-
-$username = base64_decode($username);
+$deUsername = base64_decode($username);
 
 $updatedata = new DB_con();
 
@@ -280,7 +279,7 @@ while ($row = mysqli_fetch_array($sql)) {
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
               <li class="dropdown-header">
                 <h6><?php echo $row['fname']; ?> <?php echo $row['lname']; ?></h6>
-                <span>Username : <?php echo $row['username']; ?></span>
+                <span>Username : <?php echo $deUsername; ?></span>
               </li>
               <li>
                 <hr class="dropdown-divider">
@@ -542,7 +541,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
                 <img src="https://w7.pngwing.com/pngs/481/915/png-transparent-computer-icons-user-avatar-woman-avatar-computer-business-conversation-thumbnail.png" alt="Profile" class="rounded-circle">
                 <h2 class="mt-4"><?php echo $row['fname']; ?> <?php echo $row['lname']; ?></h2>
-                <h3 class="m-3"> User Name : <?php echo $row['username']; ?></h3>
+                <h3 class="m-3"> User Name : <?php echo $deUsername; ?></h3>
               </div>
             </div>
 
@@ -580,7 +579,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label ">User Name</div>
-                      <div class="col-lg-9 col-md-8"><?php echo $row['username']; ?></div>
+                      <div class="col-lg-9 col-md-8"><?php echo $deUsername; ?></div>
                     </div>
                   </div>
 

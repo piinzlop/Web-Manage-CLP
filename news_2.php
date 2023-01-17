@@ -35,8 +35,7 @@ if (isset($_GET['logout'])) {
 }
 
 $username = $_COOKIE['username'];
-
-$username = base64_decode($username);
+$deUsername = base64_decode($username);
 
 $updateuser = new DB_con();
 $sql = $updateuser->fetchonerecordMember($username);
@@ -263,7 +262,7 @@ while ($row = mysqli_fetch_array($sql)) {
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
               <li class="dropdown-header">
                 <h6><?php echo $row['fname']; ?> <?php echo $row['lname']; ?> </h6>
-                <span>Username : <?php echo $row['username']; ?></span>
+                <span>Username : <?php echo $deUsername; ?></span>
               </li>
               <li>
                 <hr class="dropdown-divider">

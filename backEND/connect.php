@@ -42,6 +42,9 @@ class DB_con
     // เข้าสู่ระบบ
     public function login($username, $pass)
     {
+        // เข้ารหัสให้กับ username
+        $username = base64_encode($username);
+        
         $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username='$username'");
 
         if (mysqli_num_rows($result) > 0) {
@@ -59,13 +62,10 @@ class DB_con
                 $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username='$username'");
                 $row = mysqli_fetch_assoc($result);
 
-                // เข้ารหัสให้กับ Username
-                $enUsername = base64_encode($row['username']);
-
                 // Set the cookie with the retrieved data
                 setcookie("fname", $row['fname'], strtotime("+12 hours"), '/', '', true, true);
                 setcookie("lname", $row['lname'], strtotime("+12 hours"), '/', '', true, true);
-                setcookie("username", $enUsername, strtotime("+12 hours"), '/', '', true, true);
+                setcookie("username", $row['username'], strtotime("+12 hours"), '/', '', true, true);
 
                 echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
                 echo "<script>window.location.href='index.php'</script>";
@@ -82,6 +82,11 @@ class DB_con
     // สมัครบัญชีผู้ใช้ 
     public function register($fname, $lname, $username, $pass)
     {
+        // เข้ารหัสให้กับ username
+        $username = base64_encode($username);
+
+
+
         $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username='$username'");
 
         if (mysqli_num_rows($result) > 0) {

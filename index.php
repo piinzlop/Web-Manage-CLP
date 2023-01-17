@@ -15,7 +15,7 @@ if (isset($_GET['logout'])) {
 }
 
 $username = htmlentities($_COOKIE['username']);
-$username = base64_decode($username);
+$deUsername = base64_decode($username);
 
 $visitors = new DB_con();
 $total_visitors = $visitors->countVisitors();
@@ -245,7 +245,7 @@ while ($row = mysqli_fetch_array($sql)) {
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
               <li class="dropdown-header">
                 <h6><?php echo $row['fname']; ?> <?php echo $row['lname']; ?> </h6>
-                <span>Username : <?php echo $row['username']; ?></span>
+                <span>Username : <?php echo $deUsername; ?></span>
               </li>
               <li>
                 <hr class="dropdown-divider">
