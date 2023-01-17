@@ -15,6 +15,7 @@ if (isset($_GET['logout'])) {
 }
 
 $username = htmlentities($_COOKIE['username']);
+$username = base64_decode($username);
 
 $visitors = new DB_con();
 $total_visitors = $visitors->countVisitors();

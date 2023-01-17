@@ -37,6 +37,8 @@ if (isset($_GET['logout'])) {
 
 $username = $_COOKIE['username'];
 
+$username = base64_decode($username);
+
 $updateuser = new DB_con();
 $sql = $updateuser->fetchonerecordMember($username);
 while ($row = mysqli_fetch_array($sql)) {

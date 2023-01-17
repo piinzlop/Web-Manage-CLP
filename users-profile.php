@@ -16,6 +16,8 @@ if (isset($_GET['logout'])) {
 
 $username = htmlentities($_COOKIE['username']);
 
+$username = base64_decode($username);
+
 $updatedata = new DB_con();
 
 if (isset($_POST['updateName'])) {

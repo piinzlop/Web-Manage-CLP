@@ -60,10 +60,13 @@ class DB_con
                 $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username='$username'");
                 $row = mysqli_fetch_assoc($result);
 
+                // เข้ารหัสให้กับ Username
+                $enUsername = base64_encode($row['username']);
+
                 // Set the cookie with the retrieved data
                 setcookie("fname", $row['fname'], strtotime("+12 hours"), '/', '', true, true);
                 setcookie("lname", $row['lname'], strtotime("+12 hours"), '/', '', true, true);
-                setcookie("username", $row['username'], strtotime("+12 hours"), '/', '', true, true);
+                setcookie("username", $enUsername, strtotime("+12 hours"), '/', '', true, true);
 
                 echo "<script>alert('เช้าสู่ระบบเรียบร้อย !');</script>";
                 echo "<script>window.location.href='index.php'</script>";
@@ -92,7 +95,7 @@ class DB_con
                     echo "<script>alert('รหัสผ่านต้องมีตัวอักษรภาษาอังกฤษตัวใหญ่อย่างน้อย 1 ตัว กรุณาลองใหม่อีกครั้ง');</script>";
                 } else {
                     $salt = "random_string";
-                    $hashedPass = hash('sha256', $salt . $pass); 
+                    $hashedPass = hash('sha256', $salt . $pass);
                     $result = mysqli_query($this->dbcon, "INSERT INTO member(fname, lname, username, pass) 
                         VALUES('$fname', '$lname', '$username', '$hashedPass')");
                     return $result;

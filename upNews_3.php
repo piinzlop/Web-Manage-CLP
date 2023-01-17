@@ -38,6 +38,7 @@ if (isset($_GET['logout'])) {
 }
 
 $username = htmlentities($_COOKIE['username']);
+$username = base64_decode($username);
 $fname = htmlentities($_COOKIE['fname']);
 $lname = htmlentities($_COOKIE['lname']);
 
