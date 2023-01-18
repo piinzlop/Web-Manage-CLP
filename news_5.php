@@ -525,7 +525,7 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="col-md-12">
                 <div class="form-floating">
                   <input type="text" class="form-control" name="img5" placeholder="img5" require>
-                  <label for="img5">ไฟล์รูป</label>
+                  <label for="img5">ลิ้งค์รูป</label>
                 </div>
               </div>
               <div class="col-12">

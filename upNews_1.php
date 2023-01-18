@@ -532,7 +532,7 @@ while ($row = mysqli_fetch_array($sql)) {
                       window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
                     }
                   </script>
-                  <input type="text" class="form-control" name="img1" placeholder="img1" value="<?php echo $row['img1']; ?>" require>
+                  <input type="text" id="image_url"class="form-control" name="img1" placeholder="img1" value="<?php echo $row['img1']; ?>" require>
                 </div>
               </div>
               <div class="col-12">

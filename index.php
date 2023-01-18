@@ -646,16 +646,14 @@ while ($row = mysqli_fetch_array($sql)) {
                         $deUsername = base64_decode($row['modi_user']);
 
                         echo "<tr>";
-                        echo '<td><img src="'.$row['img'].'" width="auto" height="70" alt="image"></td>';
+                        echo '<td><img src="' . $row['img'] . '" width="auto" height="70" alt="image"></td>';
                         echo "<td><span class='badge bg-success'>" . $deUsername . "</td>";
                         echo "<td><a class='text-primary'>" . $row['newsName'] . "</td>";
                         echo "<td>" . $row['note'] . "</td>";
                         echo "<td class='fw-bold'>" . $row['updated'] . "</td>";
+                      }
 
-                      } 
-                      
                       ?>
-
                     </table>
                   </div>
                 </div>
