@@ -538,7 +538,12 @@ while ($row = mysqli_fetch_array($sql)) {
               </div>
               <div class="col-md-12">
                 <div class="form-floating">
-                  <p>ลิงค์รูป : </p>
+                  <p>ลิ้งค์รูป : <button class="btn btn-success" onclick="popUpImage('<?php echo $row['img2']; ?>')">ตัวอย่างภาพ</button></p>
+                  <script>
+                    function popUpImage(imageUrl) {
+                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
+                    }
+                  </script>
                   <input type="text" class="form-control" name="img2" placeholder="img2" value="<?php echo $row['img2']; ?>" require>
                 </div>
               </div>

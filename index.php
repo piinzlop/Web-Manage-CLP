@@ -632,7 +632,7 @@ while ($row = mysqli_fetch_array($sql)) {
                       <thead>
                         <tr>
                           <th scope="col">รูปข่าว</th>
-                          <th scope="col">ชื่อบัญชีผ้แก้ไข</th>
+                          <th scope="col">ชื่อบัญชีผู้แก้ไข</th>
                           <th scope="col">ชื่อข่าว</th>
                           <th scope="col">หมายเหตุ</th>
                           <th scope="col">เวลาอัปเดตล่าสุด</th>

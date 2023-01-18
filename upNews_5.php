@@ -527,21 +527,23 @@ $lname = htmlentities($_COOKIE['lname']);
                 <div class="col-md-12">
                   <div class="form-floating">
                     <p>ชื่อข่าว : </p>
-                    <!-- <label for="newsName5"></label> -->
                     <input type="text" class="form-control" name="newsName5" placeholder="newsName5" value="<?php echo $row['newsName5']; ?>" require>
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-floating">
-                    <p>ลิงค์รูป : </p>
-                    <!-- <label for="img5"></label> -->
+                  <p>ลิ้งค์รูป : <button class="btn btn-success" onclick="popUpImage('<?php echo $row['img5']; ?>')">ตัวอย่างภาพ</button></p>
+                  <script>
+                    function popUpImage(imageUrl) {
+                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
+                    }
+                  </script>
                     <input type="text" class="form-control" name="img5" placeholder="img5" value="<?php echo $row['img5']; ?>" require>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="form-floating">
                     <p>เนื้อหาข่าว : </p>
-                    <!-- <label for="NewsMsg5"></label> -->
                     <textarea class="form-control" placeholder="NewsMsg5" name="NewsMsg5" style="height: 150px;" require><?php echo $row['NewsMsg5']; ?></textarea>
                   </div>
                 </div>
@@ -549,7 +551,6 @@ $lname = htmlentities($_COOKIE['lname']);
                   <div class="col-md-12">
                     <div class="form-floating">
                       <p>หมายเหตุ : </p>
-                      <!-- <label for="note5"></label> -->
                       <input type="text" class="form-control" name="note5" placeholder="note5" value="<?php echo $row['note5']; ?>">
                     </div>
                   </div>

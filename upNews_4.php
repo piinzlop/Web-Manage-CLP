@@ -533,8 +533,12 @@ $lname = htmlentities($_COOKIE['lname']);
                 </div>
                 <div class="col-md-12">
                   <div class="form-floating">
-                    <p>ลิงค์รูป : </p>
-                    <!-- <label for="img4"></label> -->
+                  <p>ลิ้งค์รูป : <button class="btn btn-success" onclick="popUpImage('<?php echo $row['img4']; ?>')">ตัวอย่างภาพ</button></p>
+                  <script>
+                    function popUpImage(imageUrl) {
+                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
+                    }
+                  </script>
                     <input type="text" class="form-control" name="img4" placeholder="img4" value="<?php echo $row['img4']; ?>" require>
                   </div>
                 </div>
