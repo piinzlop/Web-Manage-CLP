@@ -261,14 +261,14 @@ while ($row = mysqli_fetch_array($sql)) {
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="https://w7.pngwing.com/pngs/481/915/png-transparent-computer-icons-user-avatar-woman-avatar-computer-business-conversation-thumbnail.png" alt="Profile" class="rounded-circle">
                 <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $fname ?></span>
               </a><!-- End Profile Iamge Icon -->
 
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                 <li class="dropdown-header">
                   <h6><?php echo $fname ?> <?php echo $lname ?> </h6>
-                  <span>Username : <?php echo $username ?></span>
+                  <span>Username : <?php echo $deUsername ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">

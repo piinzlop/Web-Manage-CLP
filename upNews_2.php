@@ -266,7 +266,7 @@ while ($row = mysqli_fetch_array($sql)) {
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
               <li class="dropdown-header">
                 <h6><?php echo $fname ?> <?php echo $lname ?> </h6>
-                <span>Username : <?php echo $username ?></span>
+                <span>Username : <?php echo $deUsername ?></span>
               </li>
               <li>
                 <hr class="dropdown-divider">
