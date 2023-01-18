@@ -631,8 +631,10 @@ while ($row = mysqli_fetch_array($sql)) {
                     <table class="table table-borderless datatable">
                       <thead>
                         <tr>
-                          <th scope="col">ชื่อผู้แก้ไข</th>
+                          <th scope="col">รูปข่าว</th>
+                          <th scope="col">ชื่อบัญชีผ้แก้ไข</th>
                           <th scope="col">ชื่อข่าว</th>
+                          <th scope="col">หมายเหตุ</th>
                           <th scope="col">เวลาอัปเดตล่าสุด</th>
                         </tr>
                       </thead>
@@ -641,12 +643,14 @@ while ($row = mysqli_fetch_array($sql)) {
 
                       $sql = $conn->viewModify();
                       while ($row = mysqli_fetch_assoc($sql)) {
-                        $deUsername = base64_decode($row['modi_user1']);
+                        $deUsername = base64_decode($row['modi_user']);
 
                         echo "<tr>";
-                        echo "<td><span class='badge bg-success m-1'>" . $deUsername . "</td>";
-                        echo "<td><a href='#' class='text-primary'>" . $row['newsName1'] . "</td>";
-                        echo "<td class='fw-bold'>" . $row['updated_at1'] . "</td>";
+                        echo '<td><img src="'.$row['img'].'" width="auto" height="70" alt="image"></td>';
+                        echo "<td><span class='badge bg-success'>" . $deUsername . "</td>";
+                        echo "<td><a class='text-primary'>" . $row['newsName'] . "</td>";
+                        echo "<td>" . $row['note'] . "</td>";
+                        echo "<td class='fw-bold'>" . $row['updated'] . "</td>";
 
                       } 
                       
