@@ -609,6 +609,52 @@ while ($row = mysqli_fetch_array($sql)) {
                 </div>
               </div><!-- End Revenue Card -->
 
+              <div class="col-12">
+                <div class="card recent-sales overflow-auto">
+
+                  <div class="filter">
+                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                      <li class="dropdown-header text-start">
+                        <h6>Filter</h6>
+                      </li>
+
+                      <li><a class="dropdown-item" href="#">Today</a></li>
+                      <li><a class="dropdown-item" href="#">This Month</a></li>
+                      <li><a class="dropdown-item" href="#">This Year</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="card-body">
+                    <h5 class="card-title">แก้ไขข่าวล่าสุด</h5>
+
+                    <table class="table table-borderless datatable">
+                      <thead>
+                        <tr>
+                          <th scope="col">ชื่อผู้แก้ไข</th>
+                          <th scope="col">ชื่อข่าว</th>
+                          <th scope="col">เวลาอัปเดตล่าสุด</th>
+                        </tr>
+                      </thead>
+
+                      <?php
+                      
+                      $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+                      $result = mysqli_query($conn, "SELECT * FROM latest_News");
+
+                      while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<td><span class='badge bg-success m-1'>" . $row['modi_user1'] . "</td>";
+                        echo "<td><a href='#' class='text-primary'>" . $row['newsName1'] . "</td>";
+                        echo "<td class='fw-bold'>" . $row['updated_at1'] . "</td>";
+
+                      } ?>
+
+                    </table>
+                  </div>
+                </div>
+              </div><!-- End Recent Sales -->
+
               <!-- Reports -->
               <div class="col-12">
                 <div class="card">
