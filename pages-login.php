@@ -2,12 +2,12 @@
 
 include_once('./backEND/connect.php');
 
-$selectdata = new DB_con();
+$conn = new DB_con();
 
 if (isset($_POST['login'])) {
   $username = htmlentities($_POST['username']);
   $pass = htmlentities($_POST['pass']);
-  $sql = $selectdata->login($username, $pass);
+  $sql = $conn->login($username, $pass);
 }
 
 if (isset($_POST['remember'])) {

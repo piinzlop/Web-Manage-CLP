@@ -2,7 +2,7 @@
 
 include_once('./backEND/connect.php');
 
-$insertdata = new DB_con();
+$conn = new DB_con();
 
 if (isset($_POST['insertMember'])) {
   $fname = htmlentities($_POST['fname']);
@@ -10,7 +10,7 @@ if (isset($_POST['insertMember'])) {
   $username = htmlentities($_POST['username']);
   $pass = htmlentities($_POST['pass']);
 
-  $sql = $insertdata->register($fname, $lname, $username, $pass);
+  $sql = $conn->register($fname, $lname, $username, $pass);
 
   if ($sql) {
     echo "<script>alert('สมัครบัญชีผู้ใช้เรียบร้อย !');</script>";

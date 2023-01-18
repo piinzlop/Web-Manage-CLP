@@ -17,11 +17,11 @@ if (isset($_GET['logout'])) {
 $username = htmlentities($_COOKIE['username']);
 $deUsername = base64_decode($username);
 
-$visitors = new DB_con();
-$total_visitors = $visitors->countVisitors();
+$conn = new DB_con();
 
-$showuser = new DB_con();
-$sql = $showuser->fetchonerecordMember($username);
+$total_visitors = $conn->countVisitors();
+
+$sql = $conn->fetchonerecordMember($username);
 while ($row = mysqli_fetch_array($sql)) {
 
 ?>
@@ -638,17 +638,19 @@ while ($row = mysqli_fetch_array($sql)) {
                       </thead>
 
                       <?php
-                      
-                      $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-                      $result = mysqli_query($conn, "SELECT * FROM latest_News");
 
-                      while ($row = mysqli_fetch_assoc($result)) {
+                      $sql = $conn->viewModify();
+                      while ($row = mysqli_fetch_assoc($sql)) {
+                        $deUsername = base64_decode($row['modi_user1']);
+
                         echo "<tr>";
-                        echo "<td><span class='badge bg-success m-1'>" . $row['modi_user1'] . "</td>";
+                        echo "<td><span class='badge bg-success m-1'>" . $deUsername . "</td>";
                         echo "<td><a href='#' class='text-primary'>" . $row['newsName1'] . "</td>";
                         echo "<td class='fw-bold'>" . $row['updated_at1'] . "</td>";
 
-                      } ?>
+                      } 
+                      
+                      ?>
 
                     </table>
                   </div>

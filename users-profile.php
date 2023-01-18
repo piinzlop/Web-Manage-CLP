@@ -17,7 +17,7 @@ if (isset($_GET['logout'])) {
 $username = htmlentities($_COOKIE['username']);
 $deUsername = base64_decode($username);
 
-$updatedata = new DB_con();
+$conn = new DB_con();
 
 if (isset($_POST['updateName'])) {
 
@@ -25,7 +25,7 @@ if (isset($_POST['updateName'])) {
   $fname = htmlentities($_POST['fname']);
   $lname = htmlentities($_POST['lname']);
 
-  $sql = $updatedata->updateName($fname, $lname, $username);
+  $sql = $conn->updateName($fname, $lname, $username);
   if ($sql) {
     echo "<script>alert('แก้ไขข้อมูลชื่อเรียบร้อย !');</script>";
     echo "<script>window.location.href='users-profile.php?id=" . $username . "'</script>";
@@ -54,8 +54,7 @@ if (isset($_POST['changePass'])) {
   }
 }
 
-$updateuser = new DB_con();
-$sql = $updateuser->fetchonerecordMember($username);
+$sql = $conn->fetchonerecordMember($username);
 while ($row = mysqli_fetch_array($sql)) {
 
 ?>

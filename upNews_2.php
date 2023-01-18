@@ -7,7 +7,7 @@ if (!isset($_COOKIE['username'])) {
   echo "<script>window.location.href='pages-login.php'</script>";
 }
 
-$updatedata = new DB_con();
+$conn = new DB_con();
 
 if (isset($_POST['update2'])) {
 
@@ -18,7 +18,7 @@ if (isset($_POST['update2'])) {
   $note2 = htmlentities($_POST['note2']);
   $modi_user2 = htmlentities($_POST['modi_user2']);
 
-  $sql = $updatedata->update2($newsName2, $img2, $NewsMsg2, $note2, $modi_user2, $news2_id);
+  $sql = $conn->update2($newsName2, $img2, $NewsMsg2, $note2, $modi_user2, $news2_id);
   if ($sql) {
     echo "<script>alert('แก้ไขข้อมูลข่าว 2 เรียบร้อย !');</script>";
     echo "<script>window.location.href='index.php'</script>";
@@ -41,8 +41,7 @@ $fname = htmlentities($_COOKIE['fname']);
 $lname = htmlentities($_COOKIE['lname']);
 
 $news2_id = $_GET['id'];
-$updateuser = new DB_con();
-$sql = $updateuser->fetchonerecord2($news2_id);
+$sql = $conn->fetchonerecord2($news2_id);
 while ($row = mysqli_fetch_array($sql)) {
 
 ?>

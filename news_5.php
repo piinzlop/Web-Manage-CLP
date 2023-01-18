@@ -7,7 +7,7 @@ if (!isset($_COOKIE['username'])) {
   echo "<script>window.location.href='pages-login.php'</script>";
 }
 
-$insertdata = new DB_con();
+$conn = new DB_con();
 
 if (isset($_POST['insert5'])) {
   $newsName5 = htmlentities($_POST['newsName5']);
@@ -16,7 +16,7 @@ if (isset($_POST['insert5'])) {
   $note5 = htmlentities($_POST['note5']);
   $modi_user5 = htmlentities($_POST['modi_user5']);
 
-  $sql = $insertdata->insert5($newsName5, $img5, $NewsMsg5, $note5, $modi_user5);
+  $sql = $conn->insert5($newsName5, $img5, $NewsMsg5, $note5, $modi_user5);
 
   if ($sql) {
     echo "<script>alert('เพิ่มข้อมูลข่าว 5 เรียบร้อย !');</script>";
@@ -37,8 +37,7 @@ if (isset($_GET['logout'])) {
 $username = $_COOKIE['username'];
 $deUsername = base64_decode($username);
 
-$updateuser = new DB_con();
-$sql = $updateuser->fetchonerecordMember($username);
+$sql = $conn->fetchonerecordMember($username);
 while ($row = mysqli_fetch_array($sql)) {
 
 ?>
@@ -514,14 +513,6 @@ while ($row = mysqli_fetch_array($sql)) {
           <div class="card-body">
             <h5 class="card-title">เพิ่มข่าวเพจ 5</h5>
 
-            <?php
-
-            // $fetchdata = new DB_con();
-            // $sql = $fetchdata->fetchdata4();
-            // while ($row = mysqli_fetch_array($sql)) {
-
-            ?>
-
             <!-- Floating Labels Form -->
             <form class="row g-3" action="" method="post">
 
@@ -562,11 +553,7 @@ while ($row = mysqli_fetch_array($sql)) {
                 <button type="reset" class="btn btn-danger">Reset</button>
               </div>
             </form><!-- End floating Labels Form -->
-
-            <?php
-            //  }
-            ?>
-
+            
           </div>
         </div>
       </section>

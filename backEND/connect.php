@@ -17,6 +17,13 @@ class DB_con
         }
     }
 
+    // แสดงแก้ไขล่าสุด
+    public function viewModify()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM latest_News");
+        return $result;
+    }
+
     // นับผู้เข้าใช้ด้วย IP ของผู้เข้าใช้
     public function countVisitors()
     {

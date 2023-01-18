@@ -8,7 +8,7 @@ if (!isset($_COOKIE['username'])) {
 }
 
 
-$updatedata = new DB_con();
+$conn = new DB_con();
 
 if (isset($_POST['update5'])) {
 
@@ -19,7 +19,7 @@ if (isset($_POST['update5'])) {
   $note5 = htmlentities($_POST['note5']);
   $modi_user5 = htmlentities($_POST['modi_user5']);
 
-  $sql = $updatedata->update5($newsName5, $img5, $NewsMsg5, $note5, $modi_user5, $news5_id);
+  $sql = $conn->update5($newsName5, $img5, $NewsMsg5, $note5, $modi_user5, $news5_id);
   if ($sql) {
     echo "<script>alert('แก้ไขข้อมูลข่าว 5 เรียบร้อย !');</script>";
     echo "<script>window.location.href='index.php'</script>";
@@ -517,8 +517,7 @@ $lname = htmlentities($_COOKIE['lname']);
             <?php
 
             $news5_id = $_GET['id'];
-            $updateuser = new DB_con();
-            $sql = $updateuser->fetchonerecord5($news5_id);
+            $sql = $conn->fetchonerecord5($news5_id);
             while ($row = mysqli_fetch_array($sql)) {
 
             ?>
