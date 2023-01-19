@@ -626,7 +626,7 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
 
                   <div class="card-body">
-                    <h5 class="card-title">แก้ไขข่าวล่าสุด
+                    <h5 class="card-title">เนื้อหาข่าวทั้งหมด
                       <a href="index.php" class="btn btn-outline-success btn-sm ms-2">Refresh</a>
                     </h5>
 
@@ -643,23 +643,77 @@ while ($row = mysqli_fetch_array($sql)) {
 
                       <?php
 
-                      $sql = $conn->viewModify();
+                      $sql = $conn->News1();
                       while ($row = mysqli_fetch_assoc($sql)) {
-                        $deUsername = base64_decode($row['modi_user']);
+                        $deUsername = base64_decode($row['modi_user1']);
 
                         echo "<tr>";
-                        echo '<td><img src="' . $row['img'] . '" width="auto" height="70" alt="image"></td>';
+                        echo '<td><img src="' . $row['img1'] . '" width="auto" height="70" alt="image"></td>';
                         echo "<td><span class='badge bg-success'>" . $deUsername . "</td>";
-                        echo "<td><a class='text-primary'>" . $row['newsName'] . "</td>";
-                        echo "<td>" . $row['note'] . "</td>";
-                        echo "<td class='fw-bold'>" . $row['updated'] . "</td>";
+                        echo "<td><a href='upNews_1.php?id=" . $row['news1_id'] . "class='text-primary'>" . $row['newsName1'] . "</td>";
+                        echo "<td>" . $row['note1'] . "</td>";
+                        echo "<td class='fw-bold'>" . $row['updated_at1'] . "</td>";
+                        echo "</tr>";
+                      }
+
+                      $sql = $conn->News2();
+                      while ($row = mysqli_fetch_assoc($sql)) {
+                        $deUsername = base64_decode($row['modi_user2']);
+
+                        echo "<tr>";
+                        echo '<td><img src="' . $row['img2'] . '" width="auto" height="70" alt="image"></td>';
+                        echo "<td><span class='badge bg-success'>" . $deUsername . "</td>";
+                        echo "<td><a href='upNews_2.php?id=" . $row['news2_id'] . "class='text-primary'>" . $row['newsName2'] . "</td>";
+                        echo "<td>" . $row['note2'] . "</td>";
+                        echo "<td class='fw-bold'>" . $row['updated_at2'] . "</td>";
+                        echo "</tr>";
+                      }
+
+                      $sql = $conn->News3();
+                      while ($row = mysqli_fetch_assoc($sql)) {
+                        $deUsername = base64_decode($row['modi_user3']);
+
+                        echo "<tr>";
+                        echo '<td><img src="' . $row['img3'] . '" width="auto" height="70" alt="image"></td>';
+                        echo "<td><span class='badge bg-success'>" . $deUsername . "</td>";
+                        echo "<td><a href='upNews_3.php?id=" . $row['news3_id'] . "class='text-primary'>" . $row['newsName3'] . "</td>";
+                        echo "<td>" . $row['note3'] . "</td>";
+                        echo "<td class='fw-bold'>" . $row['updated_at3'] . "</td>";
+                        echo "</tr>";
+                      }
+
+                      $sql = $conn->News4();
+                      while ($row = mysqli_fetch_assoc($sql)) {
+                        $deUsername = base64_decode($row['modi_user4']);
+
+                        echo "<tr>";
+                        echo '<td><img src="' . $row['img4'] . '" width="auto" height="70" alt="image"></td>';
+                        echo "<td><span class='badge bg-success'>" . $deUsername . "</td>";
+                        echo "<td><a href='upNews_4.php?id=" . $row['news4_id'] . "class='text-primary'>" . $row['newsName4'] . "</td>";
+                        echo "<td>" . $row['note4'] . "</td>";
+                        echo "<td class='fw-bold'>" . $row['updated_at4'] . "</td>";
+                        echo "</tr>";
+                      }
+
+                      $sql = $conn->News5();
+                      while ($row = mysqli_fetch_assoc($sql)) {
+                        $deUsername = base64_decode($row['modi_user5']);
+
+                        echo "<tr>";
+                        echo '<td><img src="' . $row['img5'] . '" width="auto" height="70" alt="image"></td>';
+                        echo "<td><span class='badge bg-success'>" . $deUsername . "</td>";
+                        echo "<td><a href='upNews_5.php?id=" . $row['news5_id'] . "class='text-primary'>" . $row['newsName5'] . "</td>";
+                        echo "<td>" . $row['note5'] . "</td>";
+                        echo "<td class='fw-bold'>" . $row['updated_at5'] . "</td>";
+                        echo "</tr>";
                       }
 
                       ?>
+
                     </table>
                   </div>
                 </div>
-              </div><!-- End Recent Sales -->
+              </div><!-- แก้ไขข่าวล่าสุด -->
 
               <div class="col-12">
                 <div class="card recent-sales overflow-auto">
@@ -708,7 +762,7 @@ while ($row = mysqli_fetch_array($sql)) {
                     </table>
                   </div>
                 </div>
-              </div><!-- End Recent Sales -->
+              </div><!-- IP Address ของผู้เข้าใช้ -->
 
               <!-- Reports -->
               <div class="col-12">

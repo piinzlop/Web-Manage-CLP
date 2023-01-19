@@ -17,17 +17,45 @@ class DB_con
         }
     }
 
-    // แสดง IP ผู้เข้าใช้
-    public function viewIP()
+    // แสดง ตารางข่าว 1
+    public function News1()
     {
-        $result = mysqli_query($this->dbcon, "SELECT * FROM view_visitors");
+        $result = mysqli_query($this->dbcon, "SELECT * FROM news_1");
         return $result;
     }
 
-    // แสดงแก้ไขล่าสุด
-    public function viewModify()
+    // แสดง ตารางข่าว 2
+    public function News2()
     {
-        $result = mysqli_query($this->dbcon, "SELECT * FROM latest_News");
+        $result = mysqli_query($this->dbcon, "SELECT * FROM news_2");
+        return $result;
+    }
+
+    // แสดง ตารางข่าว 3
+    public function News3()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM news_3");
+        return $result;
+    }
+
+    // แสดง ตารางข่าว 4
+    public function News4()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM news_4");
+        return $result;
+    }
+
+    // แสดง ตารางข่าว 5
+    public function News5()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM news_5");
+        return $result;
+    }
+
+    // แสดง IP ผู้เข้าใช้
+    public function viewIP()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM visitors");
         return $result;
     }
 

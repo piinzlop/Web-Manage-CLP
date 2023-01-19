@@ -1,41 +1,5 @@
 CREATE DATABASE CLP CHARACTER SET character_set COLLATE collation_name;
 
-CREATE VIEW IF NOT EXISTS View_visitors AS
-SELECT * FROM visitors 
-ORDER BY latest_enter DESC;
-
-CREATE VIEW IF NOT EXISTS latest_News1 AS
-SELECT img1 as img, newsName1 as newsName, note1 as note, modi_user1 as modi_user, updated_at1 as updated FROM News_1 
-ORDER BY updated_at1 DESC;
-
-CREATE VIEW IF NOT EXISTS latest_News2 AS
-SELECT img2 as img, newsName2 as newsName, note2 as note, modi_user2 as modi_user, updated_at2 as updated FROM News_2 
-ORDER BY updated_at2 DESC;
-
-CREATE VIEW IF NOT EXISTS latest_News3 AS
-SELECT img3 as img, newsName3 as newsName, note3 as note, modi_user3 as modi_user, updated_at3 as updated FROM News_3 
-ORDER BY updated_at3 DESC;
-
-CREATE VIEW IF NOT EXISTS latest_News4 AS
-SELECT img4 as img, newsName4 as newsName, note4 as note, modi_user4 as modi_user, updated_at4 as updated FROM News_4 
-ORDER BY updated_at4 DESC;
-
-CREATE VIEW IF NOT EXISTS latest_News5 AS
-SELECT img5 as img, newsName5 as newsName, note5 as note, modi_user5 as modi_user, updated_at5 as updated FROM News_5 
-ORDER BY updated_at5 DESC;
-
-CREATE VIEW latest_News AS
-SELECT * FROM latest_News1
-UNION 
-SELECT * FROM latest_News2
-UNION 
-SELECT * FROM latest_News3
-UNION 
-SELECT * FROM latest_News4
-UNION 
-SELECT * FROM latest_News5
-ORDER BY updated DESC;
-
 CREATE TABLE IF NOT EXISTS visitors (
     visitors_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	ip_address text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
