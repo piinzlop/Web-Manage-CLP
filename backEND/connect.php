@@ -55,7 +55,7 @@ class DB_con
     // แสดง IP ผู้เข้าใช้
     public function viewIP()
     {
-        $result = mysqli_query($this->dbcon, "SELECT * FROM visitors");
+        $result = mysqli_query($this->dbcon, "SELECT * FROM visitors ORDER BY latest_enter DESC");
         return $result;
     }
 
