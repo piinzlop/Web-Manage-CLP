@@ -548,9 +548,9 @@ while ($row = mysqli_fetch_array($sql)) {
                 </div>
               </div>
               <div class="text-center">
-                <button type="submit" name="insert5" class="btn btn-primary">Submit</button>
-                <a href="upNews_5.php?id=1" class="btn btn-success">Edit</a>
-                <button type="reset" class="btn btn-danger">Reset</button>
+                <button type="submit" name="insert" class="btn btn-primary">ยืนยัน</button>
+                <a href="upNews_5.php?id=1" class="btn btn-success">แก้ไข</a>
+                <button type="reset" class="btn btn-danger">ล้างค่า</button>
               </div>
             </form><!-- End floating Labels Form -->
             

@@ -626,7 +626,9 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
 
                   <div class="card-body">
-                    <h5 class="card-title">แก้ไขข่าวล่าสุด</h5>
+                    <h5 class="card-title">แก้ไขข่าวล่าสุด
+                      <a href="index.php" class="btn btn-outline-success btn-sm ms-2">Refresh</a>
+                    </h5>
 
                     <table class="table table-borderless datatable">
                       <thead>
@@ -651,6 +653,55 @@ while ($row = mysqli_fetch_array($sql)) {
                         echo "<td><a class='text-primary'>" . $row['newsName'] . "</td>";
                         echo "<td>" . $row['note'] . "</td>";
                         echo "<td class='fw-bold'>" . $row['updated'] . "</td>";
+                      }
+
+                      ?>
+                    </table>
+                  </div>
+                </div>
+              </div><!-- End Recent Sales -->
+
+              <div class="col-12">
+                <div class="card recent-sales overflow-auto">
+
+                  <div class="filter">
+                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                      <li class="dropdown-header text-start">
+                        <h6>Filter</h6>
+                      </li>
+
+                      <li><a class="dropdown-item" href="#">Today</a></li>
+                      <li><a class="dropdown-item" href="#">This Month</a></li>
+                      <li><a class="dropdown-item" href="#">This Year</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="card-body">
+                    <h5 class="card-title">IP Address ของผู้เข้าใช้
+                      <a href="index.php" class="btn btn-outline-success btn-sm ms-2">Refresh</a>
+                    </h5>
+
+                    <table class="table table-borderless datatable">
+                      <thead>
+                        <tr>
+                          <th scope="col">เข้าชมคนที่</th>
+                          <th scope="col">IP Address</th>
+                          <th scope="col">เวลาที่เข้าชมครั้งแรก</th>
+                          <th scope="col">เวลาที่เข้าชมครั้งล่าสุด</th>
+                        </tr>
+                      </thead>
+
+                      <?php
+
+                      $sql = $conn->viewIP();
+                      while ($row = mysqli_fetch_assoc($sql)) {
+
+                        echo "<tr>";
+                        echo "<td><a class='text-primary'>" . $row['visitors_id'] . "</td>";
+                        echo "<td><span class='badge bg-success'>" . $row['ip_address'] . "</td>";
+                        echo "<td class='fw-bold'>" . $row['visi_date'] . "</td>";
+                        echo "<td class='fw-bold'>" . $row['latest_enter'] . "</td>";
                       }
 
                       ?>

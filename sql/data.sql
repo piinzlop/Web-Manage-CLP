@@ -1,5 +1,9 @@
 CREATE DATABASE CLP CHARACTER SET character_set COLLATE collation_name;
 
+CREATE VIEW IF NOT EXISTS View_visitors AS
+SELECT * FROM visitors 
+ORDER BY latest_enter DESC;
+
 CREATE VIEW IF NOT EXISTS latest_News1 AS
 SELECT img1 as img, newsName1 as newsName, note1 as note, modi_user1 as modi_user, updated_at1 as updated FROM News_1 
 ORDER BY updated_at1 DESC;

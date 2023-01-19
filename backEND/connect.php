@@ -17,6 +17,13 @@ class DB_con
         }
     }
 
+    // แสดง IP ผู้เข้าใช้
+    public function viewIP()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM view_visitors");
+        return $result;
+    }
+
     // แสดงแก้ไขล่าสุด
     public function viewModify()
     {

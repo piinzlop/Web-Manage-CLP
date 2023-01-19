@@ -532,7 +532,7 @@ $lname = htmlentities($_COOKIE['lname']);
                 </div>
                 <div class="col-md-12">
                   <div class="form-floating">
-                  <p>ลิ้งค์รูป : <button class="btn btn-success" onclick="popUpImage('<?php echo $row['img5']; ?>')">ตัวอย่างภาพ</button></p>
+                  <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img5']; ?>')">ตัวอย่างภาพ</button></p>
                   <script>
                     function popUpImage(imageUrl) {
                       window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
@@ -561,7 +561,8 @@ $lname = htmlentities($_COOKIE['lname']);
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="submit" name="update5" class="btn btn-primary">Update</button>
+                <button type="submit" name="update" class="btn btn-primary">ยืนยัน</button>
+                <a href="news_5.php" class="btn btn-success">เพิ่มข่าว</a>
                 </div>
               </form><!-- End floating Labels Form -->
 
