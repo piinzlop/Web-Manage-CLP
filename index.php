@@ -33,7 +33,7 @@ while ($row = mysqli_fetch_array($sql)) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dashboard - NiceAdmin Bootstrap Template</title>
+    <title>CLP : Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -57,12 +57,6 @@ while ($row = mysqli_fetch_array($sql)) {
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
-    <!-- =======================================================
-  * Template Name: NiceAdmin - v2.4.1
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
   </head>
 
   <body>
@@ -285,7 +279,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
     </header><!-- End Header -->
 
-    <!-- ======= Sidebar ======= -->
+    <!-- ======= Navbar แถบข้างซ้าย ======= -->
     <aside id="sidebar" class="sidebar">
 
       <ul class="sidebar-nav" id="sidebar-nav">
@@ -373,8 +367,8 @@ while ($row = mysqli_fetch_array($sql)) {
               </a>
             </li>
           </ul>
-
         </li><!-- End Components Nav -->
+
         <li class="nav-item">
           <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
             <i class="bi bi-journal-text"></i><span>เพิ่มข่าว</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -504,24 +498,10 @@ while ($row = mysqli_fetch_array($sql)) {
           <div class="col-lg-8">
             <div class="row">
 
-              <!-- Customers Card -->
+              <!-- ช่องเช็กคนเข้าชม -->
               <div class="col-xxl-4 col-xl-12">
 
                 <div class="card info-card customers-card">
-
-                  <div class="filter">
-                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                      <li class="dropdown-header text-start">
-                        <h6>Filter</h6>
-                      </li>
-
-                      <li><a class="dropdown-item" href="#">Today</a></li>
-                      <li><a class="dropdown-item" href="#">This Month</a></li>
-                      <li><a class="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                  </div>
-
                   <div class="card-body">
                     <h5 class="card-title">Visitors <span>| คน</span></h5>
 
@@ -537,24 +517,13 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
                 </div>
 
-              </div><!-- End Customers Card -->
+              </div><!-- ช่องเช็กคนเข้าชม -->
 
               <!-- Sales Card -->
               <div class="col-xxl-4 col-md-6">
                 <div class="card info-card sales-card">
 
-                  <div class="filter">
-                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                      <li class="dropdown-header text-start">
-                        <h6>Filter</h6>
-                      </li>
 
-                      <li><a class="dropdown-item" href="#">Today</a></li>
-                      <li><a class="dropdown-item" href="#">This Month</a></li>
-                      <li><a class="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                  </div>
 
                   <div class="card-body">
                     <h5 class="card-title">Sales <span>| Today</span></h5>
@@ -578,18 +547,7 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="col-xxl-4 col-md-6">
                 <div class="card info-card revenue-card">
 
-                  <div class="filter">
-                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                      <li class="dropdown-header text-start">
-                        <h6>Filter</h6>
-                      </li>
 
-                      <li><a class="dropdown-item" href="#">Today</a></li>
-                      <li><a class="dropdown-item" href="#">This Month</a></li>
-                      <li><a class="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                  </div>
 
                   <div class="card-body">
                     <h5 class="card-title">Revenue <span>| This Month</span></h5>
@@ -609,21 +567,11 @@ while ($row = mysqli_fetch_array($sql)) {
                 </div>
               </div><!-- End Revenue Card -->
 
+              <!-- ตารางข่าวทั้งหมด -->
               <div class="col-12">
                 <div class="card recent-sales overflow-auto">
 
-                  <div class="filter">
-                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                      <li class="dropdown-header text-start">
-                        <h6>Filter</h6>
-                      </li>
 
-                      <li><a class="dropdown-item" href="#">Today</a></li>
-                      <li><a class="dropdown-item" href="#">This Month</a></li>
-                      <li><a class="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                  </div>
 
                   <div class="card-body">
                     <h5 class="card-title">ตารางข่าวทั้งหมด
@@ -713,23 +661,13 @@ while ($row = mysqli_fetch_array($sql)) {
                     </table>
                   </div>
                 </div>
-              </div><!-- แก้ไขข่าวล่าสุด -->
+              </div><!-- ตารางข่าวทั้งหมด  -->
 
+              <!-- IP Address ของผู้เข้าใช้ -->
               <div class="col-12">
                 <div class="card recent-sales overflow-auto">
 
-                  <div class="filter">
-                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                      <li class="dropdown-header text-start">
-                        <h6>Filter</h6>
-                      </li>
 
-                      <li><a class="dropdown-item" href="#">Today</a></li>
-                      <li><a class="dropdown-item" href="#">This Month</a></li>
-                      <li><a class="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                  </div>
 
                   <div class="card-body">
                     <h5 class="card-title">IP Address ของผู้เข้าใช้
@@ -768,19 +706,8 @@ while ($row = mysqli_fetch_array($sql)) {
               <!-- Reports -->
               <div class="col-12">
                 <div class="card">
+                      
 
-                  <div class="filter">
-                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                      <li class="dropdown-header text-start">
-                        <h6>Filter</h6>
-                      </li>
-
-                      <li><a class="dropdown-item" href="#">Today</a></li>
-                      <li><a class="dropdown-item" href="#">This Month</a></li>
-                      <li><a class="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                  </div>
 
                   <div class="card-body">
                     <h5 class="card-title">Reports <span>/Today</span></h5>
@@ -851,18 +778,7 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="col-12">
                 <div class="card recent-sales overflow-auto">
 
-                  <div class="filter">
-                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                      <li class="dropdown-header text-start">
-                        <h6>Filter</h6>
-                      </li>
 
-                      <li><a class="dropdown-item" href="#">Today</a></li>
-                      <li><a class="dropdown-item" href="#">This Month</a></li>
-                      <li><a class="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                  </div>
 
                   <div class="card-body">
                     <h5 class="card-title">Recent Sales <span>| Today</span></h5>
@@ -925,18 +841,7 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="col-12">
                 <div class="card top-selling overflow-auto">
 
-                  <div class="filter">
-                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                      <li class="dropdown-header text-start">
-                        <h6>Filter</h6>
-                      </li>
 
-                      <li><a class="dropdown-item" href="#">Today</a></li>
-                      <li><a class="dropdown-item" href="#">This Month</a></li>
-                      <li><a class="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                  </div>
 
                   <div class="card-body pb-0">
                     <h5 class="card-title">Top Selling <span>| Today</span></h5>
@@ -1001,20 +906,8 @@ while ($row = mysqli_fetch_array($sql)) {
           <!-- Right side columns -->
           <div class="col-lg-4">
 
-            <!-- Recent Activity -->
+            <!-- ผู้เข้าใช้เว็บไซต์ -->
             <div class="card">
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
 
               <div class="card-body">
                 <h5 class="card-title">ผู้เข้าใช้เว็บไซต์</h5>
@@ -1039,22 +932,10 @@ while ($row = mysqli_fetch_array($sql)) {
                 </div>
 
               </div>
-            </div><!-- End Recent Activity -->
+            </div><!-- ผู้เข้าใช้เว็บไซต์ -->
 
             <!-- Recent Activity -->
             <div class="card">
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
 
               <div class="card-body">
                 <h5 class="card-title">Recent Activity <span>| Today</span></h5>
@@ -1116,18 +997,6 @@ while ($row = mysqli_fetch_array($sql)) {
 
             <!-- Budget Report -->
             <div class="card">
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
 
               <div class="card-body pb-0">
                 <h5 class="card-title">Budget Report <span>| This Month</span></h5>
@@ -1190,18 +1059,6 @@ while ($row = mysqli_fetch_array($sql)) {
 
             <!-- Website Traffic -->
             <div class="card">
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
 
               <div class="card-body pb-0">
                 <h5 class="card-title">Website Traffic <span>| Today</span></h5>
@@ -1268,18 +1125,6 @@ while ($row = mysqli_fetch_array($sql)) {
 
             <!-- News & Updates Traffic -->
             <div class="card">
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
 
               <div class="card-body pb-0">
                 <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
