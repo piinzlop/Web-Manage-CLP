@@ -12,11 +12,16 @@ $conn = new DB_con();
 if (isset($_POST['insert5'])) {
   $newsName5 = htmlentities($_POST['newsName5']);
   $img5 = htmlentities($_POST['img5']);
+  $img52 = htmlentities(empty($_POST['img52'])) ? "NULL" : $_POST['img52'];
+  $img53 = htmlentities(empty($_POST['img53'])) ? "NULL" : $_POST['img53'];
+  $img54 = htmlentities(empty($_POST['img54'])) ? "NULL" : $_POST['img54'];
+  $img55 = htmlentities(empty($_POST['img55'])) ? "NULL" : $_POST['img55'];
+  $img56 = htmlentities(empty($_POST['img56'])) ? "NULL" : $_POST['img56'];
   $NewsMsg5 = htmlentities($_POST['NewsMsg5']);
   $note5 = htmlentities($_POST['note5']);
   $modi_user5 = htmlentities($_POST['modi_user5']);
 
-  $sql = $conn->insert5($newsName5, $img5, $NewsMsg5, $note5, $modi_user5);
+  $sql = $conn->insert5($newsName5, $img5, $img52, $img53, $img54, $img55, $img56, $NewsMsg5, $note5, $modi_user5);
 
   if ($sql) {
     echo "<script>alert('เพิ่มข้อมูลข่าว 5 เรียบร้อย !');</script>";
@@ -522,12 +527,46 @@ while ($row = mysqli_fetch_array($sql)) {
                   <label for="newsName5">ชื่อหัวข่าว</label>
                 </div>
               </div>
-              <div class="col-md-12">
-                <div class="form-floating">
-                  <input type="text" class="form-control" name="img5" placeholder="img5" require>
-                  <label for="img5">ลิ้งค์รูป</label>
+
+              <div id="img-fields">
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" name="img5" placeholder="img5" require>
+                    <label for="img5">ลิ้งค์รูป 5</label>
+                  </div>
                 </div>
               </div>
+
+              <button type="button" class="btn btn-outline-primary" id="addBtn" onclick="addImgField()">เพิ่มลิ้งค์รูป</button>
+              <p id="end" style="display: none; text-align: center;">ไม่สามารถเพิ่มรูปได้อีกแล้ว</p>
+
+              <script>
+                var imgFieldCount = 1;
+                var addBtn = document.getElementById("addBtn");
+                var end = document.getElementById("end");
+
+                function addImgField() {
+                  if (imgFieldCount < 6) {
+                    imgFieldCount++;
+                    var fields = document.getElementById("img-fields");
+                    var newField = document.createElement("div");
+                    newField.innerHTML =
+                      `
+                      <div class="col-md-12">
+                        <div class="form-floating">
+                          <input type="text" class="form-control my-3" name="img5${imgFieldCount}" placeholder="img${imgFieldCount}" require>
+                          <label for="img5${imgFieldCount}">ลิ้งค์รูปเพิ่มเติม</label>
+                        </div>
+                      </div>
+                      `;
+                    fields.appendChild(newField);
+                  } else {
+                    addBtn.setAttribute("disabled", true);
+                    end.style.display = "block";
+                  }
+                }
+              </script>
+
               <div class="col-12">
                 <div class="form-floating">
                   <textarea class="form-control" placeholder="NewsMsg5" name="NewsMsg5" style="height: 100px;" require></textarea>
@@ -548,12 +587,12 @@ while ($row = mysqli_fetch_array($sql)) {
                 </div>
               </div>
               <div class="text-center">
-                <button type="submit" name="insert" class="btn btn-primary">ยืนยัน</button>
+                <button type="submit" name="insert5" class="btn btn-primary">ยืนยัน</button>
                 <a href="upNews_5.php?id=1" class="btn btn-success">แก้ไข</a>
                 <button type="reset" class="btn btn-danger">ล้างค่า</button>
               </div>
             </form><!-- End floating Labels Form -->
-            
+
           </div>
         </div>
       </section>

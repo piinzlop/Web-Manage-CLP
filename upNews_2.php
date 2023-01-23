@@ -14,11 +14,16 @@ if (isset($_POST['update2'])) {
   $news2_id = htmlentities($_GET['id']);
   $newsName2 = htmlentities($_POST['newsName2']);
   $img2 = htmlentities($_POST['img2']);
+  $img22 = htmlentities(empty($_POST['img22'])) ? "NULL" : $_POST['img22'];
+  $img23 = htmlentities(empty($_POST['img23'])) ? "NULL" : $_POST['img23'];
+  $img24 = htmlentities(empty($_POST['img24'])) ? "NULL" : $_POST['img24'];
+  $img25 = htmlentities(empty($_POST['img25'])) ? "NULL" : $_POST['img25'];
+  $img26 = htmlentities(empty($_POST['img26'])) ? "NULL" : $_POST['img26'];
   $NewsMsg2 = htmlentities($_POST['NewsMsg2']);
   $note2 = htmlentities($_POST['note2']);
   $modi_user2 = htmlentities($_POST['modi_user2']);
 
-  $sql = $conn->update2($newsName2, $img2, $NewsMsg2, $note2, $modi_user2, $news2_id);
+  $sql = $conn->update2($newsName2, $img2, $img22, $img23, $img24, $img25, $img26, $NewsMsg2, $note2, $modi_user2, $news2_id);
   if ($sql) {
     echo "<script>alert('แก้ไขข้อมูลข่าว 2 เรียบร้อย !');</script>";
     echo "<script>window.location.href='index.php'</script>";
@@ -272,7 +277,7 @@ while ($row = mysqli_fetch_array($sql)) {
               </li>
 
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="users-profile.php?id=<?php echo $username ; ?>">
+                <a class="dropdown-item d-flex align-items-center" href="users-profile.php?id=<?php echo $username; ?>">
                   <i class="bi bi-person"></i>
                   <span>My Profile</span>
                 </a>
@@ -282,7 +287,7 @@ while ($row = mysqli_fetch_array($sql)) {
               </li>
 
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="users-profile.php?id=<?php echo $username ; ?>">
+                <a class="dropdown-item d-flex align-items-center" href="users-profile.php?id=<?php echo $username; ?>">
                   <i class="bi bi-gear"></i>
                   <span>Account Settings</span>
                 </a>
@@ -498,7 +503,7 @@ while ($row = mysqli_fetch_array($sql)) {
         <li class="nav-heading">Pages</li>
 
         <li class="nav-item">
-          <a class="nav-link collapsed" href="users-profile.php?id=<?php echo $username ; ?>">
+          <a class="nav-link collapsed" href="users-profile.php?id=<?php echo $username; ?>">
             <i class="bi bi-person"></i>
             <span>Profile</span>
           </a>
@@ -536,6 +541,7 @@ while ($row = mysqli_fetch_array($sql)) {
                   <input type="text" class="form-control" name="newsName2" placeholder="newsName2" value="<?php echo $row['newsName2']; ?>" require>
                 </div>
               </div>
+
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img2']; ?>')">ตัวอย่างภาพ</button></p>
@@ -547,6 +553,67 @@ while ($row = mysqli_fetch_array($sql)) {
                   <input type="text" class="form-control" name="img2" placeholder="img2" value="<?php echo $row['img2']; ?>" require>
                 </div>
               </div>
+
+              <div class="col-md-12">
+                <div class="form-floating">
+                  <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img22']; ?>')">ตัวอย่างภาพ</button></p>
+                  <script>
+                    function popUpImage(imageUrl) {
+                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
+                    }
+                  </script>
+                  <input type="text" class="form-control" name="img22" placeholder="img22" value="<?php echo $row['img22']; ?>" require>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-floating">
+                  <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img23']; ?>')">ตัวอย่างภาพ</button></p>
+                  <script>
+                    function popUpImage(imageUrl) {
+                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
+                    }
+                  </script>
+                  <input type="text" class="form-control" name="img23" placeholder="img23" value="<?php echo $row['img23']; ?>" require>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-floating">
+                  <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img24']; ?>')">ตัวอย่างภาพ</button></p>
+                  <script>
+                    function popUpImage(imageUrl) {
+                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
+                    }
+                  </script>
+                  <input type="text" class="form-control" name="img24" placeholder="img24" value="<?php echo $row['img24']; ?>" require>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-floating">
+                  <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img25']; ?>')">ตัวอย่างภาพ</button></p>
+                  <script>
+                    function popUpImage(imageUrl) {
+                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
+                    }
+                  </script>
+                  <input type="text" class="form-control" name="img25" placeholder="img25" value="<?php echo $row['img25']; ?>" require>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-floating">
+                  <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img26']; ?>')">ตัวอย่างภาพ</button></p>
+                  <script>
+                    function popUpImage(imageUrl) {
+                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
+                    }
+                  </script>
+                  <input type="text" class="form-control" name="img26" placeholder="img26" value="<?php echo $row['img26']; ?>" require>
+                </div>
+              </div>
+
               <div class="col-12">
                 <div class="form-floating">
                   <p>เนื้อหาข่าว : </p>
@@ -567,7 +634,7 @@ while ($row = mysqli_fetch_array($sql)) {
                 </div>
               </div>
               <div class="text-center">
-                <button type="submit" name="update" class="btn btn-primary">ยืนยัน</button>
+                <button type="submit" name="update2" class="btn btn-primary">ยืนยัน</button>
                 <a href="news_2.php" class="btn btn-success">เพิ่มข่าว</a>
               </div>
             </form><!-- End floating Labels Form -->

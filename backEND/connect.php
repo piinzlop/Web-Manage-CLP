@@ -73,7 +73,7 @@ class DB_con
             $query = "UPDATE visitors SET latest_enter = CURRENT_TIMESTAMP() WHERE ip_address='$visitor_ip'";
             $result = mysqli_query($this->dbcon, $query);
         }
-        
+
         $result = mysqli_query($this->dbcon, "SELECT * FROM visitors");
         $total_visitors = mysqli_num_rows($result);
 
@@ -85,7 +85,7 @@ class DB_con
     {
         // เข้ารหัสให้กับ $username
         $username = base64_encode($username);
-        
+
         $result = mysqli_query($this->dbcon, "SELECT * FROM member WHERE username='$username'");
 
         if (mysqli_num_rows($result) > 0) {
@@ -109,7 +109,6 @@ class DB_con
 
                 echo "<script>alert('เข้าสู่ระบบเรียบร้อย !');</script>";
                 echo "<script>window.location.href='index.php'</script>";
-
             } else {
                 echo "<script>alert('รหัสผ่านผิดพลาด กรุณาลองใหม่อีกครั้ง !');</script>";
                 echo "<script>window.location.href='pages-login.php'</script>";
@@ -205,10 +204,10 @@ class DB_con
     }
 
     // เพิ่มข่าว 1
-    public function insert($newsName1, $img1, $NewsMsg1, $note1, $modi_user1)
+    public function insert($newsName1, $img1, $img12, $img13, $img14, $img15, $img16, $NewsMsg1, $note1, $modi_user1)
     {
-        $result = mysqli_query($this->dbcon, "INSERT INTO news_1(newsName1, img1, NewsMsg1, note1, modi_user1) 
-            VALUES('$newsName1', '$img1', '$NewsMsg1', '$note1', '$modi_user1')");
+        $result = mysqli_query($this->dbcon, "INSERT INTO news_1(newsName1, img1, img12, img13, img14, img15, img16, NewsMsg1, note1, modi_user1) 
+            VALUES('$newsName1', '$img1', '$img12', '$img13', '$img14', '$img15', '$img16', '$NewsMsg1', '$note1', '$modi_user1')");
         return $result;
     }
 
@@ -224,11 +223,16 @@ class DB_con
         return $result;
     }
 
-    public function update($newsName1, $img1, $NewsMsg1, $note1, $modi_user1, $news1_id)
+    public function update($newsName1, $img1, $img12, $img13, $img14, $img15, $img16, $NewsMsg1, $note1, $modi_user1, $news1_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE news_1 SET 
                 newsName1 = '$newsName1',
                 img1 = '$img1',
+                img12 = '$img12',
+                img13 = '$img13',
+                img14 = '$img14',
+                img15 = '$img15',
+                img16 = '$img16',
                 NewsMsg1 = '$NewsMsg1',
                 note1 = '$note1',
                 modi_user1 = '$modi_user1'
@@ -246,10 +250,10 @@ class DB_con
 
 
     // เพิ่มข่าว 2
-    public function insert2($newsName2, $img2, $NewsMsg2, $note2, $modi_user2)
+    public function insert2($newsName2, $img2, $img22, $img23, $img24, $img25, $img26, $NewsMsg2, $note2, $modi_user2)
     {
-        $result = mysqli_query($this->dbcon, "INSERT INTO news_2(newsName2, img2, NewsMsg2, note2, modi_user2) 
-            VALUES('$newsName2', '$img2', '$NewsMsg2', '$note2', '$modi_user2')");
+        $result = mysqli_query($this->dbcon, "INSERT INTO news_2(newsName2, img2, img22, img23, img24, img25, img26, NewsMsg2, note2, modi_user2) 
+            VALUES('$newsName2', '$img2', '$img22', '$img23', '$img24', '$img25', '$img26', '$NewsMsg2', '$note2', '$modi_user2')");
         return $result;
     }
 
@@ -265,11 +269,16 @@ class DB_con
         return $result;
     }
 
-    public function update2($newsName2, $img2, $NewsMsg2, $note2, $modi_user2, $news2_id)
+    public function update2($newsName2, $img2, $img22, $img23, $img24, $img25, $img26, $NewsMsg2, $note2, $modi_user2, $news2_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE news_2 SET 
                 newsName2 = '$newsName2',
                 img2 = '$img2',
+                img22 = '$img22',
+                img23 = '$img23',
+                img24 = '$img24',
+                img25 = '$img25',
+                img26 = '$img26',
                 NewsMsg2 = '$NewsMsg2',
                 note2 = '$note2',
                 modi_user2 = '$modi_user2'
@@ -287,10 +296,10 @@ class DB_con
 
 
     // เพิ่มข่าว 3
-    public function insert3($newsName3, $img3, $NewsMsg3, $note3, $modi_user3)
+    public function insert3($newsName3, $img3, $img32, $img33, $img34, $img35, $img36, $NewsMsg3, $note3, $modi_user3)
     {
-        $result = mysqli_query($this->dbcon, "INSERT INTO news_3(newsName3, img3, NewsMsg3, note3, modi_user3) 
-            VALUES('$newsName3', '$img3', '$NewsMsg3', '$note3', '$modi_user3')");
+        $result = mysqli_query($this->dbcon, "INSERT INTO news_3(newsName3, img3, img32, img33, img34, img35, img36, NewsMsg3, note3, modi_user3) 
+        VALUES('$newsName3', '$img3', '$img32', '$img33', '$img34', '$img35', '$img36', '$NewsMsg3', '$note3', '$modi_user3')");
         return $result;
     }
 
@@ -306,11 +315,16 @@ class DB_con
         return $result;
     }
 
-    public function update3($newsName3, $img3, $NewsMsg3, $note3, $modi_user3, $news3_id)
+    public function update3($newsName3, $img3, $img32, $img33, $img34, $img35, $img36, $NewsMsg3, $note3, $modi_user3, $news3_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE news_3 SET 
                 newsName3 = '$newsName3',
                 img3 = '$img3',
+                img32 = '$img32',
+                img33 = '$img33',
+                img34 = '$img34',
+                img35 = '$img35',
+                img36 = '$img36',
                 NewsMsg3 = '$NewsMsg3',
                 note3 = '$note3',
                 modi_user3 = '$modi_user3'
@@ -328,10 +342,10 @@ class DB_con
 
 
     // เพิ่มข่าว 4
-    public function insert4($newsName4, $img4, $NewsMsg4, $note4, $modi_user4)
+    public function insert4($newsName4, $img4, $img42, $img43, $img44, $img45, $img46, $NewsMsg4, $note4, $modi_user4)
     {
-        $result = mysqli_query($this->dbcon, "INSERT INTO news_4(newsName4, img4, NewsMsg4, note4, modi_user4) 
-            VALUES('$newsName4', '$img4', '$NewsMsg4', '$note4', '$modi_user4')");
+        $result = mysqli_query($this->dbcon, "INSERT INTO news_4(newsName4, img4, img42, img43, img44, img45, img46, NewsMsg4, note4, modi_user4) 
+            VALUES('$newsName4', '$img4', '$img42', '$img43', '$img44', '$img45', '$img46', '$NewsMsg4', '$note4', '$modi_user4')");
         return $result;
     }
 
@@ -347,11 +361,16 @@ class DB_con
         return $result;
     }
 
-    public function update4($newsName4, $img4, $NewsMsg4, $note4, $modi_user4, $news4_id)
+    public function update4($newsName4, $img4, $img42, $img43, $img44, $img45, $img46, $NewsMsg4, $note4, $modi_user4, $news4_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE news_4 SET 
                 newsName4 = '$newsName4',
                 img4 = '$img4',
+                img42 = '$img42',
+                img43 = '$img43',
+                img44 = '$img44',
+                img45 = '$img45',
+                img46 = '$img46',
                 NewsMsg4 = '$NewsMsg4',
                 note4 = '$note4',
                 modi_user4 = '$modi_user4'
@@ -369,10 +388,10 @@ class DB_con
 
 
     // เพิ่มข่าว 5
-    public function insert5($newsName5, $img5, $NewsMsg5, $note5, $modi_user5)
+    public function insert5($newsName5, $img5, $img52, $img53, $img54, $img55, $img56, $NewsMsg5, $note5, $modi_user5)
     {
-        $result = mysqli_query($this->dbcon, "INSERT INTO news_5(newsName5, img5, NewsMsg5, note5, modi_user5) 
-            VALUES('$newsName5', '$img5', '$NewsMsg5', '$note5', '$modi_user5')");
+        $result = mysqli_query($this->dbcon, "INSERT INTO news_5(newsName5, img5, img52, img53, img54, img55, img56, NewsMsg5, note5, modi_user5) 
+            VALUES('$newsName5', '$img5', '$img52', '$img53', '$img54', '$img55', '$img56', '$NewsMsg5', '$note5', '$modi_user5')");
         return $result;
     }
 
@@ -388,11 +407,16 @@ class DB_con
         return $result;
     }
 
-    public function update5($newsName5, $img5, $NewsMsg5, $note5, $modi_user5, $news5_id)
+    public function update5($newsName5, $img5, $img52, $img53, $img54, $img55, $img56, $NewsMsg5, $note5, $modi_user5, $news5_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE news_5 SET 
                 newsName5 = '$newsName5',
                 img5 = '$img5',
+                img52 = '$img52',
+                img53 = '$img53',
+                img54 = '$img54',
+                img55 = '$img55',
+                img56 = '$img56',
                 NewsMsg5 = '$NewsMsg5',
                 note5 = '$note5',
                 modi_user5 = '$modi_user5'
