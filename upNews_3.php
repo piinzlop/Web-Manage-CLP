@@ -584,12 +584,10 @@ if (isset($_GET['id'])) {
 $start = ($page - 1) * $records_per_page;
 
 // Fetch the records from the database
-$query = "SELECT * FROM news_3 LIMIT $start, $records_per_page";
-$result = mysqli_query($conn, $query);
+$result = mysqli_query($conn, "SELECT * FROM news_3 LIMIT $start, $records_per_page");
 
 // Calculate the total number of pages
-$queryCount = "SELECT COUNT(*) as num_records FROM news_3";
-$resultCount = mysqli_query($conn, $queryCount);
+$resultCount = mysqli_query($conn, "SELECT COUNT(*) as num_records FROM news_3");
 $row = mysqli_fetch_assoc($resultCount);
 $num_records = $row['num_records'];
 $num_pages = ceil($num_records / $records_per_page);
