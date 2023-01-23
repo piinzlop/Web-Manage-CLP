@@ -557,11 +557,6 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img22']; ?>')">ตัวอย่างภาพ</button></p>
-                  <script>
-                    function popUpImage(imageUrl) {
-                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                    }
-                  </script>
                   <input type="text" class="form-control" name="img22" placeholder="img22" value="<?php echo $row['img22']; ?>" require>
                 </div>
               </div>
@@ -569,11 +564,6 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img23']; ?>')">ตัวอย่างภาพ</button></p>
-                  <script>
-                    function popUpImage(imageUrl) {
-                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                    }
-                  </script>
                   <input type="text" class="form-control" name="img23" placeholder="img23" value="<?php echo $row['img23']; ?>" require>
                 </div>
               </div>
@@ -581,11 +571,6 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img24']; ?>')">ตัวอย่างภาพ</button></p>
-                  <script>
-                    function popUpImage(imageUrl) {
-                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                    }
-                  </script>
                   <input type="text" class="form-control" name="img24" placeholder="img24" value="<?php echo $row['img24']; ?>" require>
                 </div>
               </div>
@@ -593,11 +578,6 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img25']; ?>')">ตัวอย่างภาพ</button></p>
-                  <script>
-                    function popUpImage(imageUrl) {
-                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                    }
-                  </script>
                   <input type="text" class="form-control" name="img25" placeholder="img25" value="<?php echo $row['img25']; ?>" require>
                 </div>
               </div>
@@ -605,11 +585,6 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img26']; ?>')">ตัวอย่างภาพ</button></p>
-                  <script>
-                    function popUpImage(imageUrl) {
-                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                    }
-                  </script>
                   <input type="text" class="form-control" name="img26" placeholder="img26" value="<?php echo $row['img26']; ?>" require>
                 </div>
               </div>

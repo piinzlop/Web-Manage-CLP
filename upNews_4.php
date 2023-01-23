@@ -552,11 +552,6 @@ $lname = htmlentities($_COOKIE['lname']);
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img42']; ?>')">ตัวอย่างภาพ</button></p>
-                  <script>
-                    function popUpImage(imageUrl) {
-                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                    }
-                  </script>
                   <input type="text" class="form-control" name="img42" placeholder="img42" value="<?php echo $row['img42']; ?>" require>
                 </div>
               </div>
@@ -564,11 +559,6 @@ $lname = htmlentities($_COOKIE['lname']);
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img43']; ?>')">ตัวอย่างภาพ</button></p>
-                  <script>
-                    function popUpImage(imageUrl) {
-                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                    }
-                  </script>
                   <input type="text" class="form-control" name="img43" placeholder="img43" value="<?php echo $row['img43']; ?>" require>
                 </div>
               </div>
@@ -576,11 +566,6 @@ $lname = htmlentities($_COOKIE['lname']);
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img44']; ?>')">ตัวอย่างภาพ</button></p>
-                  <script>
-                    function popUpImage(imageUrl) {
-                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                    }
-                  </script>
                   <input type="text" class="form-control" name="img44" placeholder="img44" value="<?php echo $row['img44']; ?>" require>
                 </div>
               </div>
@@ -588,11 +573,6 @@ $lname = htmlentities($_COOKIE['lname']);
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img45']; ?>')">ตัวอย่างภาพ</button></p>
-                  <script>
-                    function popUpImage(imageUrl) {
-                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                    }
-                  </script>
                   <input type="text" class="form-control" name="img45" placeholder="img45" value="<?php echo $row['img45']; ?>" require>
                 </div>
               </div>
@@ -600,11 +580,6 @@ $lname = htmlentities($_COOKIE['lname']);
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูป : <button class="btn btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img46']; ?>')">ตัวอย่างภาพ</button></p>
-                  <script>
-                    function popUpImage(imageUrl) {
-                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                    }
-                  </script>
                   <input type="text" class="form-control" name="img46" placeholder="img46" value="<?php echo $row['img46']; ?>" require>
                 </div>
               </div>
