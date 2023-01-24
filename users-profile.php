@@ -582,11 +582,13 @@ while ($row = mysqli_fetch_array($sql)) {
                     </div>
                   </div>
 
-                  <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                  <div class="tab-pane fade profile-edit" id="profile-edit">
 
 
                     <!-- Profile Edit Form -->
                     <form action="" method="post">
+                    <h5 class="card-title">Edit Profile</h5>
+
                       <div class="row mb-3">
                         <label for="fname" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                         <div class="col-md-8 col-lg-9">
@@ -597,7 +599,7 @@ while ($row = mysqli_fetch_array($sql)) {
                       <div class="row mb-3">
                         <label for="lname" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
                         <div class="col-md-8 col-lg-9">
-                          <input name="lname" type="text" class="form-control" value="<?php echo $row['lname']; ?>" >
+                          <input name="lname" type="text" class="form-control" value="<?php echo $row['lname']; ?>">
                         </div>
                       </div>
 
@@ -608,10 +610,11 @@ while ($row = mysqli_fetch_array($sql)) {
 
                   </div>
 
-                  <div class="tab-pane fade pt-3" id="profile-change-password">
+                  <div class="tab-pane fade" id="profile-change-password">
 
                     <!-- Change Password Form -->
                     <form action="" method="post">
+                    <h5 class="card-title">Change Password</h5>
 
                       <div class="row mb-3">
                         <label for="pass" class="col-md-4 col-lg-3 col-form-label">รหัสปัจจุบัน</label>

@@ -523,6 +523,12 @@ while ($row = mysqli_fetch_array($sql)) {
             <!-- Floating Labels Form -->
             <form class="row g-3" action="" method="post">
 
+              <script>
+                function popUpImage(imageUrl) {
+                  window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
+                }
+              </script>
+
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ชื่อข่าว : </p>
@@ -539,11 +545,6 @@ while ($row = mysqli_fetch_array($sql)) {
                     }
                     ?>
                   </p>
-                  <script>
-                    function popUpImage(imageUrl) {
-                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                    }
-                  </script>
                   <input type="text" id="image_url" class="form-control" name="img1" placeholder="img1" value="<?php echo $row['img1']; ?>" require>
                 </div>
               </div>
