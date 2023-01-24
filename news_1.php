@@ -12,11 +12,11 @@ $conn = new DB_con();
 if (isset($_POST['insert'])) {
   $newsName1 = htmlentities($_POST['newsName1']);
   $img1 = htmlentities($_POST['img1']);
-  $img12 = htmlentities(empty($_POST['img12'])) ? "NULL" : $_POST['img12'];
-  $img13 = htmlentities(empty($_POST['img13'])) ? "NULL" : $_POST['img13'];
-  $img14 = htmlentities(empty($_POST['img14'])) ? "NULL" : $_POST['img14'];
-  $img15 = htmlentities(empty($_POST['img15'])) ? "NULL" : $_POST['img15'];
-  $img16 = htmlentities(empty($_POST['img16'])) ? "NULL" : $_POST['img16'];
+  $img12 = htmlentities(empty($_POST['img12'])) ? "" : $_POST['img12'];
+  $img13 = htmlentities(empty($_POST['img13'])) ? "" : $_POST['img13'];
+  $img14 = htmlentities(empty($_POST['img14'])) ? "" : $_POST['img14'];
+  $img15 = htmlentities(empty($_POST['img15'])) ? "" : $_POST['img15'];
+  $img16 = htmlentities(empty($_POST['img16'])) ? "" : $_POST['img16'];
   $NewsMsg1 = htmlentities($_POST['NewsMsg1']);
   $note1 = htmlentities($_POST['note1']);
   $modi_user1 = htmlentities($_POST['modi_user1']);
@@ -524,16 +524,16 @@ while ($row = mysqli_fetch_array($sql)) {
 
               <div class="col-md-12">
                 <div class="form-floating">
+                  <p>ชื่อหัวข่าว : </p>
                   <input type="text" class="form-control" name="newsName1" placeholder="newsName1" require>
-                  <label for="newsName1">ชื่อหัวข่าว</label>
                 </div>
               </div>
 
               <div id="img-fields">
                 <div class="col-md-12">
                   <div class="form-floating">
+                    <p>ลิ้งค์รูป : </p>
                     <input type="text" class="form-control" name="img1" placeholder="img1" require>
-                    <label for="img1">ลิ้งค์รูป 1</label>
                   </div>
                 </div>
               </div>
@@ -556,7 +556,7 @@ while ($row = mysqli_fetch_array($sql)) {
                       <div class="col-md-12">
                         <div class="form-floating">
                           <input type="text" class="form-control my-3" name="img1${imgFieldCount}" placeholder="img${imgFieldCount}" require>
-                          <label for="img${imgFieldCount}">ลิ้งค์รูปเพิ่มเติม</label>
+                          <label for="img${imgFieldCount}">ลิ้งค์รูปเพิ่มเติม : ${imgFieldCount}</label>
                         </div>
                       </div>
                       `;
@@ -570,15 +570,15 @@ while ($row = mysqli_fetch_array($sql)) {
 
               <div class="col-12">
                 <div class="form-floating">
+                  <p>เนื้อหาข่าว : </p>
                   <textarea class="form-control" placeholder="NewsMsg1" name="NewsMsg1" style="height: 100px;" require></textarea>
-                  <label for="NewsMsg1">เนื้อหาข่าว</label>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="col-md-12">
-                  <div class="form-floating">
+                  <div class="form-floating"></div>
+                    <p>หมายเหตุ : </p>
                     <input type="text" class="form-control" name="note1" placeholder="note1" require>
-                    <label for="note1">หมายเหตุ</label>
                   </div>
                 </div>
               </div>
