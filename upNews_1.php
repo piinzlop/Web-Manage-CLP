@@ -536,6 +536,31 @@ while ($row = mysqli_fetch_array($sql)) {
                 </div>
               </div>
 
+
+              
+              <?php
+                //     if (!empty($row['img13'])) {
+                //       echo '<div class="col-md-12">
+                //   <div class="form-floating">
+                //       <p>ลิ้งค์รูปที่ 3 :
+                //           <button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img13'] . '\')">ตัวอย่างภาพ</button>
+                //       </p>
+                //       <input type="text" id="image_url" class="form-control" name="img13" value="' . $row['img13'] . '" require>
+                //   </div>
+                // </div>';
+                //     } else {
+                //       echo '<div class="col-md-12">
+                //   <div class="form-floating">
+                //       <p>ลิ้งค์รูปที่ 3 :
+                //       </p>
+                //       <input type="text" id="image_url" class="form-control" name="img13" value="' . $row['img13'] . '" require>
+                //   </div>
+                // </div>';
+                //     }
+              ?>
+
+
+
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูปที่ 1 :

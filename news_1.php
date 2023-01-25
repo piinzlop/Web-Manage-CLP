@@ -576,9 +576,9 @@ while ($row = mysqli_fetch_array($sql)) {
               </div>
               <div class="col-md-12">
                 <div class="col-md-12">
-                  <div class="form-floating"></div>
+                  <div class="form-floating">
                     <p>หมายเหตุ : </p>
-                    <input type="text" class="form-control" name="note1" placeholder="note1" require>
+                    <input type="text" class="form-control" name="note1" placeholder="note2" require>
                   </div>
                 </div>
               </div>
