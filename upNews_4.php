@@ -537,6 +537,14 @@ $lname = htmlentities($_COOKIE['lname']);
                 </div>
               </div>
 
+              <script>
+                function popUpImage(imageUrl) {
+                  if (imageUrl) {
+                    window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
+                  }
+                }
+              </script>
+
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูปที่ 1 :
@@ -546,11 +554,6 @@ $lname = htmlentities($_COOKIE['lname']);
                     }
                     ?>
                   </p>
-                  <script>
-                    function popUpImage(imageUrl) {
-                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                    }
-                  </script>
                   <input type="text" id="image_url" class="form-control" name="img4" placeholder="img4" value="<?php echo $row['img4']; ?>" require>
                 </div>
               </div>

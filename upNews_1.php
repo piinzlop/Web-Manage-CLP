@@ -522,13 +522,6 @@ while ($row = mysqli_fetch_array($sql)) {
 
             <!-- Floating Labels Form -->
             <form class="row g-3" action="" method="post">
-
-              <script>
-                function popUpImage(imageUrl) {
-                  window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                }
-              </script>
-
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ชื่อข่าว : </p>
@@ -536,30 +529,13 @@ while ($row = mysqli_fetch_array($sql)) {
                 </div>
               </div>
 
-
-              
-              <?php
-                //     if (!empty($row['img13'])) {
-                //       echo '<div class="col-md-12">
-                //   <div class="form-floating">
-                //       <p>ลิ้งค์รูปที่ 3 :
-                //           <button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img13'] . '\')">ตัวอย่างภาพ</button>
-                //       </p>
-                //       <input type="text" id="image_url" class="form-control" name="img13" value="' . $row['img13'] . '" require>
-                //   </div>
-                // </div>';
-                //     } else {
-                //       echo '<div class="col-md-12">
-                //   <div class="form-floating">
-                //       <p>ลิ้งค์รูปที่ 3 :
-                //       </p>
-                //       <input type="text" id="image_url" class="form-control" name="img13" value="' . $row['img13'] . '" require>
-                //   </div>
-                // </div>';
-                //     }
-              ?>
-
-
+              <script>
+                function popUpImage(imageUrl) {
+                  if (imageUrl) {
+                    window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
+                  }
+                }
+              </script>
 
               <div class="col-md-12">
                 <div class="form-floating">
@@ -599,6 +575,60 @@ while ($row = mysqli_fetch_array($sql)) {
                   <input type="text" id="image_url" class="form-control" name="img13" value="<?php echo $row['img13']; ?>" require>
                 </div>
               </div>
+
+
+
+
+              <!-- <script>
+                var addImageBtn = document.getElementById("addImageBtn");
+                var imgFieldCount = 0;
+
+                function addImgField() {
+                  var fields = document.getElementById("img-fields");
+                  var newField = document.createElement("div");
+                  newField.innerHTML = `
+          <div class="col-md-12">
+            <div class="form-floating">
+                <input type="text" class="form-control my-3" placeholder="img13" name="img13" >
+                <label for="img13">ลิ้งค์รูปเพิ่มเติม : ${imgFieldCount + 1}</label>
+            </div>
+          </div>
+        `;
+                  fields.appendChild(newField);
+                  imgFieldCount++;
+                }
+              </script>
+
+              <?php if (!empty($row['img13'])) : ?>
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <p>ลิ้งค์รูปที่ 3 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img13'] ?>')">ตัวอย่างภาพ</button></p>
+                    <input type="text" id="image_url" class="form-control" name="img13" value="<?php echo $row['img13']; ?>">
+                  </div>
+                </div>
+              <?php else : ?>
+                <button class="btn btn-outline-primary" id="addImageBtn2" onclick="showInput()">เพิ่มรูป</button>
+                <div id="inputContainer" style="display: none;">
+                  <p>ลิ้งค์รูปที่ 3 : </p>
+
+                  <div class="form-floating">
+                    <input type="text" id="image_url" class="form-control" name="img13">
+                  </div>
+                </div>
+                <script>
+                  var addImageBtn2 = document.getElementById("addImageBtn2");
+
+                  function showInput() {
+                    document.getElementById("inputContainer").style.display = "block";
+                    addImageBtn2.style.display = "none";
+                  }
+                </script>
+              <?php endif; ?> -->
+
+
+
+
+
 
               <div class="col-md-12">
                 <div class="form-floating">

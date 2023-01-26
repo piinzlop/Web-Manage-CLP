@@ -542,6 +542,14 @@ while ($row = mysqli_fetch_array($sql)) {
                 </div>
               </div>
 
+              <script>
+                function popUpImage(imageUrl) {
+                  if (imageUrl) {
+                    window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
+                  }
+                }
+              </script>
+
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูปที่ 1 :
@@ -551,11 +559,6 @@ while ($row = mysqli_fetch_array($sql)) {
                     }
                     ?>
                   </p>
-                  <script>
-                    function popUpImage(imageUrl) {
-                      window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
-                    }
-                  </script>
                   <input type="text" id="image_url" class="form-control" name="img2" placeholder="img2" value="<?php echo $row['img2']; ?>" require>
                 </div>
               </div>

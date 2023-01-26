@@ -10,10 +10,6 @@ if (isset($_POST['login'])) {
   $sql = $conn->login($username, $pass);
 }
 
-if (isset($_POST['remember'])) {
-  setcookie("username", $username, time() + 604800);
-}
-
 ?>
 
 <!DOCTYPE html>
