@@ -9,27 +9,27 @@ if (!isset($_COOKIE['username'])) {
 
 $conn = new DB_con();
 
-if (isset($_POST['update2'])) {
+if (isset($_POST['update'])) {
 
-  $news2_id = htmlentities($_GET['id']);
-  $newsName2 = htmlentities($_POST['newsName2']);
-  $img2 = htmlentities($_POST['img2']);
-  $img22 = htmlentities(empty($_POST['img22'])) ? "" : $_POST['img22'];
-  $img23 = htmlentities(empty($_POST['img23'])) ? "" : $_POST['img23'];
-  $img24 = htmlentities(empty($_POST['img24'])) ? "" : $_POST['img24'];
-  $img25 = htmlentities(empty($_POST['img25'])) ? "" : $_POST['img25'];
-  $img26 = htmlentities(empty($_POST['img26'])) ? "" : $_POST['img26'];
-  $NewsMsg2 = htmlentities($_POST['NewsMsg2']);
-  $note2 = htmlentities($_POST['note2']);
-  $modi_user2 = htmlentities($_POST['modi_user2']);
+  $news1_id = htmlentities($_GET['id']);
+  $newsName1 = htmlentities($_POST['newsName1']);
+  $img1 = htmlentities($_POST['img1']);
+  $img12 = htmlentities(empty($_POST['img12'])) ? "" : $_POST['img12'];
+  $img13 = htmlentities(empty($_POST['img13'])) ? "" : $_POST['img13'];
+  $img14 = htmlentities(empty($_POST['img14'])) ? "" : $_POST['img14'];
+  $img15 = htmlentities(empty($_POST['img15'])) ? "" : $_POST['img15'];
+  $img16 = htmlentities(empty($_POST['img16'])) ? "" : $_POST['img16'];
+  $NewsMsg1 = htmlentities($_POST['NewsMsg1']);
+  $note1 = htmlentities($_POST['note1']);
+  $modi_user1 = htmlentities($_POST['modi_user1']);
 
-  $sql = $conn->update2($newsName2, $img2, $img22, $img23, $img24, $img25, $img26, $NewsMsg2, $note2, $modi_user2, $news2_id);
+  $sql = $conn->update($newsName1, $img1, $img12, $img13, $img14, $img15, $img16, $NewsMsg1, $note1, $modi_user1, $news1_id);
   if ($sql) {
-    echo "<script>alert('แก้ไขข้อมูลข่าว 2 เรียบร้อย !');</script>";
+    echo "<script>alert('แก้ไขข้อมูลข่าว 1 เรียบร้อย !');</script>";
     echo "<script>window.location.href='index.php'</script>";
   } else {
     echo "<script>alert('มีบางอย่างผิดพลาด กรุณาลองอีกรอบ');</script>";
-    echo "<script>window.location.href='upNews_2.php?id=1.php'</script>";
+    echo "<script>window.location.href='upNews_1.php?id=1'</script>";
   }
 }
 
@@ -45,8 +45,8 @@ $deUsername = base64_decode($username);
 $fname = htmlentities($_COOKIE['fname']);
 $lname = htmlentities($_COOKIE['lname']);
 
-$news2_id = $_GET['id'];
-$sql = $conn->fetchonerecord2($news2_id);
+$news1_id = htmlentities($_GET['id']);
+$sql = $conn->fetchonerecord($news1_id);
 while ($row = mysqli_fetch_array($sql)) {
 
 ?>
@@ -58,7 +58,7 @@ while ($row = mysqli_fetch_array($sql)) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>CLP - แก้ไขข่าว 2</title>
+    <title>CLP - เพิ่มข่าว 1</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -297,16 +297,6 @@ while ($row = mysqli_fetch_array($sql)) {
               </li>
 
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                  <i class="bi bi-question-circle"></i>
-                  <span>Need Help?</span>
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-
-              <li>
                 <a class="dropdown-item d-flex align-items-center" href="?logout=1">
                   <i class="bi bi-box-arrow-right"></i>
                   <span>Log out</span>
@@ -445,17 +435,17 @@ while ($row = mysqli_fetch_array($sql)) {
         </li><!-- End Forms Nav -->
 
         <li class="nav-item">
-          <a class="nav-link " data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <a class="nav-link" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
             <i class="bi bi-layout-text-window-reverse"></i><span>แก้ไขข่าว</span><i class="bi bi-chevron-down ms-auto"></i>
           </a>
           <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
             <li>
-              <a href="upNews_1.php?id=1">
+              <a href="upNews_1.php?id=1" class="active">
                 <i class="bi bi-circle"></i><span>แก้ไขข่าว 1</span>
               </a>
             </li>
             <li>
-              <a href="upNews_2.php?id=1" class="active">
+              <a href="upNews_2.php?id=1">
                 <i class="bi bi-circle"></i><span>แก้ไขข่าว 2</span>
               </a>
             </li>
@@ -508,11 +498,8 @@ while ($row = mysqli_fetch_array($sql)) {
             <span>Profile</span>
           </a>
         </li><!-- End Profile Page Nav -->
-
       </ul>
-
     </aside><!-- End Sidebar-->
-
 
     <!-- เริ่มตัวเว็บ -->
     <main id="main" class="main">
@@ -522,7 +509,7 @@ while ($row = mysqli_fetch_array($sql)) {
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-            <li class="breadcrumb-item active">แก้ไขข่าว 2</li>
+            <li class="breadcrumb-item active">แก้ไขข่าว 1</li>
           </ol>
         </nav>
       </div><!-- End Page Title -->
@@ -531,20 +518,21 @@ while ($row = mysqli_fetch_array($sql)) {
       <section class="section dashboard">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">แก้ไขข่าว 2</h5>
+            <h5 class="card-title">แก้ไขข่าว 1</h5>
 
             <!-- Floating Labels Form -->
-            <form class="row g-3" action="" method="post">
+            <form class="row g-3" method="POST">
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ชื่อข่าว : </p>
-                  <input type="text" class="form-control" name="newsName2" placeholder="newsName2" value="<?php echo $row['newsName2']; ?>" require>
+                  <input type="text" class="form-control" name="newsName1" placeholder="newsName1" value="<?php echo $row['newsName1']; ?>" require>
                 </div>
               </div>
 
               <script>
                 function popUpImage(imageUrl) {
                   if (imageUrl) {
+                    event.preventDefault(); // ทำให้กดปุ่มแล้วไม่รีเฟรซหน้า
                     window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
                   }
                 }
@@ -553,9 +541,9 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูปที่ 1 :
-                    <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img2']; ?>')">ตัวอย่างภาพ</button>
+                    <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img1']; ?>')">ตัวอย่างภาพ</button>
                   </p>
-                  <input type="text" id="image_url" class="form-control" name="img2" placeholder="img2" value="<?php echo $row['img2']; ?>" require>
+                  <input type="text" id="image_url" class="form-control" name="img1" placeholder="img1" value="<?php echo $row['img1']; ?>" require>
                 </div>
               </div>
 
@@ -563,38 +551,93 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="form-floating">
                   <p>ลิ้งค์รูปที่ 2 :
                     <?php
-                    if (!empty($row['img22'])) {
-                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img22'] . '\')">ตัวอย่างภาพ</button>';
+                    if (!empty($row['img12'])) {
+                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img12'] . '\')">ตัวอย่างภาพ</button>';
                     }
                     ?>
                   </p>
-                  <input type="text" id="image_url" class="form-control" name="img22" value="<?php echo $row['img22']; ?>" require>
+                  <input type="text" id="image_url" class="form-control" name="img12" value="<?php echo $row['img12']; ?>" require>
                 </div>
               </div>
 
-              <div class="col-md-12">
+              <!-- <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูปที่ 3 :
                     <?php
-                    if (!empty($row['img23'])) {
-                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img23'] . '\')">ตัวอย่างภาพ</button>';
+                    if (!empty($row['img13'])) {
+                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img13'] . '\')">ตัวอย่างภาพ</button>';
                     }
                     ?>
                   </p>
-                  <input type="text" id="image_url" class="form-control" name="img23" value="<?php echo $row['img23']; ?>" require>
+                  <input type="text" id="image_url" class="form-control" name="img13" value="<?php echo $row['img13']; ?>" require>
                 </div>
-              </div>
+              </div> -->
+
+
+              
+              <script>
+                var addImageBtn = document.getElementById("addImageBtn");
+                var imgFieldCount = 0;
+
+                function addImgField() {
+                  var fields = document.getElementById("img-fields");
+                  var newField = document.createElement("div");
+                  newField.innerHTML = `
+          <div class="col-md-12">
+            <div class="form-floating">
+                <input type="text" class="form-control my-3" placeholder="img13" name="img13" >
+                <label for="img13">ลิ้งค์รูปเพิ่มเติม : ${imgFieldCount + 1}</label>
+            </div>
+          </div>
+        `;
+                  fields.appendChild(newField);
+                  imgFieldCount++;
+                }
+              </script>
+
+              <?php if (!empty($row['img13'])) : ?>
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <p>ลิ้งค์รูปที่ 3 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img13'] ?>')">ตัวอย่างภาพ</button></p>
+                    <input type="text" id="image_url" class="form-control" name="img13" value="<?php echo $row['img13']; ?>">
+                  </div>
+                </div>
+              <?php else : ?>
+                <button class="btn btn-outline-primary" id="addImageBtn2" onclick="showInput()">เพิ่มรูป</button>
+                <div id="inputContainer" style="display: none;">
+                  <p>ลิ้งค์รูปที่ 3 : </p>
+
+                  <div class="form-floating">
+                    <input type="text" id="image_url" class="form-control" name="img13">
+                  </div>
+                </div>
+                <script>
+                  var addImageBtn2 = document.getElementById("addImageBtn2");
+                  document.getElementById("addImageBtn2").removeAttribute("required");
+
+                  function showInput() {
+                    event.preventDefault(); // ทำให้กดปุ่มแล้วไม่รีเฟรซหน้า
+                    document.getElementById("inputContainer").style.display = "block";
+                    addImageBtn2.style.display = "none";
+                  }
+                </script>
+              <?php endif; ?>
+
+
+
+
+
 
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูปที่ 4 :
                     <?php
-                    if (!empty($row['img24'])) {
-                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img24'] . '\')">ตัวอย่างภาพ</button>';
+                    if (!empty($row['img14'])) {
+                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img14'] . '\')">ตัวอย่างภาพ</button>';
                     }
                     ?>
                   </p>
-                  <input type="text" id="image_url" class="form-control" name="img24" value="<?php echo $row['img24']; ?>" require>
+                  <input type="text" id="image_url" class="form-control" name="img14" value="<?php echo $row['img14']; ?>" require>
                 </div>
               </div>
 
@@ -602,12 +645,12 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="form-floating">
                   <p>ลิ้งค์รูปที่ 5 :
                     <?php
-                    if (!empty($row['img25'])) {
-                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img25'] . '\')">ตัวอย่างภาพ</button>';
+                    if (!empty($row['img15'])) {
+                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img15'] . '\')">ตัวอย่างภาพ</button>';
                     }
                     ?>
                   </p>
-                  <input type="text" id="image_url" class="form-control" name="img25" value="<?php echo $row['img25']; ?>" require>
+                  <input type="text" id="image_url" class="form-control" name="img15" value="<?php echo $row['img15']; ?>" require>
                 </div>
               </div>
 
@@ -615,37 +658,35 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="form-floating">
                   <p>ลิ้งค์รูปที่ 6 :
                     <?php
-                    if (!empty($row['img26'])) {
-                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img26'] . '\')">ตัวอย่างภาพ</button>';
+                    if (!empty($row['img16'])) {
+                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img16'] . '\')">ตัวอย่างภาพ</button>';
                     }
                     ?>
                   </p>
-                  <input type="text" id="image_url" class="form-control" name="img26" value="<?php echo $row['img26']; ?>" require>
+                  <input type="text" id="image_url" class="form-control" name="img16" value="<?php echo $row['img16']; ?>" require>
                 </div>
               </div>
 
               <div class="col-12">
                 <div class="form-floating">
                   <p>เนื้อหาข่าว : </p>
-                  <textarea class="form-control" placeholder="NewsMsg2" name="NewsMsg2" style="height: 150px;" require><?php echo $row['NewsMsg2']; ?></textarea>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <p>หมายเหตุ : </p>
-                    <input type="text" class="form-control" name="note2" placeholder="note2" value="<?php echo $row['note2']; ?>">
-                  </div>
+                  <textarea class="form-control" placeholder="NewsMsg1" name="NewsMsg1" style="height: 150px;" require><?php echo $row['NewsMsg1']; ?></textarea>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-floating">
-                  <input hidden type="text" class="form-control" name="modi_user2" placeholder="modi_user2" value=<?php echo $username; ?>>
+                  <p>หมายเหตุ : </p>
+                  <input type="text" class="form-control" name="note1" placeholder="note1" value="<?php echo $row['note1']; ?>">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-floating">
+                  <input hidden type="text" class="form-control" name="modi_user1" placeholder="modi_user1" value=<?php echo $username; ?>>
                 </div>
               </div>
               <div class="text-center">
-                <button type="submit" name="update2" class="btn btn-primary">ยืนยัน</button>
-                <a href="news_2.php" class="btn btn-success">เพิ่มข่าว</a>
+                <button type="submit" name="update" class="btn btn-primary">ยืนยัน</button>
+                <a href="news_1.php" class="btn btn-success">เพิ่มข่าว</a>
               </div>
             </form><!-- End floating Labels Form -->
 
@@ -667,10 +708,10 @@ while ($row = mysqli_fetch_array($sql)) {
             $start = ($page - 1) * $records_per_page;
 
             // Fetch the records from the database
-            $result = mysqli_query($conn, "SELECT * FROM news_2 LIMIT $start, $records_per_page");
+            $result = mysqli_query($conn, "SELECT * FROM news_1 LIMIT $start, $records_per_page");
 
             // Calculate the total number of pages
-            $resultCount = mysqli_query($conn, "SELECT COUNT(*) as num_records FROM news_2");
+            $resultCount = mysqli_query($conn, "SELECT COUNT(*) as num_records FROM news_1");
             $row = mysqli_fetch_assoc($resultCount);
             $num_records = $row['num_records'];
             $num_pages = ceil($num_records / $records_per_page);
@@ -691,9 +732,9 @@ while ($row = mysqli_fetch_array($sql)) {
                 echo  '
 
                   <nav aria-label="Page navigation example">
-                  <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="upNews_2.php?id=' . $row['news2_id'] . '">' . $row['news2_id'] . '</a></li>
-                  </ul>
+                    <ul class="pagination justify-content-center">
+                      <li class="page-item"><a class="page-link" href="upNews_1.php?id=' . $row['news1_id'] . '">' . $row['news1_id'] . '</a></li>
+                    </ul>
                 
                       ';
 
@@ -706,10 +747,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
             ?>
 
-          </div>
-        </div>
       </section>
-
     </main><!-- End #main -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

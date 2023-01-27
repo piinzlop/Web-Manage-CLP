@@ -544,11 +544,7 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูปที่ 1 :
-                    <?php
-                    if (!empty($row['img3'])) {
-                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img3'] . '\')">ตัวอย่างภาพ</button>';
-                    }
-                    ?>
+                    <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img3']; ?>')">ตัวอย่างภาพ</button>
                   </p>
                   <input type="text" id="image_url" class="form-control" name="img3" placeholder="img3" value="<?php echo $row['img3']; ?>" require>
                 </div>

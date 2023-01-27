@@ -547,11 +547,7 @@ $lname = htmlentities($_COOKIE['lname']);
               <div class="col-md-12">
                 <div class="form-floating">
                   <p>ลิ้งค์รูปที่ 1 :
-                    <?php
-                    if (!empty($row['img5'])) {
-                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img5'] . '\')">ตัวอย่างภาพ</button>';
-                    }
-                    ?>
+                    <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img5']; ?>')">ตัวอย่างภาพ</button>
                   </p>
                   <input type="text" id="image_url" class="form-control" name="img5" placeholder="img5" value="<?php echo $row['img5']; ?>" require>
                 </div>

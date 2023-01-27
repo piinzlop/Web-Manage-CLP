@@ -10,6 +10,22 @@
 
 <body>
 
+    <button id="showInputBtn">Show Input</button>
+    <div id="inputContainer" style="display: none;">
+        <input type="text" id="exampleInput">
+    </div>
+</br>
+    <script>
+        var showInputBtn = document.getElementById("showInputBtn");
+        var inputContainer = document.getElementById("inputContainer");
+
+        showInputBtn.addEventListener("click", function() {
+            inputContainer.style.display = "block";
+            showInputBtn.style.display = "none";
+        });
+    </script>
+
+
     <?php
 
     // เข้ารหัส
