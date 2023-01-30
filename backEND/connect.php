@@ -52,6 +52,13 @@ class DB_con
         return $result;
     }
 
+    // แสดง IP ผู้เข้าใช้ตรงแถบข้างขวา
+    public function viewIP_list()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM visitors ORDER BY latest_enter DESC LIMIT 20");
+        return $result;
+    }
+
     // แสดง IP ผู้เข้าใช้
     public function viewIP()
     {

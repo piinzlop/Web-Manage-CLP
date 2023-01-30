@@ -913,7 +913,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
                   <?php
 
-                  $sql = $conn->viewIP();
+                  $sql = $conn->viewIP_list();
                   while ($row = mysqli_fetch_assoc($sql)) {
 
                     echo "<div class='activity-item d-flex'>";
