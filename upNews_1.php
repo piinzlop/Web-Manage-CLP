@@ -537,6 +537,16 @@ while ($row = mysqli_fetch_array($sql)) {
                     window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
                   }
                 }
+
+                // สคลิปปุ่มเพิ่มรูป
+                var addImageBtn = document.getElementById("addImageBtn");
+                document.getElementById("addImageBtn").removeAttribute("required");
+
+                function showInput(event) {
+                  event.preventDefault(); // ทำให้กดปุ่มแล้วไม่รีเฟรซหน้า
+                  document.getElementById("inputContainer").style.display = "block";
+                  addImageBtn.style.display = "none";
+                }
               </script>
 
               <div class="col-md-12">
@@ -556,24 +566,12 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
                 </div>
               <?php else : ?>
-                <button class="btn btn-outline-primary" id="addImageBtn" onclick="showInput(event)">เพิ่มรูป</button>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 2 : </p>
-
                   <div class="form-floating">
                     <input type="text" id="image_url" class="form-control" name="img12">
                   </div>
                 </div>
-                <script>
-                  var addImageBtn = document.getElementById("addImageBtn");
-                  document.getElementById("addImageBtn").removeAttribute("required");
-
-                  function showInput(event) {
-                    event.preventDefault(); // ทำให้กดปุ่มแล้วไม่รีเฟรซหน้า
-                    document.getElementById("inputContainer").style.display = "block";
-                    addImageBtn.style.display = "none";
-                  }
-                </script>
               <?php endif; ?>
 
               <?php if (!empty($row['img13'])) : ?>
@@ -584,24 +582,12 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
                 </div>
               <?php else : ?>
-                <button class="btn btn-outline-primary" id="addImageBtn" onclick="showInput(event)">เพิ่มรูป</button>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 3 : </p>
-
                   <div class="form-floating">
                     <input type="text" id="image_url" class="form-control" name="img13">
                   </div>
                 </div>
-                <script>
-                  var addImageBtn = document.getElementById("addImageBtn");
-                  document.getElementById("addImageBtn").removeAttribute("required");
-
-                  function showInput(event) {
-                    event.preventDefault(); // ทำให้กดปุ่มแล้วไม่รีเฟรซหน้า
-                    document.getElementById("inputContainer").style.display = "block";
-                    addImageBtn.style.display = "none";
-                  }
-                </script>
               <?php endif; ?>
 
               <?php if (!empty($row['img14'])) : ?>
@@ -612,24 +598,12 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
                 </div>
               <?php else : ?>
-                <button class="btn btn-outline-primary" id="addImageBtn" onclick="showInput(event)">เพิ่มรูป</button>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 4 : </p>
-
                   <div class="form-floating">
                     <input type="text" id="image_url" class="form-control" name="img14">
                   </div>
                 </div>
-                <script>
-                  var addImageBtn = document.getElementById("addImageBtn");
-                  document.getElementById("addImageBtn").removeAttribute("required");
-
-                  function showInput(event) {
-                    event.preventDefault(); // ทำให้กดปุ่มแล้วไม่รีเฟรซหน้า
-                    document.getElementById("inputContainer").style.display = "block";
-                    addImageBtn.style.display = "none";
-                  }
-                </script>
               <?php endif; ?>
 
               <?php if (!empty($row['img15'])) : ?>
@@ -640,24 +614,12 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
                 </div>
               <?php else : ?>
-                <button class="btn btn-outline-primary" id="addImageBtn" onclick="showInput(event)">เพิ่มรูป</button>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 5 : </p>
-
                   <div class="form-floating">
                     <input type="text" id="image_url" class="form-control" name="img15">
                   </div>
                 </div>
-                <script>
-                  var addImageBtn = document.getElementById("addImageBtn");
-                  document.getElementById("addImageBtn").removeAttribute("required");
-
-                  function showInput(event) {
-                    event.preventDefault(); // ทำให้กดปุ่มแล้วไม่รีเฟรซหน้า
-                    document.getElementById("inputContainer").style.display = "block";
-                    addImageBtn.style.display = "none";
-                  }
-                </script>
               <?php endif; ?>
 
               <?php if (!empty($row['img16'])) : ?>
@@ -668,26 +630,14 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
                 </div>
               <?php else : ?>
-                <button class="btn btn-outline-primary" id="addImageBtn" onclick="showInput(event)">เพิ่มรูป</button>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 6 : </p>
-
                   <div class="form-floating">
                     <input type="text" id="image_url" class="form-control" name="img16">
                   </div>
                 </div>
-                <script>
-                  var addImageBtn = document.getElementById("addImageBtn");
-                  document.getElementById("addImageBtn").removeAttribute("required");
-
-                  function showInput(event) {
-                    event.preventDefault(); // ทำให้กดปุ่มแล้วไม่รีเฟรซหน้า
-                    document.getElementById("inputContainer").style.display = "block";
-                    addImageBtn.style.display = "none";
-                  }
-                </script>
+                <button class="btn btn-outline-primary" id="addImageBtn" onclick="showInput(event)">เพิ่มรูป</button>
               <?php endif; ?>
-
 
               <div class="col-12">
                 <div class="form-floating">

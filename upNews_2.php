@@ -542,87 +542,115 @@ while ($row = mysqli_fetch_array($sql)) {
                 </div>
               </div>
 
+              <!-- สคลิปโชว์ภาพตัวอย่าง -->
               <script>
                 function popUpImage(imageUrl) {
                   if (imageUrl) {
+                    event.preventDefault(); // ทำให้กดปุ่มแล้วไม่รีเฟรซหน้า
                     window.open(imageUrl, '', 'location=yes,height=auto,width=auto,scrollbars=yes,status=yes');
                   }
+                }
+
+                // สคลิปปุ่มเพิ่มรูป
+                var addImageBtn = document.getElementById("addImageBtn");
+                document.getElementById("addImageBtn").removeAttribute("required");
+
+                function showInput(event) {
+                  event.preventDefault(); // ทำให้กดปุ่มแล้วไม่รีเฟรซหน้า
+                  document.getElementById("inputContainer").style.display = "block";
+                  addImageBtn.style.display = "none";
                 }
               </script>
 
               <div class="col-md-12">
                 <div class="form-floating">
-                  <p>ลิ้งค์รูปที่ 1 :
+                  <p>ลิ้งค์รูปที่ 2 :
                     <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img2']; ?>')">ตัวอย่างภาพ</button>
                   </p>
                   <input type="text" id="image_url" class="form-control" name="img2" placeholder="img2" value="<?php echo $row['img2']; ?>" require>
                 </div>
               </div>
 
-              <div class="col-md-12">
-                <div class="form-floating">
-                  <p>ลิ้งค์รูปที่ 2 :
-                    <?php
-                    if (!empty($row['img22'])) {
-                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img22'] . '\')">ตัวอย่างภาพ</button>';
-                    }
-                    ?>
-                  </p>
-                  <input type="text" id="image_url" class="form-control" name="img22" value="<?php echo $row['img22']; ?>" require>
+              <?php if (!empty($row['img22'])) : ?>
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <p>ลิ้งค์รูปที่ 2 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img22'] ?>')">ตัวอย่างภาพ</button></p>
+                    <input type="text" id="image_url" class="form-control" name="img22" value="<?php echo $row['img22']; ?>">
+                  </div>
                 </div>
-              </div>
+              <?php else : ?>
+                <div id="inputContainer" style="display: none;">
+                  <p>ลิ้งค์รูปที่ 2 : </p>
+                  <div class="form-floating">
+                    <input type="text" id="image_url" class="form-control" name="img22">
+                  </div>
+                </div>
+              <?php endif; ?>
 
-              <div class="col-md-12">
-                <div class="form-floating">
-                  <p>ลิ้งค์รูปที่ 3 :
-                    <?php
-                    if (!empty($row['img23'])) {
-                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img23'] . '\')">ตัวอย่างภาพ</button>';
-                    }
-                    ?>
-                  </p>
-                  <input type="text" id="image_url" class="form-control" name="img23" value="<?php echo $row['img23']; ?>" require>
+              <?php if (!empty($row['img23'])) : ?>
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <p>ลิ้งค์รูปที่ 3 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img23'] ?>')">ตัวอย่างภาพ</button></p>
+                    <input type="text" id="image_url" class="form-control" name="img23" value="<?php echo $row['img23']; ?>">
+                  </div>
                 </div>
-              </div>
+              <?php else : ?>
+                <div id="inputContainer" style="display: none;">
+                  <p>ลิ้งค์รูปที่ 3 : </p>
+                  <div class="form-floating">
+                    <input type="text" id="image_url" class="form-control" name="img23">
+                  </div>
+                </div>
+              <?php endif; ?>
 
-              <div class="col-md-12">
-                <div class="form-floating">
-                  <p>ลิ้งค์รูปที่ 4 :
-                    <?php
-                    if (!empty($row['img24'])) {
-                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img24'] . '\')">ตัวอย่างภาพ</button>';
-                    }
-                    ?>
-                  </p>
-                  <input type="text" id="image_url" class="form-control" name="img24" value="<?php echo $row['img24']; ?>" require>
+              <?php if (!empty($row['img24'])) : ?>
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <p>ลิ้งค์รูปที่ 4 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img24'] ?>')">ตัวอย่างภาพ</button></p>
+                    <input type="text" id="image_url" class="form-control" name="img24" value="<?php echo $row['img24']; ?>">
+                  </div>
                 </div>
-              </div>
+              <?php else : ?>
+                <div id="inputContainer" style="display: none;">
+                  <p>ลิ้งค์รูปที่ 4 : </p>
+                  <div class="form-floating">
+                    <input type="text" id="image_url" class="form-control" name="img24">
+                  </div>
+                </div>
+              <?php endif; ?>
 
-              <div class="col-md-12">
-                <div class="form-floating">
-                  <p>ลิ้งค์รูปที่ 5 :
-                    <?php
-                    if (!empty($row['img25'])) {
-                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img25'] . '\')">ตัวอย่างภาพ</button>';
-                    }
-                    ?>
-                  </p>
-                  <input type="text" id="image_url" class="form-control" name="img25" value="<?php echo $row['img25']; ?>" require>
+              <?php if (!empty($row['img25'])) : ?>
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <p>ลิ้งค์รูปที่ 5 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img25'] ?>')">ตัวอย่างภาพ</button></p>
+                    <input type="text" id="image_url" class="form-control" name="img25" value="<?php echo $row['img25']; ?>">
+                  </div>
                 </div>
-              </div>
+              <?php else : ?>
+                <div id="inputContainer" style="display: none;">
+                  <p>ลิ้งค์รูปที่ 5 : </p>
+                  <div class="form-floating">
+                    <input type="text" id="image_url" class="form-control" name="img25">
+                  </div>
+                </div>
+              <?php endif; ?>
 
-              <div class="col-md-12">
-                <div class="form-floating">
-                  <p>ลิ้งค์รูปที่ 6 :
-                    <?php
-                    if (!empty($row['img26'])) {
-                      echo '<button class="btn btn-outline-primary" onclick="popUpImage(\'' . $row['img26'] . '\')">ตัวอย่างภาพ</button>';
-                    }
-                    ?>
-                  </p>
-                  <input type="text" id="image_url" class="form-control" name="img26" value="<?php echo $row['img26']; ?>" require>
+              <?php if (!empty($row['img26'])) : ?>
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <p>ลิ้งค์รูปที่ 6 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img26'] ?>')">ตัวอย่างภาพ</button></p>
+                    <input type="text" id="image_url" class="form-control" name="img26" value="<?php echo $row['img26']; ?>">
+                  </div>
                 </div>
-              </div>
+              <?php else : ?>
+                <div id="inputContainer" style="display: none;">
+                  <p>ลิ้งค์รูปที่ 6 : </p>
+                  <div class="form-floating">
+                    <input type="text" id="image_url" class="form-control" name="img26">
+                  </div>
+                </div>
+                <button class="btn btn-outline-primary" id="addImageBtn" onclick="showInput(event)">เพิ่มรูป</button>
+              <?php endif; ?>
 
               <div class="col-12">
                 <div class="form-floating">
