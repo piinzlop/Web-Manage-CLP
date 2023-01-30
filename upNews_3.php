@@ -555,10 +555,10 @@ while ($row = mysqli_fetch_array($sql)) {
 
               <div class="col-md-12">
                 <div class="form-floating">
-                  <p>ลิ้งค์รูปที่ 3 :
+                  <p>ลิ้งค์รูปที่ 1 :
                     <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img3']; ?>')">ตัวอย่างภาพ</button>
                   </p>
-                  <input type="text" id="image_url" class="form-control" name="img3" placeholder="img3" value="<?php echo $row['img3']; ?>" require>
+                  <input type="text" class="form-control" name="img3" placeholder="img3" value="<?php echo $row['img3']; ?>" require>
                 </div>
               </div>
 
@@ -566,14 +566,14 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="col-md-12">
                   <div class="form-floating">
                     <p>ลิ้งค์รูปที่ 2 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img32'] ?>')">ตัวอย่างภาพ</button></p>
-                    <input type="text" id="image_url" class="form-control" name="img32" value="<?php echo $row['img32']; ?>">
+                    <input type="text" class="form-control" name="img32" value="<?php echo $row['img32']; ?>">
                   </div>
                 </div>
               <?php else : ?>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 2 : </p>
                   <div class="form-floating">
-                    <input type="text" id="image_url" class="form-control" name="img32">
+                    <input type="text" class="form-control" name="img32">
                   </div>
                 </div>
               <?php endif; ?>
@@ -582,14 +582,14 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="col-md-12">
                   <div class="form-floating">
                     <p>ลิ้งค์รูปที่ 3 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img33'] ?>')">ตัวอย่างภาพ</button></p>
-                    <input type="text" id="image_url" class="form-control" name="img33" value="<?php echo $row['img33']; ?>">
+                    <input type="text" class="form-control" name="img33" value="<?php echo $row['img33']; ?>">
                   </div>
                 </div>
               <?php else : ?>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 3 : </p>
                   <div class="form-floating">
-                    <input type="text" id="image_url" class="form-control" name="img33">
+                    <input type="text" class="form-control" name="img33">
                   </div>
                 </div>
               <?php endif; ?>
@@ -598,14 +598,14 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="col-md-12">
                   <div class="form-floating">
                     <p>ลิ้งค์รูปที่ 4 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img34'] ?>')">ตัวอย่างภาพ</button></p>
-                    <input type="text" id="image_url" class="form-control" name="img34" value="<?php echo $row['img34']; ?>">
+                    <input type="text" class="form-control" name="img34" value="<?php echo $row['img34']; ?>">
                   </div>
                 </div>
               <?php else : ?>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 4 : </p>
                   <div class="form-floating">
-                    <input type="text" id="image_url" class="form-control" name="img34">
+                    <input type="text" class="form-control" name="img34">
                   </div>
                 </div>
               <?php endif; ?>
@@ -614,14 +614,14 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="col-md-12">
                   <div class="form-floating">
                     <p>ลิ้งค์รูปที่ 5 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img35'] ?>')">ตัวอย่างภาพ</button></p>
-                    <input type="text" id="image_url" class="form-control" name="img35" value="<?php echo $row['img35']; ?>">
+                    <input type="text" class="form-control" name="img35" value="<?php echo $row['img35']; ?>">
                   </div>
                 </div>
               <?php else : ?>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 5 : </p>
                   <div class="form-floating">
-                    <input type="text" id="image_url" class="form-control" name="img35">
+                    <input type="text" class="form-control" name="img35">
                   </div>
                 </div>
               <?php endif; ?>
@@ -630,18 +630,23 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="col-md-12">
                   <div class="form-floating">
                     <p>ลิ้งค์รูปที่ 6 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img36'] ?>')">ตัวอย่างภาพ</button></p>
-                    <input type="text" id="image_url" class="form-control" name="img36" value="<?php echo $row['img36']; ?>">
+                    <input type="text" class="form-control" name="img36" value="<?php echo $row['img36']; ?>">
                   </div>
                 </div>
               <?php else : ?>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 6 : </p>
                   <div class="form-floating">
-                    <input type="text" id="image_url" class="form-control" name="img36">
+                    <input type="text" class="form-control" name="img36">
                   </div>
                 </div>
-                <button class="btn btn-outline-primary" id="addImageBtn" onclick="showInput(event)">เพิ่มรูป</button>
               <?php endif; ?>
+              
+              <?php
+              if (empty($row['img32']) || empty($row['img33']) || empty($row['img34']) || empty($row['img35']) || empty($row['img36'])) {
+                echo '<button class="btn btn-outline-primary" id="addImageBtn" onclick="showInput(event)">เพิ่มรูป</button>';
+              }
+              ?>
 
               <div class="col-12">
                 <div class="form-floating">

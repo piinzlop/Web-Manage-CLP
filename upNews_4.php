@@ -559,10 +559,10 @@ $lname = htmlentities($_COOKIE['lname']);
 
               <div class="col-md-12">
                 <div class="form-floating">
-                  <p>ลิ้งค์รูปที่ 4 :
+                  <p>ลิ้งค์รูปที่ 1 :
                     <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img4']; ?>')">ตัวอย่างภาพ</button>
                   </p>
-                  <input type="text" id="image_url" class="form-control" name="img4" placeholder="img4" value="<?php echo $row['img4']; ?>" require>
+                  <input type="text" class="form-control" name="img4" placeholder="img4" value="<?php echo $row['img4']; ?>" require>
                 </div>
               </div>
 
@@ -570,14 +570,14 @@ $lname = htmlentities($_COOKIE['lname']);
                 <div class="col-md-12">
                   <div class="form-floating">
                     <p>ลิ้งค์รูปที่ 2 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img42'] ?>')">ตัวอย่างภาพ</button></p>
-                    <input type="text" id="image_url" class="form-control" name="img42" value="<?php echo $row['img42']; ?>">
+                    <input type="text" class="form-control" name="img42" value="<?php echo $row['img42']; ?>">
                   </div>
                 </div>
               <?php else : ?>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 2 : </p>
                   <div class="form-floating">
-                    <input type="text" id="image_url" class="form-control" name="img42">
+                    <input type="text" class="form-control" name="img42">
                   </div>
                 </div>
               <?php endif; ?>
@@ -586,14 +586,14 @@ $lname = htmlentities($_COOKIE['lname']);
                 <div class="col-md-12">
                   <div class="form-floating">
                     <p>ลิ้งค์รูปที่ 3 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img43'] ?>')">ตัวอย่างภาพ</button></p>
-                    <input type="text" id="image_url" class="form-control" name="img43" value="<?php echo $row['img43']; ?>">
+                    <input type="text" class="form-control" name="img43" value="<?php echo $row['img43']; ?>">
                   </div>
                 </div>
               <?php else : ?>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 3 : </p>
                   <div class="form-floating">
-                    <input type="text" id="image_url" class="form-control" name="img43">
+                    <input type="text" class="form-control" name="img43">
                   </div>
                 </div>
               <?php endif; ?>
@@ -602,14 +602,14 @@ $lname = htmlentities($_COOKIE['lname']);
                 <div class="col-md-12">
                   <div class="form-floating">
                     <p>ลิ้งค์รูปที่ 4 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img44'] ?>')">ตัวอย่างภาพ</button></p>
-                    <input type="text" id="image_url" class="form-control" name="img44" value="<?php echo $row['img44']; ?>">
+                    <input type="text" class="form-control" name="img44" value="<?php echo $row['img44']; ?>">
                   </div>
                 </div>
               <?php else : ?>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 4 : </p>
                   <div class="form-floating">
-                    <input type="text" id="image_url" class="form-control" name="img44">
+                    <input type="text" class="form-control" name="img44">
                   </div>
                 </div>
               <?php endif; ?>
@@ -618,14 +618,14 @@ $lname = htmlentities($_COOKIE['lname']);
                 <div class="col-md-12">
                   <div class="form-floating">
                     <p>ลิ้งค์รูปที่ 5 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img45'] ?>')">ตัวอย่างภาพ</button></p>
-                    <input type="text" id="image_url" class="form-control" name="img45" value="<?php echo $row['img45']; ?>">
+                    <input type="text" class="form-control" name="img45" value="<?php echo $row['img45']; ?>">
                   </div>
                 </div>
               <?php else : ?>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 5 : </p>
                   <div class="form-floating">
-                    <input type="text" id="image_url" class="form-control" name="img45">
+                    <input type="text" class="form-control" name="img45">
                   </div>
                 </div>
               <?php endif; ?>
@@ -634,18 +634,23 @@ $lname = htmlentities($_COOKIE['lname']);
                 <div class="col-md-12">
                   <div class="form-floating">
                     <p>ลิ้งค์รูปที่ 6 : <button class="btn btn-outline-primary" onclick="popUpImage('<?php echo $row['img46'] ?>')">ตัวอย่างภาพ</button></p>
-                    <input type="text" id="image_url" class="form-control" name="img46" value="<?php echo $row['img46']; ?>">
+                    <input type="text" class="form-control" name="img46" value="<?php echo $row['img46']; ?>">
                   </div>
                 </div>
               <?php else : ?>
                 <div id="inputContainer" style="display: none;">
                   <p>ลิ้งค์รูปที่ 6 : </p>
                   <div class="form-floating">
-                    <input type="text" id="image_url" class="form-control" name="img46">
+                    <input type="text" class="form-control" name="img46">
                   </div>
                 </div>
-                <button class="btn btn-outline-primary" id="addImageBtn" onclick="showInput(event)">เพิ่มรูป</button>
               <?php endif; ?>
+              
+              <?php
+              if (empty($row['img42']) || empty($row['img43']) || empty($row['img44']) || empty($row['img45']) || empty($row['img46'])) {
+                echo '<button class="btn btn-outline-primary" id="addImageBtn" onclick="showInput(event)">เพิ่มรูป</button>';
+              }
+              ?>
 
               <div class="col-12">
                 <div class="form-floating">

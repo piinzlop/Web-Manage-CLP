@@ -40,6 +40,7 @@
     $hashed_password = hash('sha256', '11111111R');
     echo "Decoded string: " . $hashed_password;
 
+
     ?>
 
 </body>
