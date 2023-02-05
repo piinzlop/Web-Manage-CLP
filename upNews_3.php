@@ -548,8 +548,11 @@ while ($row = mysqli_fetch_array($sql)) {
 
                 function showInput(event) {
                   event.preventDefault(); // ทำให้กดปุ่มแล้วไม่รีเฟรซหน้า
-                  document.getElementById("inputContainer").style.display = "block";
-                  addImageBtn.style.display = "none";
+                  if (document.getElementById("inputContainer").style.display === "block") {
+                    document.getElementById("inputContainer").style.display = "none";
+                  } else {
+                    document.getElementById("inputContainer").style.display = "block";
+                  }
                 }
               </script>
 
@@ -641,7 +644,7 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
                 </div>
               <?php endif; ?>
-              
+
               <?php
               if (empty($row['img32']) || empty($row['img33']) || empty($row['img34']) || empty($row['img35']) || empty($row['img36'])) {
                 echo '<button class="btn btn-outline-primary" id="addImageBtn" onclick="showInput(event)">เพิ่มรูป</button>';
