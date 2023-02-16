@@ -7,6 +7,7 @@ define('DB_NAME', 'clp');
 
 class DB_con
 {
+    private $dbcon;
 
     function __construct()
     {
