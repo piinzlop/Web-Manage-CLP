@@ -20,6 +20,7 @@ $deUsername = base64_decode($username);
 $conn = new DB_con();
 
 $total_visitors = $conn->countVisitors();
+$total_News = $conn->total_News();
 
 $sql = $conn->fetchonerecordMember($username);
 while ($row = mysqli_fetch_array($sql)) {
@@ -57,9 +58,31 @@ while ($row = mysqli_fetch_array($sql)) {
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
+    <!-- แสดงเวลาแบบ Real-time -->
+    <script type="text/javascript">
+      function startTime() {
+        var today = new Date();
+        var hr = today.getHours();
+        var min = today.getMinutes();
+        var sec = today.getSeconds();
+        // Add leading zero to minutes and seconds
+        min = checkTime(min);
+        sec = checkTime(sec);
+        document.getElementById("clock").innerHTML = hr + ":" + min + ":" + sec;
+        var t = setTimeout(startTime, 500);
+      }
+
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+    </script>
+
   </head>
 
-  <body>
+  <body onload="startTime()">
 
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -498,13 +521,32 @@ while ($row = mysqli_fetch_array($sql)) {
           <div class="col-lg-8">
             <div class="row">
 
+              <!-- ช่องวันที่ -->
+              <div class="col-xxl-4 col-md-6">
+                <div class="card info-card revenue-card">
+                  <div class="card-body">
+                    <h5 class="card-title"><?php setlocale(LC_TIME, 'th_TH.utf8');
+                                    echo strftime('%A %d %B %Y'); ?>
+                    </h5>
+                    <div class="d-flex align-items-center">
+                      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi bi-currency-dollar"></i>
+                      </div>
+                      <div class="ps-3">
+                        <h6>
+                          <div id="clock"></div>
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- ช่องวันที่ -->
+
               <!-- ช่องเช็กคนเข้าชม -->
               <div class="col-xxl-4 col-xl-12">
-
                 <div class="card info-card customers-card">
                   <div class="card-body">
-                    <h5 class="card-title">Visitors <span>| คน</span></h5>
-
+                    <h5 class="card-title">ผู้เข้าใช้ <span>| คน</span></h5>
                     <div class="d-flex align-items-center">
                       <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                         <i class="bi bi-people"></i>
@@ -513,66 +555,30 @@ while ($row = mysqli_fetch_array($sql)) {
                         <h6><?php echo $total_visitors; ?></h6>
                       </div>
                     </div>
-
                   </div>
                 </div>
-
               </div><!-- ช่องเช็กคนเข้าชม -->
 
-              <!-- Sales Card -->
+              <!-- ช่องนับข่าว -->
               <div class="col-xxl-4 col-md-6">
                 <div class="card info-card sales-card">
-
-
-
                   <div class="card-body">
-                    <h5 class="card-title">Sales <span>| Today</span></h5>
-
+                    <h5 class="card-title">ข่าวทั้งหมด <span>| ข่าว</span></h5>
                     <div class="d-flex align-items-center">
                       <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                         <i class="bi bi-cart"></i>
                       </div>
                       <div class="ps-3">
-                        <h6>145</h6>
-                        <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
+                        <h6><?php echo $total_News; ?></h6>
                       </div>
                     </div>
                   </div>
-
                 </div>
-              </div><!-- End Sales Card -->
-
-              <!-- Revenue Card -->
-              <div class="col-xxl-4 col-md-6">
-                <div class="card info-card revenue-card">
-
-
-
-                  <div class="card-body">
-                    <h5 class="card-title">Revenue <span>| This Month</span></h5>
-
-                    <div class="d-flex align-items-center">
-                      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                        <i class="bi bi-currency-dollar"></i>
-                      </div>
-                      <div class="ps-3">
-                        <h6>$3,264</h6>
-                        <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div><!-- End Revenue Card -->
+              </div><!-- ช่องนับข่าว -->
 
               <!-- ตารางข่าวทั้งหมด -->
               <div class="col-12">
                 <div class="card recent-sales overflow-auto">
-
-
-
                   <div class="card-body">
                     <h5 class="card-title">ตารางข่าวทั้งหมด
                       <a href="index.php" class="btn btn-outline-success btn-sm ms-2">Refresh</a>
@@ -706,7 +712,7 @@ while ($row = mysqli_fetch_array($sql)) {
               <!-- Reports -->
               <div class="col-12">
                 <div class="card">
-                      
+
                   <div class="card-body">
                     <h5 class="card-title">Reports <span>/Today</span></h5>
 

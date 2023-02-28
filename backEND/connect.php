@@ -15,7 +15,25 @@ class DB_con
 
         if (mysqli_connect_errno()) {
             die("เชื่อมต่อไปยังฐานข้อมูลผิดพลาด กรุณาลองใหม่อีกครั้ง : " . mysqli_connect_error());
-        }   
+        }
+    }
+
+    // แสดงจำนวนข่าว
+    public function total_news()
+    {
+        $result = mysqli_query($this->dbcon, "
+        SELECT * FROM news_1
+        UNION ALL
+        SELECT * FROM news_2
+        UNION ALL
+        SELECT * FROM news_3
+        UNION ALL
+        SELECT * FROM news_4
+        UNION ALL
+        SELECT * FROM news_5;");
+        $total_News = mysqli_num_rows($result);
+
+        return $total_News;
     }
 
     // แสดง ตารางข่าว 1
