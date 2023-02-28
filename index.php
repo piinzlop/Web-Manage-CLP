@@ -527,10 +527,10 @@ while ($row = mysqli_fetch_array($sql)) {
                   <div class="card-body">
                     <h5 class="card-title"><?php setlocale(LC_TIME, 'th_TH.utf8');
                                     echo strftime('%A %d %B %Y'); ?>
-                    </h5>
+                    <span>| Date</span></h5></h5>
                     <div class="d-flex align-items-center">
                       <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                        <i class="bi bi-currency-dollar"></i>
+                        <i class="bi bi-clock"></i>
                       </div>
                       <div class="ps-3">
                         <h6>
@@ -566,7 +566,7 @@ while ($row = mysqli_fetch_array($sql)) {
                     <h5 class="card-title">ข่าวทั้งหมด <span>| ข่าว</span></h5>
                     <div class="d-flex align-items-center">
                       <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                        <i class="bi bi-cart"></i>
+                        <i class="bi bi-newspaper"></i>
                       </div>
                       <div class="ps-3">
                         <h6><?php echo $total_News; ?></h6>
