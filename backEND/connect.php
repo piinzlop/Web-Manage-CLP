@@ -7,15 +7,15 @@ define('DB_NAME', 'clp');
 
 class DB_con
 {
-    private $dbcon;
+    public $dbcon;
 
     function __construct()
     {
         $this->dbcon = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
 
         if (mysqli_connect_errno()) {
-            echo "เชื่อมต่อไปยังฐานข้อมูลผิดพลาด กรุณาลองใหม่อีกครั้ง : " . mysqli_connect_error();
-        }
+            die("เชื่อมต่อไปยังฐานข้อมูลผิดพลาด กรุณาลองใหม่อีกครั้ง : " . mysqli_connect_error());
+        }   
     }
 
     // แสดง ตารางข่าว 1
