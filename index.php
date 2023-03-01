@@ -69,7 +69,7 @@ while ($row = mysqli_fetch_array($sql)) {
         min = checkTime(min);
         sec = checkTime(sec);
         document.getElementById("clock").innerHTML = hr + ":" + min + ":" + sec;
-        var t = setTimeout(startTime, 500);
+        var t = setTimeout(startTime, 1000);
       }
 
       function checkTime(i) {
@@ -315,84 +315,6 @@ while ($row = mysqli_fetch_array($sql)) {
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-          <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-            <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
-          </a>
-          <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li>
-              <a href="components-alerts.html">
-                <i class="bi bi-circle"></i><span>Alerts</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-accordion.html">
-                <i class="bi bi-circle"></i><span>Accordion</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-badges.html">
-                <i class="bi bi-circle"></i><span>Badges</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-breadcrumbs.html">
-                <i class="bi bi-circle"></i><span>Breadcrumbs</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-buttons.html">
-                <i class="bi bi-circle"></i><span>Buttons</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-cards.html">
-                <i class="bi bi-circle"></i><span>Cards</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-carousel.html">
-                <i class="bi bi-circle"></i><span>Carousel</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-list-group.html">
-                <i class="bi bi-circle"></i><span>List group</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-modal.html">
-                <i class="bi bi-circle"></i><span>Modal</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-tabs.html">
-                <i class="bi bi-circle"></i><span>Tabs</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-pagination.html">
-                <i class="bi bi-circle"></i><span>Pagination</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-progress.html">
-                <i class="bi bi-circle"></i><span>Progress</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-spinners.html">
-                <i class="bi bi-circle"></i><span>Spinners</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-tooltips.html">
-                <i class="bi bi-circle"></i><span>Tooltips</span>
-              </a>
-            </li>
-          </ul>
-        </li><!-- End Components Nav -->
-
-        <li class="nav-item">
           <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
             <i class="bi bi-journal-text"></i><span>เพิ่มข่าว</span><i class="bi bi-chevron-down ms-auto"></i>
           </a>
@@ -466,31 +388,7 @@ while ($row = mysqli_fetch_array($sql)) {
           </ul>
         </li><!-- End Tables Nav -->
 
-        <li class="nav-item">
-          <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-            <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
-          </a>
-          <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li>
-              <a href="charts-chartjs.html">
-                <i class="bi bi-circle"></i><span>Chart.js</span>
-              </a>
-            </li>
-            <li>
-              <a href="charts-apexcharts.html">
-                <i class="bi bi-circle"></i><span>ApexCharts</span>
-              </a>
-            </li>
-            <li>
-              <a href="charts-echarts.html">
-                <i class="bi bi-circle"></i><span>ECharts</span>
-              </a>
-            </li>
-          </ul>
-        </li><!-- End Charts Nav -->
-
         <li class="nav-heading">Pages</li>
-
         <li class="nav-item">
           <a class="nav-link collapsed" href="users-profile.php?id=<?php echo $row['username']; ?>">
             <i class="bi bi-person"></i>
@@ -526,8 +424,8 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="card info-card revenue-card">
                   <div class="card-body">
                     <h5 class="card-title"><?php setlocale(LC_TIME, 'th_TH.utf8');
-                                    echo strftime('%A %d %B %Y'); ?>
-                    <span>| Date</span></h5></h5>
+                                            echo strftime('%A %d %B %Y'); ?>
+                    </h5>
                     <div class="d-flex align-items-center">
                       <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                         <i class="bi bi-clock"></i>
