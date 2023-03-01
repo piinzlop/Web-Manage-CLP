@@ -62,22 +62,19 @@ while ($row = mysqli_fetch_array($sql)) {
     <script type="text/javascript">
       function startTime() {
         var today = new Date();
-        var hr = today.getHours();
-        var min = today.getMinutes();
-        var sec = today.getSeconds();
-        // Add leading zero to minutes and seconds
-        min = checkTime(min);
-        sec = checkTime(sec);
-        document.getElementById("clock").innerHTML = hr + ":" + min + ":" + sec;
-        var t = setTimeout(startTime, 1000);
+        var options = {
+          hour12: false,
+          timeZone: 'Asia/Bangkok'
+        };
+        var time = today.toLocaleTimeString('en-US', options);
+        document.getElementById("clock").innerHTML = time;
+        setTimeout(startTime, 1000);
       }
 
       function checkTime(i) {
-        if (i < 10) {
-          i = "0" + i;
-        }
-        return i;
+        return i < 10 ? "0" + i : i;
       }
+      
     </script>
 
   </head>
@@ -510,8 +507,8 @@ while ($row = mysqli_fetch_array($sql)) {
                   while ($row = mysqli_fetch_assoc($latest_News)) {
                     // กรองข้อความที่มากกว่า 250 อักษรขึ้นไป
                     $newsMsg = $row['NewsMsg1'];
-                    if (strlen($newsMsg) > 250) {
-                      $newsMsg = substr($newsMsg, 0, 250) . "... เพิ่มเติม";
+                    if (strlen($newsMsg) > 140) {
+                      $newsMsg = substr($newsMsg, 0, 140) . "...";
                     }
 
                     echo "<div class='post-item clearfix'>";
@@ -524,6 +521,7 @@ while ($row = mysqli_fetch_array($sql)) {
                   ?>
 
                 </div><!-- End sidebar recent posts-->
+                </br>
               </div>
             </div><!-- End News & Updates -->
           </div><!-- End Right side columns -->
