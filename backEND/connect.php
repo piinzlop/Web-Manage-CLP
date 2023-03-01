@@ -18,6 +18,13 @@ class DB_con
         }
     }
 
+    // แสดงตารางข่าวที่แก้ไขล่าสุด
+    public function latest_News()
+    {
+        $latest_News = mysqli_query($this->dbcon, "SELECT * FROM latest_news LIMIT 15");
+        return $latest_News;
+    }
+
     // แสดงจำนวนข่าว
     public function total_news()
     {
