@@ -74,7 +74,6 @@ while ($row = mysqli_fetch_array($sql)) {
       function checkTime(i) {
         return i < 10 ? "0" + i : i;
       }
-      
     </script>
 
   </head>
@@ -279,8 +278,7 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="col-xxl-4 col-md-6">
                 <div class="card info-card revenue-card">
                   <div class="card-body">
-                    <h5 class="card-title"><?php setlocale(LC_TIME, 'th_TH.utf8');
-                                            echo strftime('%A %d %B %Y'); ?>
+                    <h5 class="card-title"><?= thai_date_and_time(time()) ?>
                     </h5>
                     <div class="d-flex align-items-center">
                       <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
