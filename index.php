@@ -279,6 +279,9 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="card info-card revenue-card">
                   <div class="card-body">
                     <h5 class="card-title"><?= thai_date_and_time(time()) ?>
+                      <span>| ค.ศ. <?php setlocale(LC_TIME, 'th_TH.utf8');
+                              echo strftime('%Y');
+                              ?></span>
                     </h5>
                     <div class="d-flex align-items-center">
                       <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">

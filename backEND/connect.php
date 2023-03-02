@@ -474,9 +474,9 @@ function thai_date_and_time($time)
     global $dayTH, $monthTH;
     date_default_timezone_set('Asia/Bangkok');
     $thai_date_return = " " ;
-    $thai_date_return .= " วัน" .  $dayTH[date("w", $time)];
-    $thai_date_return .= " ที่ " . date("j", $time);
+    $thai_date_return .= " " .  $dayTH[date("w", $time)];
+    $thai_date_return .= " " . date("j", $time);
     $thai_date_return .= " " . $monthTH[date("n", $time)];
-    $thai_date_return .= " พ.ศ. " . (date("Y", $time) + 543);
+    $thai_date_return .= " " . (date("Y", $time) + 543);
     return $thai_date_return;
 }
