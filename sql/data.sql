@@ -1,30 +1,28 @@
 CREATE DATABASE CLP CHARACTER SET character_set COLLATE collation_name;
 
-
 -- แสดงตารางข่าวที่แก้ไขล่าสุด
 
 CREATE VIEW IF NOT EXISTS latest_News1 AS
-SELECT img1 as img, newsName1 as newsName, NewsMsg1 as NewsMsg1, updated_at1 as updated FROM News_1 
+SELECT img1 as img, newsName1 as newsName, NewsMsg1 as NewsMsg1, updated_at1 as updated FROM news_1 
 ORDER BY updated_at1 DESC;
 
 CREATE VIEW IF NOT EXISTS latest_News2 AS
-SELECT img2 as img, newsName2 as newsName, NewsMsg2 as NewsMsg2, updated_at2 as updated FROM News_2 
+SELECT img2 as img, newsName2 as newsName, NewsMsg2 as NewsMsg2, updated_at2 as updated FROM news_2 
 ORDER BY updated_at2 DESC;
 
 CREATE VIEW IF NOT EXISTS latest_News3 AS
-SELECT img3 as img, newsName3 as newsName, NewsMsg3 as NewsMsg3, updated_at3 as updated FROM News_3 
+SELECT img3 as img, newsName3 as newsName, NewsMsg3 as NewsMsg3, updated_at3 as updated FROM news_3 
 ORDER BY updated_at3 DESC;
 
 CREATE VIEW IF NOT EXISTS latest_News4 AS
-SELECT img4 as img, newsName4 as newsName, NewsMsg4 as NewsMsg4, updated_at4 as updated FROM News_4 
+SELECT img4 as img, newsName4 as newsName, NewsMsg4 as NewsMsg4, updated_at4 as updated FROM news_4 
 ORDER BY updated_at4 DESC;
 
 CREATE VIEW IF NOT EXISTS latest_News5 AS
-SELECT img5 as img, newsName5 as newsName, NewsMsg5 as NewsMsg5, updated_at5 as updated FROM News_5 
+SELECT img5 as img, newsName5 as newsName, NewsMsg5 as NewsMsg5, updated_at5 as updated FROM news_5 
 ORDER BY updated_at5 DESC;
 
 -- ทำการสร้างบรรทัดบนก่อน
-
 
 CREATE VIEW latest_News AS
 SELECT * FROM latest_News1
