@@ -1,5 +1,3 @@
-CREATE DATABASE CLP CHARACTER SET character_set COLLATE collation_name;
-
 -- แสดงตารางข่าวที่แก้ไขล่าสุด
 
 CREATE VIEW IF NOT EXISTS latest_News1 AS
@@ -22,7 +20,7 @@ CREATE VIEW IF NOT EXISTS latest_News5 AS
 SELECT img5 as img, newsName5 as newsName, NewsMsg5 as NewsMsg5, updated_at5 as updated FROM news_5 
 ORDER BY updated_at5 DESC;
 
--- ทำการสร้างบรรทัดบนก่อน
+-- หากรันโค้ดทั้งหมดไม่ได้ ให้ทำการสร้างบรรทัดบนก่อน แล้วค่อยรันโค้ด CREATE VIEW latest_News  *************************************************
 
 CREATE VIEW latest_News AS
 SELECT * FROM latest_News1
